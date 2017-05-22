@@ -22,31 +22,14 @@ try {
     $error = true;
   }
 
-  /* check password */
-  if ($_POST['password'] && $_POST['password'] != '') {
-    if (md5($_POST['password']) != $u['password']) {
-      $error = true;
-    }
-  } else {
-    $error = true;
-  }
-
   /* If Error */
   if (isset($error) && $error) {
-    foreach ($data as $k => $v) {
-      $d .= $k . '=' . $v . '&';
-    }
-    $location = 'Location: ' . $_POST['URL'] . '?e=1&' . $d;
+    $location = 'Location: ' . $_POST['URL'] . '?e=1&';
     header($location);
   }
 
-/* set cookie */
-  if ($_POST['remember'] == true) {
-    setcookie('mcu_amb',$data['email'],time()+60*60*14,'/');
-  } else {
-    setcookie('mcu_amb',$data['email'],0,'/');
-  }
+/* Send Email */
+  /* Set Expire Token */
+  /* Email with password reset link */
 
-/* go to dashboard */
-  $location = 'Location: /';
-  header($location);
+/* Send to Email Sent Page */
