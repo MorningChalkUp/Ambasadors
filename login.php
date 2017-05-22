@@ -95,7 +95,7 @@
                         <div class="mdl-layout-spacer"></div>
                       </div>
                       <div class="mdl-grid fields">
-                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--1-col">&nbsp;</div>
 
                         <div class="hidden" style="display:none;">
                           <input type="hidden" name="URL" id="URL" value="">
@@ -110,14 +110,17 @@
                             Login
                           </button>
                         </div>
-
-                        <div class="mdl-layout-spacer"></div>
-
-                        <div class="mdl-cell mdl-cell--4-col">
-                          &nbsp;
-                        </div>
                         
-                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--1-col">&nbsp;</div>
+                        
+                        
+                        <div class="mdl-cell mdl-cell--1-col">&nbsp;</div>
+                        <div class="mdl-cell mdl-cell--10-col">
+                          <div class="center">
+                            <small><a href="forgot-password.php">Forgot Password</a></small>
+                          </div>
+                        </div>
+                        <div class="mdl-cell mdl-cell--1-col">&nbsp;</div>
                       </div>
                     </form>
                   </div>
