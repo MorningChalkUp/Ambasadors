@@ -58,10 +58,10 @@
                           <a href="/join.php">Sign Up</a>
                         </center>
                         <center>
-                          <a href="#">Log In</a>
+                          <a href="/login.php">Log In</a>
                         </center>
                         <center>
-                          <a href="#">Dashboard</a>
+                          <a href="/dashboard.php">Dashboard</a>
                         </center>
                       </div>
 

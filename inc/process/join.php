@@ -109,22 +109,18 @@ try {
 
 /*Create User Cookie */
   
-  // setcookie('mcu_amb',$data['email'],time()+60*60,'/');
+  setcookie('mcu_amb',$data['email'],time()+60*60,'/');
 
 /* Send to Dashboard */
   
   $location = 'Location: /';
-  // header($location);
+  header($location);
 
 
 
 /* Utility Functions */
 
 function validateEMAIL($EMAIL) {
-  // $pattern = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/";
-
-  // return (bool)preg_match($pattern, $EMAIL);
-
   if (filter_var($EMAIL, FILTER_VALIDATE_EMAIL)) { 
     return true; 
   } else {

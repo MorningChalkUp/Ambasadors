@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign Up | Morning Chalk Up Ambassador Program</title>
+    <title>Login | Morning Chalk Up Ambassador Program</title>
 
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="/css/getmdl-select.min.css">
@@ -52,6 +52,15 @@
 
                       <div class="mdl-layout-spacer"></div>
                     </div>
+                    <?php if (isset($error)): ?>
+                      <div class="mdl-grid">
+                        <div class="mdl-layout-spacer"></div>
+                        <div class="mdl-cell mdl-cell--10-col error" style="border-radius: 5px; border: 1px solid #ebccd1; padding: 5px; background: #f2dede; color: #a94442; text-align: center;">
+                          The email and password do not match our records.
+                        </div>
+                        <div class="mdl-layout-spacer"></div>
+                      </div>
+                      <?php endif; ?>
                     <form action="/inc/process/login.php" method="post">
                       <div class="mdl-grid fields">
                         <div class="mdl-layout-spacer"></div>
