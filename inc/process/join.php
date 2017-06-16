@@ -126,7 +126,7 @@ try {
 
 /* Send to Dashboard */
   
-  $location = 'Location: /';
+  $location = 'Location: /dashboard.php';
   header($location);
 
 

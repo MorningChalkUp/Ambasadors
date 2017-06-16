@@ -47,5 +47,5 @@ try {
   }
 
 /* go to dashboard */
-  $location = 'Location: /';
+  $location = 'Location: /dashboard.php';
   header($location);
