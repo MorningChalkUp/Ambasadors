@@ -65,7 +65,10 @@
                           <?php if ($error['no-match']): ?>
                             <p><strong>Your Passwords Do Not Match</strong></p>
                           <?php endif ?>
-                          <?php if ($error['full-name'] || $error['email'] || $error['password'] || $error['conf-password'] ): ?>
+                          <?php if ($error['username-exists']): ?>
+                            <p><strong>That Username Is Taken, Plese Try Another</strong></p>
+                          <?php endif ?>
+                          <?php if ($error['full-name'] || $error['email'] || $error['password'] || $error['conf-password'] ||  $error['username']): ?>
                             <p><strong>The below fields are required:</strong></p>
                             <?php
                               foreach ($error as $e => $v) {
@@ -81,6 +84,9 @@
                                     break;
                                   case 'conf-password':
                                     echo 'Confirm Password<br>';
+                                    break;
+                                  case 'username':
+                                    echo 'Username<br>';
                                     break;
                                 }
                               }
@@ -129,6 +135,25 @@
                             <input class="mdl-textfield__input" type="password" id="conf-password" name="conf-password">
                             <label class="mdl-textfield__label" for="conf-password">Confirm Password *</label>
                           </div>
+                        </div>
+
+                        <div class="mdl-layout-spacer"></div>
+                      </div>
+
+                      <div class="mdl-grid fields">
+                        <div class="mdl-layout-spacer"></div>
+
+                        <div class="mdl-cell mdl-cell--4-col">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input class="mdl-textfield__input" type="text" id="username" name="username">
+                            <label class="mdl-textfield__label" for="username">Username *</label>
+                          </div>
+                        </div>
+
+                        <div class="mdl-layout-spacer"></div>
+
+                        <div class="mdl-cell mdl-cell--4-col">
+                          &nbsp;
                         </div>
 
                         <div class="mdl-layout-spacer"></div>

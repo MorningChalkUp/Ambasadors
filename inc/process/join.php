@@ -63,6 +63,19 @@ try {
     }
   }
 
+  /* Username Required and Doesn't Exist */
+  if ($_POST['username'] && $_POST['username'] != '') {
+    $data['username'] = $_POST['username'];
+    $dat['username'] = $data['username'];
+
+    $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $data['username']);
+    if (isset($u) && $u != false) {
+      $error[] = 'username-exists';
+    }
+  } else {
+    $error[] = 'username';
+  }
+
   /* If Errors - Return to signup page */
   if (isset($error)) {
     foreach ($error as $err) {
@@ -89,13 +102,13 @@ try {
     'lname' => $data['last-name'],
     'email' => $data['email'],
     'password' => md5($data['password']),
-    'ref' => $data['ref'],
+    'username' => $data['username'],
   );
 
   dump_pre($user);
 
   /* Execute Insert */
-  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, email, password, ref) VALUES(:fullname, :fname, :lname, :email, :password, :ref)", $user);
+  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, email, password, username) VALUES(:fullname, :fname, :lname, :email, :password, :username)", $user);
 
   dump_pre($r);
 
