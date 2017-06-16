@@ -12,9 +12,9 @@ try {
 /* Validate Form */
 
   /* check email */
-  if ($_POST['email'] && $_POST['email'] != '') {
-    $data['email'] = $_POST['email'];
-    $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE email = ?", $data['email']);
+  if ($_POST['username'] && $_POST['username'] != '') {
+    $data['username'] = $_POST['username'];
+    $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $data['username']);
     if (!isset($u) || $u == false ) {
       $error = true;
     }

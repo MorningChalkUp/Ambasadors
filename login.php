@@ -56,7 +56,7 @@
                       <div class="mdl-grid">
                         <div class="mdl-layout-spacer"></div>
                         <div class="mdl-cell mdl-cell--10-col error" style="border-radius: 5px; border: 1px solid #ebccd1; padding: 5px; background: #f2dede; color: #a94442; text-align: center;">
-                          The email and password do not match our records.
+                          The username and password do not match our records.
                         </div>
                         <div class="mdl-layout-spacer"></div>
                       </div>
@@ -66,8 +66,8 @@
                         <div class="mdl-layout-spacer"></div>
                         <div class="mdl-cell mdl-cell--10-col">
                           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="email" name="email">
-                            <label class="mdl-textfield__label" for="email">Email *</label>
+                            <input class="mdl-textfield__input" type="text" id="username" name="username">
+                            <label class="mdl-textfield__label" for="username">Username *</label>
                           </div>
                         </div>
                         <div class="mdl-layout-spacer"></div>
