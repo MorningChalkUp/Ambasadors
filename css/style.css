@@ -511,7 +511,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 }
 .mdl-layout__content .page-content article.main.subscribe-page .hero .form {
   background: #fff;
-  padding: 25px 0px;
+  padding: 0px 0px;
 }
 .mdl-layout__content .page-content article.main.subscribe-page .hero .form .headline {
   font-family: 'Open Sans', sans-serif;
