@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="/css/getmdl-select.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
 

@@ -2,7 +2,7 @@
   $page_name = 'Dashboard';
 ?>
 
-<?php include 'templates/header.php'; ?>
+<?php include '../templates/header.php'; ?>
 
 <article class="main subscribe-page">
   <section class="hero" style="background-image: url(/img/about-bg.png);">
@@ -29,7 +29,7 @@
               <div class="mdl-layout-spacer"></div>
             </div>
             <?php endif; ?>
-          <form action="/inc/process/login.php" method="post">
+          <form action="process.php" method="post">
             <div class="mdl-grid fields">
               <div class="mdl-layout-spacer"></div>
               <div class="mdl-cell mdl-cell--8-col">
@@ -98,4 +98,4 @@
   </section>
 </article>
         
-<?php include 'templates/footer.php'; ?>
+<?php include '../templates/footer.php'; ?>

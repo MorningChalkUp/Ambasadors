@@ -13,9 +13,9 @@
     </div>
 
 
-    <script src="js/jquery-2.2.3.min.js"></script>
-    <script src="js/material.min.js"></script>
-    <script defer src="js/getmdl-select.min.js"></script>
-    <script src="js/init.js"></script>
+    <script src="/js/jquery-2.2.3.min.js"></script>
+    <script src="/js/material.min.js"></script>
+    <script defer src="/js/getmdl-select.min.js"></script>
+    <script src="/js/init.js"></script>
   </body>
 </html>
