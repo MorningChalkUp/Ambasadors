@@ -3,7 +3,7 @@
   $error = $_GET['e'];
 ?>
 
-<?php include 'templates/header.php'; ?>
+<?php include '../templates/header.php'; ?>
 
 <article class="main subscribe-page">
   <section class="hero" style="background-image: url(/img/about-bg.png);">
@@ -63,7 +63,7 @@
               <?php endif; ?>
 
               <div class="mdl-grid fields">
-                <form style="width: 100%" action="/inc/process/join.php" method="post">
+                <form style="width: 100%" action="process.php" method="post">
                   
                   <div class="hidden" style="display:none;">
                     <input type="hidden" name="URL" id="URL" value="">
@@ -129,4 +129,4 @@
 </article>
         
 
-<?php include 'templates/footer.php'; ?>
+<?php include '../templates/footer.php'; ?>

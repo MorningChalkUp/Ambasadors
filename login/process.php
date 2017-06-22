@@ -1,7 +1,7 @@
 <?php
 
-require '../vars.php';
-require '../db/class.DBPDO.php';
+require '../inc/vars.php';
+require '../inc/db/class.DBPDO.php';
 
 try {
   $con = new DBPDO();
@@ -47,5 +47,5 @@ try {
   }
 
 /* go to dashboard */
-  $location = 'Location: /dashboard.php';
+  $location = 'Location: /dashboard/';
   header($location);

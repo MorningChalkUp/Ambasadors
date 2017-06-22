@@ -27,13 +27,13 @@
 
             <div class="mdl-cell mdl-cell--10-col">
               <center>
-                <a href="/join.php">Sign Up</a>
+                <a href="/join/">Sign Up</a>
               </center>
               <center>
-                <a href="/login.php">Log In</a>
+                <a href="/login/">Log In</a>
               </center>
               <center>
-                <a href="/dashboard.php">Dashboard</a>
+                <a href="/dashboard/">Dashboard</a>
               </center>
             </div>
 
