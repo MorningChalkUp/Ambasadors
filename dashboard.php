@@ -166,6 +166,13 @@
                 <span class="mdl-list__item-sub-title">Norco, CA</span>
               </span>
             </li>
+            <li class="mdl-list__item mdl-list__item--two-line" style="border-top: 1px solid rgba(0,0,0,.12); margin: 8px;" )>
+              <span class="mdl-list__item-primary-content">
+                <img src="https://morningchalkup.com/wp-content/themes/mcu-theme-version-2/img/justin.png" alt="Justin L." style="border-radius: 50%; height: 50px; width: 50px; float: left;     margin-right: 16px;">
+                <span>Me - 123</span>
+                <span class="mdl-list__item-sub-title">Norco, CA</span>
+              </span>
+            </li>
           </ul>
         </div>
       </div>
