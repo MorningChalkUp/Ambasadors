@@ -2,8 +2,8 @@
 require '../mailgun-php/vendor/autoload.php';
 use Mailgun\Mailgun;
 //Your credentials
-$mg = new Mailgun("key-9fd239f9c4fd5b161fffb803c810908b");
-$domain = "mail.morningchalkup.com";
+$mg = new Mailgun(MAILGUN_KEY);
+$domain = MAILGUN_DOMAIN;
 
 //Customise the email - self explanatory
 $mg->sendMessage($domain, array(
