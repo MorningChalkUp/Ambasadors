@@ -19,6 +19,11 @@ function mcuamb_setUserCookie($useername, $password, $remember = false) {
   return mcuamb_loginState();
 }
 
+function mcuamb_getUsername() {
+  $value = cookie_read('mcu_amb_user')
+  return $value;
+}
+
 function mcuamb_loginState() {
   $username = cookie_read('mcu_amb_user');
   if (!$username) {
