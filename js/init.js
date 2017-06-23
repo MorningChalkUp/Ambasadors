@@ -92,6 +92,9 @@ $(function() {
     if (getQueryVariable('affiliate')) {
       $('#affiliate').val(getQueryVariable('affiliate'));
     }
+    if (getQueryVariable('username')) {
+      $('#username').val(getQueryVariable('username'));
+    }
     if (getQueryVariable('us')) {
       $('#us').prop( "checked", true );
     }

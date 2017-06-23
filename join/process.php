@@ -1,7 +1,10 @@
 <?php
+define('__ROOT__', dirname(dirname(__FILE__))); 
 
-require '../inc/vars.php';
-require '../inc/db/class.DBPDO.php';
+require_once(__ROOT__.'/inc/vars.php');
+require_once(__ROOT__.'/inc/db/class.DBPDO.php');
+require '../inc/mcuamb_cookies.php';
+
 
 try {
   $con = new DBPDO();
@@ -105,14 +108,8 @@ try {
     'username' => $data['username'],
   );
 
-  dump_pre($user);
-
   /* Execute Insert */
   $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, email, password, username) VALUES(:fullname, :fname, :lname, :email, :password, :username)", $user);
-
-  dump_pre($r);
-
-  dump_pre($con->lastInsertId());
 
   /* Check If Successful */
   if ($con->lastInsertId() == 0) {
@@ -122,7 +119,7 @@ try {
 
 /*Create User Cookie */
   
-  setcookie('mcu_amb',$data['email'],time()+60*60,'/');
+  mcuamb_setUserCookie($user['username'], $user['password']);
 
 /* Send to Dashboard */
   

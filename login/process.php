@@ -1,7 +1,10 @@
 <?php
+define('__ROOT__', dirname(dirname(__FILE__))); 
 
-require '../inc/vars.php';
-require '../inc/db/class.DBPDO.php';
+require_once(__ROOT__.'/inc/vars.php');
+require_once(__ROOT__.'/inc/db/class.DBPDO.php');
+require '../inc/mcuamb_cookies.php';
+
 
 try {
   $con = new DBPDO();
@@ -40,11 +43,7 @@ try {
   }
 
 /* set cookie */
-  if ($_POST['remember'] == true) {
-    setcookie('mcu_amb',$data['email'],time()+60*60*14,'/');
-  } else {
-    setcookie('mcu_amb',$data['email'],0,'/');
-  }
+  mcuamb_setUserCookie($_POST['username'], $u['password'], $remember = $_POST['remember']);
 
 /* go to dashboard */
   $location = 'Location: /dashboard/';

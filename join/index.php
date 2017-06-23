@@ -65,13 +65,7 @@
               <div class="mdl-grid fields">
                 <form style="width: 100%" action="process.php" method="post">
                   
-                  <div class="hidden" style="display:none;">
-                    <input type="hidden" name="URL" id="URL" value="">
-                    <input type="hidden" name="UTM_SOURCE" id="UTM_SOURCE" value="">
-                    <input type="hidden" name="UTM_MEDIUM" id="UTM_MEDIUM" value="">
-                    <input type="hidden" name="UTM_CAMP" id="UTM_CAMP" value="">
-                    <input type="hidden" name="GCLID" id="GCLID" value="">
-                  </div>
+                  <?php include '../templates/hidden-fields.php'; ?>
 
                   <div class="mdl-cell mdl-cell--12-col">
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -116,6 +110,12 @@
 
 
                 </form>
+
+                <div class="mdl-cell mdl-cell--12-col">
+                  <div class="center">
+                    <small>Have An Account? <a href="/login/">Login</a></small>
+                  </div>
+                </div>
               </div>
 
             </div>

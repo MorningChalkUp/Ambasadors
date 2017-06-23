@@ -1,4 +1,13 @@
 <?php
+  require '../inc/mcuamb_cookies.php';
+
+  $logedin = mcuamb_loginState();
+
+  if (!$logedin) {
+    $location = 'Location: /login/';
+    header($location);
+  }
+
   $page_name = 'Dashboard';
 ?>
 
