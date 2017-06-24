@@ -1,11 +1,27 @@
 <?php
-  require '../inc/mcuamb_cookies.php';
+  define('__ROOT__', dirname(dirname(__FILE__))); 
 
-  $logedin = mcuamb_loginState();
+  require_once(__ROOT__.'/inc/vars.php');
+  require_once(__ROOT__.'/inc/db/class.DBPDO.php');
+
+  require '../inc/mcuamb_cookies.php';
+  require '../inc/class.ambassador.php';
+
+  try {
+    $con = new DBPDO();
+  } catch (Exception $e) {
+    echo 'There was an issue establishing a connection with the Database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for assistance.';
+  }
+
+  $logedin = mcuamb_loginState($con);
 
   if (!$logedin) {
     $location = 'Location: /login/';
     header($location);
+  } else {
+    $username = mcuamb_getUsername();
+    $amb = new Ambassador;
+    $amb->setUser($username, $con);
   }
 
   $page_name = 'Dashboard';
@@ -21,8 +37,8 @@
       </div>
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-cell mdl-cell--3-col">
-          <div class="title">Eric Sherred</div>
-          <div class="text">Current Status: <strong>Gold</strong></div>
+          <div class="title"><?php echo $amb->getValue('full-name'); ?></div>
+          <div class="text">Current Status: <strong><?php echo $amb->getValue('status'); ?></strong></div>
           <div class="text">Next Level: <strong>Platinum</strong></div>
           <div class="text">Points to Platinum: <strong>2</strong></div>
           <div class="text"><a href="#">Levels & Bennifets</a></div>
