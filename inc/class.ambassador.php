@@ -12,6 +12,9 @@ class Ambassador
     'sid' => 1,
     'status' => '',
     'id' => 0,
+    'image' => '',
+    'city' => '',
+    'state' => '',
   );
   
   function setUser($username, $con) {
@@ -26,6 +29,9 @@ class Ambassador
       $this->ambassador['username'] = $username;
       $this->ambassador['id'] = $u['aid'];
       $this->ambassador['sid'] = $u['sid'];
+      $this->ambassador['city'] = $u['city'];
+      $this->ambassador['state'] = $u['state'];
+      $this->ambassador['image'] = $u['image'];
 
       $status = $con->fetch("SELECT status FROM cu_amb_status WHERE sid = ?", $this->ambassador['sid']);
 
@@ -47,6 +53,30 @@ class Ambassador
     } else {
       return false;
     }
+  }
+
+  function getNextLevel($con) {
+    $nextLevel = $con->fetch("SELECT status FROM cu_amb_status WHERE sid = ?", $this->ambassador['sid']+1);
+
+      if($nextLevel != false) {
+        $this->ambassador['next-status'] = $nextLevel['status'];
+      } else {
+        $this->ambassador['next-status'] = 'MAXED OUT';
+      }
+  }
+
+  function getNextPoints($con) {
+    $nextPoints = $con->fetch("SELECT points_min FROM cu_amb_status WHERE sid = ?", $this->ambassador['sid']+1);
+
+    if($nextPoints != false) {
+        return $nextPoints['points_min'] -  $this->ambassador['points'];
+      }
+
+    return 0;
+  }
+
+  function getRank($con) {
+
   }
 
 }
