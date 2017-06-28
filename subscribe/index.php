@@ -1,5 +1,7 @@
 <?php
   $error = $_GET['e'];
+
+  $domain = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="icon" href="/img/favicon.png"  media="screen,projection"/>
+    <link type="icon" href="<?php echo $domain; ?>/img/favicon.png"  media="screen,projection"/>
     
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="stylesheet" href="/css/material.min.css">

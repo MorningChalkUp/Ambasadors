@@ -1,3 +1,6 @@
+<?php 
+  $domain = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,14 +11,15 @@
       <?php 
         if (isset($page_name)) {
           echo $page_name;
-          echo ' | ';
+          echo ' | Morning Chalk Up Ambassadors';
+        } else {
+          echo 'Morning Chalk Up Ambassadors';
         }
       ?>
-      Morning Chalk Up Ambassadors
+      
     </title>
-
-    <link type="icon" href="/img/favicon.png"  media="screen,projection"/>
-
+    
+    <link type="icon" href="<?php echo $domain; ?>/img/favicon.png" />
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="/css/getmdl-select.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
