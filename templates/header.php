@@ -14,6 +14,8 @@
       Morning Chalk Up Ambassadors
     </title>
 
+    <link type="icon" href="/img/favicon.png"  media="screen,projection"/>
+
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="/css/getmdl-select.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">

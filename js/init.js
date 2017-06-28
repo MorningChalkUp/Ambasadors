@@ -95,6 +95,9 @@ $(function() {
     if (getQueryVariable('username')) {
       $('#username').val(getQueryVariable('username'));
     }
+    if (getQueryVariable('reff')) {
+      $('#reff').val(getQueryVariable('reff'));
+    }
     if (getQueryVariable('us')) {
       $('#us').prop( "checked", true );
     }
