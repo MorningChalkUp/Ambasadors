@@ -1,7 +1,8 @@
 <?php
+define('__ROOT__', dirname(dirname(__FILE__)));
 
-include('../inc/vars.php');
-// include('chalkup_db.php');
+require_once(__ROOT__.'/inc/vars.php');
+include('../inc/chalkup_db.php');
 include('mc.php');
 
 $e = '';
@@ -102,7 +103,7 @@ $mc_data = array(
 
 $status = mc_get_status($data['email']);
 
-if(!isset($data['sub']) || $data['sub'] == '') {
+/*if(!isset($data['sub']) || $data['sub'] == '') {
   if ($status['status'] == 'subscribed' || $status['status'] == 'pending') {
     $data['subscribed'] = true;
     $mcid = mc_add_member($mc_data);
@@ -116,13 +117,15 @@ if(!isset($data['sub']) || $data['sub'] == '') {
   }
   $data['subscribed'] = true;
   $mcid = mc_add_member($mc_data);
-}
+}*/
 
-if($_POST['reff'] != '') {
-  /* Add To chalk DB */
-}
 
-$location = 'Location: /subscribe/thank-you?fname=' . $name[0];
+
+/* Add To chalk DB */
+// addSubscriber
+
+
+$location = 'Location: thank-you?fname=' . $name[0];
 
 header($location);
 
