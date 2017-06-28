@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="/js/immybox/immybox.css" media="all" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/css/getmdl-select.min.css">
     <link rel="stylesheet" href="/css/mdl-selectfield.min.css">
     
@@ -294,7 +295,7 @@
     <script src="/js/material.min.js"></script>
     <script src="/js/getmdl-select.min.js"></script>
     <script src="/js/jquery.textfit.min.js"></script>
-    <script src="/immybox/jquery.immybox.min.js"></script>
+    <script src="/js/immybox/jquery.immybox.min.js"></script>
     <script src="/js/MaterialSelect.js"></script>
     <script src="/js/mdl-selectfield.min.js"></script>
     <script defer src="/js/init.js"></script>
