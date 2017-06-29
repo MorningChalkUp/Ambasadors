@@ -21,6 +21,12 @@ class Person
   );
   
   function setPerson($data) {
-    
+    foreach ($data as $key => $value) {
+      if(isset($person[$key])) {
+        $person[$key] = $value;
+      }
+    }
   }
+
+  
 }
