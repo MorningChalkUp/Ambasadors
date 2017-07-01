@@ -26,7 +26,7 @@ function mcuamb_loginState($con) {
     return false;
   }
   $password = cookie_read('mcu_amb_pass');
-  if (!$username) {
+  if (!$password) {
     return false;
   }
 
