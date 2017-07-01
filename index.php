@@ -1,4 +1,6 @@
 <?php
+  require 'inc/functions.php';
+
   $error = $_GET['e'];
 ?>
 

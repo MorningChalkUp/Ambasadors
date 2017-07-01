@@ -1,30 +1,8 @@
 <?php
-  define('__ROOT__', dirname(dirname(__FILE__))); 
-
-  require_once(__ROOT__.'/inc/vars.php');
-  require_once(__ROOT__.'/inc/db/class.DBPDO.php');
-
-  require '../inc/mcuamb_cookies.php';
-  require '../inc/class.ambassador.php';
   require '../inc/functions.php';
   require '../templates/leaderboard.php';
 
-  try {
-    $con = new DBPDO();
-  } catch (Exception $e) {
-    echo 'There was an issue establishing a connection with the Database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for assistance.';
-  }
-
-  $logedin = mcuamb_loginState($con);
-
-  if (!$logedin) {
-    $location = 'Location: /login/';
-    header($location);
-  } else {
-    $username = mcuamb_getUsername();
-    $amb = new Ambassador;
-    $amb->setUser($username, $con);
-  }
+  redirectIfLoggedOut('/login/');
 
   $page_name = 'Dashboard';
 
