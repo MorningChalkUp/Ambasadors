@@ -34,8 +34,8 @@
 
           <div class="title"><?php echo $amb->getValue('full-name'); ?></div>
           <div class="text">Level: <strong><?php echo $amb->getValue('status'); ?></strong></div>
-          <div class="text">Next Level: <strong><?php echo $amb->getValue('next-status'); ?></strong></div>
-          <div class="text">Points to <?php echo $amb->getValue('next-status'); ?>: <strong><?php echo $amb->getNextPoints($con); ?></strong></div>
+          <div class="text">Next Level: <strong><?php echo $amb->getNextLevel($con); ?></strong></div>
+          <div class="text">Points to <?php echo $amb->getNextLevel($con); ?>: <strong><?php echo $amb->getNextPoints($con); ?></strong></div>
           <div class="text"><a href="#">Levels & Bennifets</a></div>
         </div>
         <div class="mdl-cell mdl-cell--3-col">

@@ -63,6 +63,8 @@ class Ambassador
       } else {
         $this->ambassador['next-status'] = 'MAXED OUT';
       }
+
+      return $this->ambassador['next-status'];
   }
 
   function getNextPoints($con) {
