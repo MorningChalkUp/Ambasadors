@@ -1,12 +1,24 @@
 <?php
   require '../inc/functions.php';
-  require '../templates/leaderboard.php';
 
   redirectIfLoggedOut('/login/');
 
   $page_name = 'Dashboard';
 
   $domain = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+
+  if (isset($_GET['page'])) {
+    $activityPage = $_GET['page'];
+  } else {
+    $activityPage = 1;
+  }
+
+  if (isset($_GET['count'])) {
+    $activityCount = $_GET['count'];
+  } else {
+    $activityCount = 10;
+  }
+
 ?>
 
 <?php include '../templates/header.php'; ?>
@@ -67,125 +79,7 @@
       </div>
 
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <table class="mdl-data-table mdl-js-data-table" style="width: 100%;">
-          <tbody>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td class="mdl-data-table__cell--non-numeric">
-                +1
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="white-space: normal">
-                <span>eric@morningchalkup.com</span> Subscribed to the Morning Chalk Up.
-              </td>
-              <td class="mdl-data-table__cell--non-numeric" style="text-align: right;">
-                <i class="mdi mdi-clock"></i> Juse 22, 2017
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3" align="right">
-                Previous 10 >
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <?php getActions($activityCount,$activityPage,$amb,$con); ?>
       </div>
 
     </div>

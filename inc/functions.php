@@ -5,8 +5,10 @@
   require_once(__ROOT__.'/inc/vars.php');
   require_once(__ROOT__.'/inc/db/class.DBPDO.php');
 
-  require 'mcuamb_cookies.php';
-  require 'class.ambassador.php';
+  require __ROOT__.'/inc/mcuamb_cookies.php';
+  require __ROOT__.'/inc/class.ambassador.php';
+  require __ROOT__.'/templates/leaderboard.php';
+  require __ROOT__.'/templates/activity.php';
 
   try {
     $con = new DBPDO();
@@ -34,6 +36,15 @@
     global $logedin;
     
     if (!$logedin) {
+      $location = 'Location: ' . $loc;
+      header($location);
+    }
+  }
+
+  function redirectIfLoggedIn($loc) {
+    global $logedin;
+    
+    if ($logedin) {
       $location = 'Location: ' . $loc;
       header($location);
     }

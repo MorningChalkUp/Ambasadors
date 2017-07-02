@@ -1,6 +1,10 @@
 <?php
   require 'inc/functions.php';
 
+  redirectIfLoggedOut('/join/');
+  redirectIfLoggedIn('/dashboard/');
+
+
   $error = $_GET['e'];
 ?>
 

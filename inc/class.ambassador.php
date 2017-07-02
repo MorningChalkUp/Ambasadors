@@ -79,4 +79,17 @@ class Ambassador
 
   }
 
+  function getActivityList($con) {
+    $id = $this->getValue('id');
+
+    $query = "SELECT cu_amb_points.points, cu_people.email, cu_signup.su_time FROM cu_amb_points 
+      JOIN cu_signup ON cu_amb_points.suid = cu_signup.suid
+      JOIN cu_people ON cu_signup.pid = cu_people.pid
+      WHERE cu_amb_points.aid = ?";
+
+    $activity = $con->fetchAll($query,$id);
+
+    return $activity;
+  }
+
 }
