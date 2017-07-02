@@ -37,8 +37,6 @@
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <?php include 'nav.php'; ?>
-      </header>
+      <?php include 'nav.php'; ?>
       <main class="mdl-layout__content">
         <div class="page-content">
