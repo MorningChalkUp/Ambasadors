@@ -136,9 +136,10 @@ function addSignup($signup) {
 function updateAmbassador($username, $suid, $points) {
   global $con;
 
-  $amb = $con->fetch("SELECT aid, points FROM cu_amb_usr WHERE username = ?", $username);
+  $amb = $con->fetch("SELECT aid, points, sid FROM cu_amb_usr WHERE username = ?", $username);
 
   if ($amb) {
+
     $su_points = array(
       'aid' => $amb['aid'],
       'points' => $points,
@@ -147,6 +148,12 @@ function updateAmbassador($username, $suid, $points) {
 
     $amb_points = $con->execute("INSERT INTO cu_amb_points(aid, points, suid) VALUES(:aid, :points, :suid)", $su_points);
 
-    $con->execute("UPDATE cu_amb_usr SET points = ? WHERE username = ?", array($amb['points'] + $points, $username));
+    $status = $con->fetch("SELECT points_max FROM cu_amb_status WHERE sid = ?", $amb['sid']);
+
+    if ($status['points_max'] < $amb['points'] + $points) {
+      ++$amb['sid'];
+    }
+
+    $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points, $amb['sid'], $username));
   }
 }
