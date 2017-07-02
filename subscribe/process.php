@@ -105,7 +105,7 @@ $mc_data = array(
   'europe'          =>  $data['eu'],
 );
 
-/*$status = mc_get_status($data['email']);
+$status = mc_get_status($data['email']);
 
 if(!isset($data['sub']) || $data['sub'] == '') {
   if ($status['status'] == 'subscribed' || $status['status'] == 'pending') {
@@ -121,7 +121,7 @@ if(!isset($data['sub']) || $data['sub'] == '') {
   }
   $data['subscribed'] = true;
   $mcid = mc_add_member($mc_data);
-}*/
+}
 
 
 
