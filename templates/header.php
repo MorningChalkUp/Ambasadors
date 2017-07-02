@@ -25,8 +25,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
     <link rel="stylesheet" href="/css/style.css">
-
+    
+    <script src="/js/jquery-2.2.3.min.js"></script>
+    <script defer src="/js/getmdl-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <script src="https://use.typekit.net/ydo2tvd.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 

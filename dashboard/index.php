@@ -39,10 +39,78 @@
           <div class="text"><a href="#">Levels & Bennifets</a></div>
         </div>
         <div class="mdl-cell mdl-cell--3-col">
-          Doughnut Graph - Current Signups: <?php echo $amb->getValue('points'); ?>
+          <canvas id="current" width="150" height="150"></canvas>
+          <script>
+            var current = document.getElementById("current");
+            doughnutData = {
+              datasets: [{
+                data: [
+                  <?php echo $amb->getValue('points'); ?>, 
+                  <?php echo $amb->getNextPoints($con); ?>,
+                ],
+                backgroundColor: ['#178552', 'rgba(0, 0, 0, 0.1)'],
+              }],
+              labels: [
+                'Points',
+                'Needed',
+              ],
+            };
+            doughnutOptions = {
+              legend: {
+                display: false,
+              },
+              cutoutPercentage: 75,
+            };
+            var myDoughnutChart = new Chart(current, {
+                type: 'doughnut',
+                data: doughnutData,
+                options: doughnutOptions,
+            });
+          </script>
         </div>
         <div class="mdl-cell mdl-cell--6-col">
-          Bar Graph - Signup Trend
+          <canvas id="recent" height="150"></canvas>
+          <script>
+            var recent = document.getElementById("recent");
+            recentData = {
+              datasets: [{
+                data: [
+                  <?php echo $amb->getActivityCount(time()-(4 * 24 * 60 * 60),$con); ?>,
+                  <?php echo $amb->getActivityCount(time()-(3 * 24 * 60 * 60),$con); ?>,
+                  <?php echo $amb->getActivityCount(time()-(2 * 24 * 60 * 60),$con); ?>,
+                  <?php echo $amb->getActivityCount(time()-(1 * 24 * 60 * 60),$con); ?>,
+                  <?php echo $amb->getActivityCount(time()-(0 * 24 * 60 * 60),$con); ?>,
+                ],
+                // backgroundColor: ['#3D5BA9', '#3D5BA9', '#3D5BA9', '#3D5BA9', '#3D5BA9',],
+                backgroundColor: ['#3D5BA9'],
+              }],
+              labels: [
+                '<?php echo date('m/d/y', strtotime('-4 days')) ?>',
+                '<?php echo date('m/d/y', strtotime('-3 days')) ?>',
+                '<?php echo date('m/d/y', strtotime('-2 days')) ?>',
+                '<?php echo date('m/d/y', strtotime('-1 days')) ?>',
+                '<?php echo date('m/d/y') ?>',
+              ],
+            };
+            recentOptions = {
+              legend: {
+                display: false,
+              },
+              scales: {
+                xAxes: [{
+                  stacked: true
+                }],
+                yAxes: [{
+                  stacked: true
+                }]
+              }
+            };
+            var myBarChart = new Chart(recent, {
+              type: 'bar',
+              data: recentData,
+              options: recentOptions,
+            });
+          </script>
         </div>
       </div>
     </div>

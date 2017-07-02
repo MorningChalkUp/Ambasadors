@@ -92,4 +92,17 @@ class Ambassador
     return $activity;
   }
 
+  function getActivityCount($before,$con) {
+    $id = $this->getValue('id');
+
+    $query = "SELECT cu_signup.su_time FROM cu_signup 
+      JOIN cu_amb_points ON cu_amb_points.suid = cu_signup.suid
+      WHERE cu_amb_points.aid = ? AND cu_signup.su_time < ?";
+
+    $activity = $con->fetchAll($query,array($id,date('Y-m-d'),$before));
+
+    return count($activity);
+
+  }
+
 }
