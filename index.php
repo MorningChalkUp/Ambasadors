@@ -1,7 +1,7 @@
 <?php
   require 'inc/functions.php';
 
-  redirectIfLoggedOut('/join/');
+  redirectIfLoggedOut('/login/');
   redirectIfLoggedIn('/dashboard/');
 
 
