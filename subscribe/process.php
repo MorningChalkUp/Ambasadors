@@ -3,7 +3,7 @@ define('__ROOT__', dirname(dirname(__FILE__)));
 
 require_once(__ROOT__.'/inc/vars.php');
 include('../inc/chalkup_db.php');
-include('mc.php');
+include('../inc/mc.php');
 
 $e = '';
 
@@ -73,15 +73,19 @@ $data['campaign'] = $_POST['UTM_CAMP'];
 $data['gclid']    = $_POST['GCLID'];
 $data['content']  = $_POST['utm_content'];
 $data['term']     = $_POST['utm_term'];
+$data['reff']     = $_POST['reff'];
 
 $data['sub'] = 'sub';
-$data['new_subscriber'] = false;
+$data['new_subscriber'] = true;
 
 $name = explode(' ',$data['full-name']);
 
 if (!isset($name[1])) {
   $name[1] = '';
 }
+
+$data['fname'] = $name[0];
+$data['lname'] = $name[1];
 
 $mc_data = array(
   'email_address'   =>  $data['email'],
@@ -103,7 +107,7 @@ $mc_data = array(
 
 $status = mc_get_status($data['email']);
 
-/*if(!isset($data['sub']) || $data['sub'] == '') {
+if(!isset($data['sub']) || $data['sub'] == '') {
   if ($status['status'] == 'subscribed' || $status['status'] == 'pending') {
     $data['subscribed'] = true;
     $mcid = mc_add_member($mc_data);
@@ -117,12 +121,12 @@ $status = mc_get_status($data['email']);
   }
   $data['subscribed'] = true;
   $mcid = mc_add_member($mc_data);
-}*/
+}
 
 
 
 /* Add To chalk DB */
-// addSubscriber
+addSubscriber($data);
 
 
 $location = 'Location: thank-you?fname=' . $name[0];
