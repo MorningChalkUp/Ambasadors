@@ -39,7 +39,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body style="background-color: #F0F0F0;">
     <?php include '../inc/fb.php'; ?>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <?php include 'nav.php'; ?>
