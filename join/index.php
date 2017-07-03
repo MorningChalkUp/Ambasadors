@@ -6,7 +6,7 @@
 <?php include '../templates/header.php'; ?>
 
 <article class="main subscribe-page">
-  <section class="hero" style="background-image: url(/img/about-bg.png);">
+  <section class="hero" style="background-image: url(/img/chalkup_bg.jpg); background-position: top left; background-size: cover;">
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-layout-spacer"></div>
