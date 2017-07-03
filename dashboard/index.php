@@ -81,8 +81,7 @@
                   <?php echo $amb->getActivityCount(time()-(1 * 24 * 60 * 60),$con); ?>,
                   <?php echo $amb->getActivityCount(time()-(0 * 24 * 60 * 60),$con); ?>,
                 ],
-                // backgroundColor: ['#3D5BA9', '#3D5BA9', '#3D5BA9', '#3D5BA9', '#3D5BA9',],
-                backgroundColor: ['#3D5BA9'],
+                backgroundColor: ['#3D5BA9', '#3D5BA9', '#3D5BA9', '#3D5BA9', '#3D5BA9',],
               }],
               labels: [
                 '<?php echo date('m/d/y', strtotime('-4 days')) ?>',
@@ -123,18 +122,41 @@
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-grid">
         <div class="mdl-cell mdl-cell--12-col">
           <div class="title">Your Unique Share URL:</div>
+
           <div class="text"><small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></div>
-          <div class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">COPY</div>
+
+          <div class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored cpy-btn" style="margin-top:20px;" data-clipboard-text="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>">COPY</div>
         </div>
       </div>
 
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-grid mdl-cell--top">
         <div class="mdl-cell mdl-cell--12-col">
           <div class="title">Share On Social Media</div>
-          <div class="text">
-            <a href="#"><i style="font-size: 32px;" class="mdi mdi-facebook-box"></i></a>
-            <a href="#"><i style="font-size: 32px;" class="mdi mdi-twitter-box"></i></a>
-            <a href="#"><i style="font-size: 32px;" class="mdi mdi-email"></i></a>
+          <div class="text" style="margin-top:20px;">
+            <i style="font-size: 32px; cursor: pointer; color: #3D5BA9" class="mdi mdi-facebook-box js-share-facebook"></i>
+            <i style="font-size: 32px; cursor: pointer; color: #3D5BA9" class="mdi mdi-twitter-box js-share-twitter"></i>
+            <i style="font-size: 32px; cursor: pointer; color: #3D5BA9" class="mdi mdi-email js-share-email"></i>
+            <script>
+              $('.js-share-email').on('click', function() {
+                document.location = 'mailto:?subject=Join the Morning Chalk Up&body=<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>';
+              });
+
+              $('.js-share-facebook').on('click', function() {
+                FB.ui({
+                  method: 'feed',
+                  link: '<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>',
+                  caption: 'Join me on the Morning Chalk Up',
+                  picture: 'http://morningchalkup.com/wp-content/uploads/2017/01/fb_og.png',
+                  name: 'Morning Chalk Up',
+                  description: "Get the Fittest News in your inbox every morning.",
+                }, function(response){});
+              });
+
+              $('.js-share-twitter').on('click', function() {
+                window.open('https://twitter.com/intent/tweet?text=' + 'Get the Fittest News every day: <?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?> %23MorningChalkUp', '_blank');
+              });
+
+            </script>
           </div>
         </div>
       </div>

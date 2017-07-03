@@ -40,6 +40,7 @@
     <![endif]-->
   </head>
   <body>
+    <?php include '../inc/fb.php'; ?>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <?php include 'nav.php'; ?>
       <main class="mdl-layout__content">
