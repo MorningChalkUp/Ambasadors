@@ -30,7 +30,7 @@
         <h2>Account Summery</h2>
       </div>
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <div class="mdl-cell mdl-cell--3-col">
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
 
           <div class="title"><?php echo $amb->getValue('full-name'); ?></div>
           <div class="text">Level: <strong><?php echo $amb->getValue('status'); ?></strong></div>
@@ -38,7 +38,7 @@
           <div class="text">Points to <?php echo $amb->getNextLevel($con); ?>: <strong><?php echo $amb->getNextPoints($con); ?></strong></div>
           <div class="text"><a href="#">Levels & Bennifets</a></div>
         </div>
-        <div class="mdl-cell mdl-cell--3-col">
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
           <canvas id="current" width="150" height="150"></canvas>
           <script>
             var current = document.getElementById("current");
@@ -68,7 +68,7 @@
             });
           </script>
         </div>
-        <div class="mdl-cell mdl-cell--6-col">
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
           <canvas id="recent" height="150"></canvas>
           <script>
             var recent = document.getElementById("recent");
