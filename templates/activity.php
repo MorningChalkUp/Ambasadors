@@ -29,7 +29,7 @@ function getActions($count, $page, $amb, $con) {
             echo '<td class="mdl-data-table__cell--non-numeric mdl-cell--hide-phone" style="white-space: normal"';
               echo '<span>' . $action['email'] . '</span><span class="mdl-cell--hide-phone"> Subscribed to the Morning Chalk Up.</span>';
             echo '</td>';
-            echo '<td class="mdl-data-table__cell--non-numeric" style="text-align: right;">';
+            echo '<td>';
               echo '<i class="mdi mdi-clock"></i> ' . date('M j, Y', strtotime($action['su_time']));
             echo '</td>';
           echo '</tr>';
@@ -50,7 +50,7 @@ function getActions($count, $page, $amb, $con) {
         }
       } else {
         echo '<tr>';
-          echo '<td colspan="3" align="center">';
+          echo '<td colspan="3" style="text-align: right;">';
             echo "Nothing yet. Share your link to get some signups!";
           echo '</td>';
         echo '</tr>';

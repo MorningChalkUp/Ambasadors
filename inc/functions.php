@@ -49,3 +49,11 @@
       header($location);
     }
   }
+
+  function getLevels() {
+    global $con;
+
+    $levels = $con->fetchAll("SELECT * FROM cu_amb_status ORDER BY sid ASC");
+
+    return $levels;
+  }
