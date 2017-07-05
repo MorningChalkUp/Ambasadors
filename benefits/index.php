@@ -55,7 +55,7 @@
 
 <article class="main dashboard">
   <div class="hero" style="background-color: #3D5BA9; overflow: hidden; position: relative;">
-    <div class="mdl-cell--6-col right image" style="background-image: url(/img/chalkupambassadorteam.png); background-position: center center; background-size: cover; background-repeat: no-repeat; min-height: 389px; min-width: 50%; float:right;height: 100%; position: absolute; right: 0; top: 0;">
+    <div class="mdl-cell--6-col right image" style="background-image: url(/img/chalkupambassadorteam.jpg); background-position: center center; background-size: cover; background-repeat: no-repeat; min-height: 389px; min-width: 50%; float:right;height: 100%; position: absolute; right: 0; top: 0;">
       </div>
     <div class="mdl-grid">
       <div class="mdl-cell--6-col left" style="color: #fff;">
