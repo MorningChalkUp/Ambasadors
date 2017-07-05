@@ -106,10 +106,11 @@ try {
     'email' => $data['email'],
     'password' => md5($data['password']),
     'username' => $data['username'],
+    'join_time' => date("Y-m-d H:i:s"),
   );
 
   /* Execute Insert */
-  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, email, password, username) VALUES(:fullname, :fname, :lname, :email, :password, :username)", $user);
+  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, email, password, username, join_time) VALUES(:fullname, :fname, :lname, :email, :password, :username, :join_time)", $user);
 
   /* Check If Successful */
   if ($con->lastInsertId() == 0) {
