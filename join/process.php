@@ -42,6 +42,11 @@ try {
       if (isset($u) && $u != false) {
         $error[] = 'email-exists';
       }
+     /* else {
+        if (limitSignup($data['email'])) {
+          $error[] = 'no-signup';
+        }
+      }*/
     } else {
       $error[] = 'email';
     }
@@ -79,6 +84,8 @@ try {
     $error[] = 'username';
   }
 
+  dump_pre($error);
+
   /* If Errors - Return to signup page */
   if (isset($error)) {
     foreach ($error as $err) {
@@ -89,6 +96,7 @@ try {
     }
     $location = 'Location: ' . $_POST['URL'] . '?' . $d . trim($e, '&');
     header($location);
+    die();
   }
 
 /* Create User Referal ID */
@@ -143,4 +151,20 @@ function dump_pre($VAL) {
   echo '<pre>';
   var_dump($VAL);
   echo '</pre>';
+}
+
+function limitSignup($email) {
+  global $con;
+
+  $allowed = $con->fetchAll("SELECT email FROM cu_amb_allowed_signup");
+
+  foreach ($allowed as $user) {
+    if (strtolower($user['email']) == strtolower($email)) {
+      echo 'in';
+      return false;
+    }
+  }
+  
+  return true;
+
 }

@@ -18,7 +18,7 @@
       ?>
       
     </title>
-    
+    <link rel="shortcut icon" href="<?php echo $domain; ?>/img/favicon.png" type="image/x-icon">
     <link type="icon" href="<?php echo $domain; ?>/img/favicon.png" />
     <link rel="stylesheet" href="/css/material.min.css">
     <link rel="stylesheet" href="/css/getmdl-select.min.css">

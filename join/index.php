@@ -28,6 +28,9 @@
                     <?php if ($error['email-exists']): ?>
                       <p><strong>That Email Is Already Suigned Up</strong></p>
                     <?php endif ?>
+                    <?php if ($error['no-signup']): ?>
+                      <p><strong>Sorry, but we have not opened signups to you yet</strong></p>
+                    <?php endif ?>
                     <?php if ($error['no-match']): ?>
                       <p><strong>Your Passwords Do Not Match</strong></p>
                     <?php endif ?>
