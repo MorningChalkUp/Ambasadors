@@ -8,20 +8,53 @@
   .no-hover:hover {
     background-color: #fff !important;
   }
+  .hero:after {
+    clear: right;
+    content: '.';
+    font-size: 1px;
+    display: block;
+    visibility: hidden;
+    height: 0px;
+  }
+  @media (max-width: 839px) {
+    .hero .right.image {
+      display:none;
+    }
+
+    .hero .left {
+      width: 100%;
+      padding: 8px;
+    }
+  }
 </style>
 
 <article class="main dashboard">
-  <div class="hero">
-    <div class="left">
-      Left
-    </div>
-    <div class="right">
-      Right
+  <div class="hero" style="background-color: #3D5BA9; overflow: hidden; position: relative;">
+    <div class="mdl-cell--6-col right image" style="background-image: url(/img/chalkupambassadorteam.png); background-position: center center; background-size: cover; background-repeat: no-repeat; min-height: 389px; min-width: 50%; float:right;height: 100%; position: absolute; right: 0; top: 0;">
+      </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell--6-col left" style="color: #fff;">
+        <h3>Welcome to the Morning Chalk Up Ambassador Program</h3>
+        <p style="color: #fff;">
+          We’ve designed the Morning Chalk Up Ambassador Program to enable you to sell, service, and innovate by leveraging our products and platforms across the Chalk Up Cloud suite. Ambassadors are a fundamental part of the Chalk Up Cloud mission, the empower millions of people to work the way they choose and build what’s next. 
+        </p>
+      </div>
     </div>
   </div>
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--3-col mdl-grid">
-    Tabs
+      <ul class="demo-list-item mdl-list" style="width: 100%;">
+        <li class="mdl-list__item" style="height: 68; border-left: 10px solid #3D5BA9;">
+          <span class="mdl-list__item-primary-content">
+            <a href="#">Benefits & Levels</a>
+          </span>
+        </li>
+        <li class="mdl-list__item" style="height: 68; border-left: 10px solid #F0F0F0;">
+          <span class="mdl-list__item-primary-content">
+            <a href="#">FAQ</a>
+          </span>
+        </li>
+      </ul>
     </div>
     <div class="mdl-cell mdl-cell--9-col mdl-grid mdl-color--white mdl-shadow--2dp">
       <div class="mdl-cell mdl-cell--12-col">
