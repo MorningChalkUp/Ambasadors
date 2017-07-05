@@ -36,7 +36,7 @@
           <div class="text">Level: <strong><?php echo $amb->getValue('status'); ?></strong></div>
           <div class="text">Next Level: <strong><?php echo $amb->getNextLevel($con); ?></strong></div>
           <div class="text">Points to <?php echo $amb->getNextLevel($con); ?>: <strong><?php echo $amb->getNextPoints($con); ?></strong></div>
-          <div class="text"><a href="#">Levels & Bennifets</a></div>
+          <div class="text"><a href="/benefits/">Benefits & Levels</a></div>
         </div>
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
           <canvas id="current" width="150" height="150"></canvas>
