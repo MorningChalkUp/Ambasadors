@@ -50,7 +50,7 @@ function getActions($count, $page, $amb, $con) {
         }
       } else {
         echo '<tr>';
-          echo '<td colspan="3" style="text-align: right;">';
+          echo '<td colspan="3" class="mdl-data-table__cell--non-numeric">';
             echo "Nothing yet. Share your link to get some signups!";
           echo '</td>';
         echo '</tr>';
