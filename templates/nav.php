@@ -57,9 +57,14 @@
     <li class="mdl-menu__item" style="text-align: center;"><a href="/login/" style="color: black; text-decoration: none;">Log In</a></li>
   </ul>
   <nav class="mdl-navigation">
-    <a class="mdl-navigation__link" href="/join/">Signup</a>
-    <a class="mdl-navigation__link" href="/login/">Login</a>
-    <a class="mdl-navigation__link" href="/dashboard/">Dashboard</a>
+    <?php if ($logedin): ?>
+      <a class="mdl-navigation__link" href="/dashboard/">Dashboard</a>
+    <?php else: ?>
+      <a class="mdl-navigation__link" href="/join/">Sign Up</a>
+      <a class="mdl-navigation__link" href="/login/">Login</a>
+    <?php endif; ?>
+    <a class="mdl-navigation__link" href="/benefits/">Benefits & Levels</a>
+    <a class="mdl-navigation__link" href="/faq/">FAQ</a>
     <a class="mdl-navigation__link" href="/subscribe/">Subscribe</a>
   </nav>
 </div>

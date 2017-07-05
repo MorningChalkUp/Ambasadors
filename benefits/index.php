@@ -1,5 +1,8 @@
 <?php
   require '../inc/functions.php';
+
+  $page_name = 'Benefits & Levels';
+  
 ?>
 
 <?php include '../templates/header.php'; ?>
@@ -16,6 +19,24 @@
     visibility: hidden;
     height: 0px;
   }
+  .tabs li {
+    height: 68px;
+    border-left: 10px solid #f0f0f0;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  .tabs li.active, .tabs li:hover {
+    border-left: 10px solid #3D5BA9;
+    box-shadow:  -2px 0 4px 0 rgba(0,0,0,.5);
+    text-decoration: none;
+  }
+  .tabs a {
+    color: #000000;
+    font-weight: 400;
+  }
+  .tabs a:hover {
+    text-decoration: none;
+  }
   @media (max-width: 839px) {
     .hero .right.image {
       display:none;
@@ -24,6 +45,10 @@
     .hero .left {
       width: 100%;
       padding: 8px;
+    }
+
+    .tabs .mdl-cell {
+      width: 100%
     }
   }
 </style>
@@ -34,26 +59,30 @@
       </div>
     <div class="mdl-grid">
       <div class="mdl-cell--6-col left" style="color: #fff;">
-        <h3>Welcome to the Morning Chalk Up Ambassador Program</h3>
+        <h3 style="font-weight: 500; font-size: 1.8em; line-height: 1.4em">Welcome to the Morning Chalk Up Ambassador Program</h3>
         <p style="color: #fff;">
           We’ve designed the Morning Chalk Up Ambassador Program to enable you to sell, service, and innovate by leveraging our products and platforms across the Chalk Up Cloud suite. Ambassadors are a fundamental part of the Chalk Up Cloud mission, the empower millions of people to work the way they choose and build what’s next. 
         </p>
       </div>
     </div>
   </div>
-  <div class="mdl-grid">
+  <div class="mdl-grid tabs">
     <div class="mdl-cell mdl-cell--3-col mdl-grid">
       <ul class="demo-list-item mdl-list" style="width: 100%;">
-        <li class="mdl-list__item" style="height: 68; border-left: 10px solid #3D5BA9;">
-          <span class="mdl-list__item-primary-content">
-            <a href="#">Benefits & Levels</a>
-          </span>
-        </li>
-        <li class="mdl-list__item" style="height: 68; border-left: 10px solid #F0F0F0;">
-          <span class="mdl-list__item-primary-content">
-            <a href="#">FAQ</a>
-          </span>
-        </li>
+        <a href="/benefits/">
+          <li class="mdl-list__item active">
+            <span class="mdl-list__item-primary-content">
+              Benefits & Levels
+            </span>
+          </li>
+        </a>
+        <a href="/faq/">
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              FAQ
+            </span>
+          </li>
+        </a>
       </ul>
     </div>
     <div class="mdl-cell mdl-cell--9-col mdl-grid mdl-color--white mdl-shadow--2dp">
