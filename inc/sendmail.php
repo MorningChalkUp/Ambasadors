@@ -10,7 +10,7 @@ function sendContact($email, $text) {
   $result = $mg->sendMessage($domain, array(
     'from'    => 'Morning Chalk Up Ambassadors <info@mail.morningchalkup.com>',
     'h:Reply-To' => $email,
-    'to'      => 'Morning Chalk Up <eric@morningchalkup.com>',
+    'to'      => 'Morning Chalk Up <info@morningchalkup.com>',
     'subject' => 'Ambassador Question: ' . $email,
     'text'    => $text,
   ));
