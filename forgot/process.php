@@ -29,10 +29,10 @@
   $r = $con->execute("INSERT INTO cu_amb_password_request(aid, token, request_time, expire_time) VALUES(:aid, :token, :request_time, :expire_time)", $request);
 
   /* Send Email */
-  // sendPasswordReset($u['aid'], $request['token'], $domain);
+  sendPasswordReset($u['aid'], $request['token'], $domain);
 
-  // $location = 'Location: confirm.php?email=' . $u['email'];
-  $location = 'Location: /reset/?token=' . $request['token'];
+  $location = 'Location: confirm.php?email=' . $u['email'];
+  // $location = 'Location: /reset/?token=' . $request['token'];
   header($location);
 
 
