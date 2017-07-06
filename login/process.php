@@ -35,11 +35,9 @@ try {
   }
 
   if (isset($error) && $error) {
-    foreach ($data as $k => $v) {
-      $d .= $k . '=' . $v . '&';
-    }
-    $location = 'Location: ' . $_POST['URL'] . '?e=1&' . $d;
+    $location = 'Location: ' . $_POST['URL'] . '?e=1';
     header($location);
+    die();
   }
 
 /* set cookie */

@@ -84,8 +84,6 @@ try {
     $error[] = 'username';
   }
 
-  dump_pre($error);
-
   /* If Errors - Return to signup page */
   if (isset($error)) {
     foreach ($error as $err) {
@@ -145,12 +143,6 @@ function validateEMAIL($EMAIL) {
   } else {
     return false;
   }
-}
-
-function dump_pre($VAL) {
-  echo '<pre>';
-  var_dump($VAL);
-  echo '</pre>';
 }
 
 function limitSignup($email) {

@@ -7,6 +7,7 @@
 
   require __ROOT__.'/inc/mcuamb_cookies.php';
   require __ROOT__.'/inc/class.ambassador.php';
+  require __ROOT__.'/inc/sendmail.php';
   require __ROOT__.'/templates/leaderboard.php';
   require __ROOT__.'/templates/activity.php';
 
@@ -15,6 +16,8 @@
   } catch (Exception $e) {
     echo 'There was an issue establishing a connection with the Database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for assistance.';
   }
+
+  $domain = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
   $logedin = mcuamb_loginState($con);
 
@@ -56,4 +59,19 @@
     $levels = $con->fetchAll("SELECT * FROM cu_amb_status ORDER BY sid ASC");
 
     return $levels;
+  }
+
+
+
+
+
+
+
+
+
+
+  function dump_pre($VAL) {
+    echo '<pre>';
+    var_dump($VAL);
+    echo '</pre>';
   }

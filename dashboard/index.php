@@ -5,8 +5,6 @@
 
   $page_name = 'Dashboard';
 
-  $domain = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-
   if (isset($_GET['page'])) {
     $activityPage = $_GET['page'];
   } else {

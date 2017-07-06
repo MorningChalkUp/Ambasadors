@@ -64,6 +64,7 @@ if (isset($error)) {
   }
   $location = 'Location: ' . $_POST['URL'] . '?' . $d . trim($e, '&');
   header($location);
+  die();
 }
 
 $data['url']      = $_POST['URL'];
@@ -132,16 +133,4 @@ addSubscriber($data);
 $location = 'Location: thank-you?fname=' . $name[0];
 
 header($location);
-
-function echo_pre($var) {
-  echo '<pre>';
-  var_dump($var);
-  echo '</pre>';
-}
-
-function out_pre($var) {
-  echo '<pre>';
-  echo($var);
-  echo '</pre>';
-}
 
