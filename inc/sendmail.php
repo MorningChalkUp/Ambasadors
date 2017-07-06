@@ -8,7 +8,7 @@ function sendPasswordReset($aid,$token,$site) {
 
   $mg = new Mailgun(MAILGUN_KEY);
   $domain = MAILGUN_DOMAIN;
-  
+
   $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE aid = ?", $aid);
 
   $link = $site . '/reset/?token=' . $token;
@@ -26,7 +26,6 @@ function sendPasswordReset($aid,$token,$site) {
   $resetEmail->setHtmlBody($html);
   $resetEmail->setClickTracking(true);
   $mg->post("{$domain}/messages", $resetEmail->getMessage());
-  
 }
 
 function getTemplateTop() {
