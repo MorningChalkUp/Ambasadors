@@ -11,6 +11,8 @@ function sendPasswordReset($aid,$token,$site) {
 
   $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE aid = ?", $aid);
 
+  $to = $u['fullname'] . '<' . $u['email'] . '>';
+
   $link = $site . '/reset/?token=' . $token;
 
   $html = "<p>We have received a request to reset your password for Morning Chalk Up Ambassadors. If you did not make this request feel free to ignore it. If you did make this request your reset will expire in 24 hours.</p>";
@@ -19,13 +21,13 @@ function sendPasswordReset($aid,$token,$site) {
 
   $html = getTemplateTop() . $html . getTemplateBottom();
 
-  $resetEmail = $mg->MessageBuilder();
-  $resetEmail->setFromAddress('info@mail.morningchalkup.com', array('first' => 'Morning Chalk Up', 'last' => 'Ambassadors'));
-  $resetEmail->addToRecipient($u['email'], array('first' => $u['fname'], 'last' => $u['lname']));
-  $resetEmail->setSubject('Morning Chalk Up Ambassadors Passwrod Reset');
-  $resetEmail->setHtmlBody($html);
-  $resetEmail->setClickTracking(true);
-  $mg->post("{$domain}/messages", $resetEmail->getMessage());
+  $result = $mg->sendMessage($domain, array(
+    'from'    => 'Morning Chalk Up Ambassadors <info@mail.morningchalkup.com>',
+    'h:Reply-To' => 'Morning Chalk Up <info@morningchalkup.com>',
+    'to'      => $to,
+    'subject' => 'Passwrod Reset Morning Chalk Up Ambassadors',
+    'html'    => $html,
+  ));
 }
 
 function getTemplateTop() {
