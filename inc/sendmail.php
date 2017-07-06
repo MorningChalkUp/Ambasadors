@@ -19,13 +19,22 @@ function sendPasswordReset($aid,$token,$site) {
 
   // $html = getTemplateTop() . $html . getTemplateBottom();
 
-  $resetEmail = $mg->MessageBuilder();
+ /* $resetEmail = $mg->MessageBuilder();
   $resetEmail->setFromAddress('info@mail.morningchalkup.com', array('first' => 'Morning Chalk Up', 'last' => 'Ambassadors'));
   $resetEmail->addToRecipient($u['email'], array('first' => $u['fname'], 'last' => $u['lname']));
   $resetEmail->setSubject('Morning Chalk Up Ambassadors Passwrod Reset');
   $resetEmail->setHtmlBody($html);
   $resetEmail->setClickTracking(true);
-  $mg->post("{$domain}/messages", $resetEmail->getMessage());
+  $mg->post("{$domain}/messages", $resetEmail->getMessage());*/
+
+  $mg->sendMessage($domain, array(
+    'from'=>'Morning Chalk Up <info@mail.morningchalkup.com>',
+    'to'=> 'John Doe <eric@morningchalkup.com>',
+    'subject' => 'Testing',
+    'text' => 'This a test',
+    )
+  )
+
 }
 /*
 function getTemplateTop() {
