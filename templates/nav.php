@@ -65,6 +65,6 @@
     <?php endif; ?>
     <a class="mdl-navigation__link" href="/benefits/">Benefits & Levels</a>
     <a class="mdl-navigation__link" href="/faq/">FAQ</a>
-    <a class="mdl-navigation__link" href="/subscribe/">Subscribe</a>
+    <a class="mdl-navigation__link" href="/contact/">Contact Us</a>
   </nav>
 </div>
