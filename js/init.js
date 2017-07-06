@@ -1,3 +1,9 @@
+function addSnackbar(string, timeout) {
+  snackbarContainer = document.querySelector('#toast');
+  var data = { message: string, timeout: timeout };
+  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+} 
+
 new Clipboard('.cpy-btn');
 
 $('.search-btn').on('click', function() {

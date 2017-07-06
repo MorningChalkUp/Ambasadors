@@ -34,12 +34,3 @@
   $location = 'Location: confirm.php?email=' . $u['email'];
   // $location = 'Location: /reset/?token=' . $request['token'];
   header($location);
-
-
-  function validateEMAIL($EMAIL) {
-    if (filter_var($EMAIL, FILTER_VALIDATE_EMAIL)) { 
-      return true; 
-    } else {
-      return false;
-    }
-  }

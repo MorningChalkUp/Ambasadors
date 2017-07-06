@@ -4,8 +4,8 @@
     <span class="mdl-layout-title mdl-cell--hide-phone"><a href="/"><span>Morning</span> Chalk Up <span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400;">Ambassador</span></a></span>
     <span class="mdl-layout-title mdl-cell--hide-desktop mdl-cell--hide-tablet"><a href="/"><span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400;">Ambassador</span></a></span>
     <div class="mdl-layout-spacer"></div>
-    <div <?php echo $logedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
-      <?php if ($logedin) : ?>
+    <div <?php echo $loggedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
+      <?php if ($loggedin) : ?>
         <span style="font-size: 14px;"><?php echo $amb->getValue('full-name'); ?></span> 
         <?php 
           if ($amb->getValue('image') == '' || $amb->getValue('image') == null) {
@@ -32,7 +32,7 @@
     <span class="mdl-cell--hide-phone">
       <a href="/" style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400;">Ambassador</a>
     </span>
-    <?php if ($logedin) : ?>
+    <?php if ($loggedin) : ?>
       <span id="status-mobile" class="mdl-cell--hide-desktop mdl-cell--hide-tablet" style="float: right; padding-right: 16px;">
       <?php 
         if ($amb->getValue('image') == '' || $amb->getValue('image') == null) {
@@ -57,7 +57,7 @@
     <li class="mdl-menu__item" style="text-align: center;"><a href="/login/" style="color: black; text-decoration: none;">Log In</a></li>
   </ul>
   <nav class="mdl-navigation">
-    <?php if ($logedin): ?>
+    <?php if ($loggedin): ?>
       <a class="mdl-navigation__link" href="/dashboard/">Dashboard</a>
     <?php else: ?>
       <a class="mdl-navigation__link" href="/join/">Sign Up</a>

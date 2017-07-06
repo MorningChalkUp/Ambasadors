@@ -12,6 +12,11 @@
       </main>
     </div>
 
+    <div id="toast" class="mdl-js-snackbar mdl-snackbar" style="background-color: #3d5ba9; text-align: center;">
+      <div class="mdl-snackbar__text"></div>
+      <button class="mdl-snackbar__action" type="button"></button>
+    </div>
+
     <script src="/js/material.min.js"></script>
     <script src="/js/clipboard.min.js"></script>
     <script src="/js/init.js"></script>

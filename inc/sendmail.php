@@ -3,6 +3,19 @@
 require 'mailgun-php/vendor/autoload.php';
 use Mailgun\Mailgun;
 
+function sendContact($email, $text) {
+  $mg = new Mailgun(MAILGUN_KEY);
+  $domain = MAILGUN_DOMAIN;
+
+  $result = $mg->sendMessage($domain, array(
+    'from'    => 'Morning Chalk Up Ambassadors <info@mail.morningchalkup.com>',
+    'h:Reply-To' => $email,
+    'to'      => 'Morning Chalk Up <eric@morningchalkup.com>',
+    'subject' => 'Ambassador Question: ' . $email,
+    'text'    => $text,
+  ));
+}
+
 function sendPasswordReset($aid,$token,$site) {
   global$con;
 

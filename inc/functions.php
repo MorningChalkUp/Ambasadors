@@ -19,9 +19,9 @@
 
   $domain = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
 
-  $logedin = mcuamb_loginState($con);
+  $loggedin = mcuamb_loginState($con);
 
-  if ($logedin) {
+  if ($loggedin) {
     $username = mcuamb_getUsername();
     $amb = new Ambassador;
     $amb->setUser($username, $con);
@@ -36,18 +36,18 @@
   }
 
   function redirectIfLoggedOut($loc) {
-    global $logedin;
+    global $loggedin;
     
-    if (!$logedin) {
+    if (!$loggedin) {
       $location = 'Location: ' . $loc;
       header($location);
     }
   }
 
   function redirectIfLoggedIn($loc) {
-    global $logedin;
+    global $loggedin;
     
-    if ($logedin) {
+    if ($loggedin) {
       $location = 'Location: ' . $loc;
       header($location);
     }
@@ -67,7 +67,13 @@
 
 
 
-
+  function validateEMAIL($EMAIL) {
+    if (filter_var($EMAIL, FILTER_VALIDATE_EMAIL)) { 
+      return true; 
+    } else {
+      return false;
+    }
+  }
 
 
   function dump_pre($VAL) {

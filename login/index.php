@@ -60,8 +60,8 @@
 
                   <div class="mdl-cell mdl-cell--12-col">
                     <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect submit" style="width: 100%;">
-                  Login
-                </button>
+                      Login
+                    </button>
                   </div>
 
 
