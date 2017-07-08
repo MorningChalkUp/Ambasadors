@@ -13,9 +13,12 @@ class Ambassador
     'status' => '',
     'id' => 0,
     'image' => '',
+    'address' => '',
     'city' => '',
     'state' => '',
+    'zip' => '',
     'email' => '',
+    'size' => '',
   );
   
   function setUser($username, $con) {
@@ -30,10 +33,13 @@ class Ambassador
       $this->ambassador['username'] = $username;
       $this->ambassador['id'] = $u['aid'];
       $this->ambassador['sid'] = $u['sid'];
+      $this->ambassador['address'] = $u['address'];
       $this->ambassador['city'] = $u['city'];
       $this->ambassador['state'] = $u['state'];
+      $this->ambassador['zip'] = $u['zip'];
       $this->ambassador['image'] = $u['image'];
       $this->ambassador['email'] = $u['email'];
+      $this->ambassador['size'] = $u['size'];
 
       $status = $con->fetch("SELECT status FROM cu_amb_status WHERE sid = ?", $this->ambassador['sid']);
 

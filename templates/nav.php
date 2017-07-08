@@ -8,11 +8,7 @@
       <?php if ($loggedin) : ?>
         <span style="font-size: 14px;"><?php echo $amb->getValue('full-name'); ?></span> 
         <?php 
-          if ($amb->getValue('image') == '' || $amb->getValue('image') == null) {
-            echo '<img src="/img/person.png" alt="' . $amb->getValue('full-name')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
-          } else {
-            echo '<img src="' . $amb->getValue('image') . '" alt="' . $amb->getValue('full-name')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
-          }
+          echo '<img src="/img/uploads/' . $amb->getValue('image') . '" alt="' . $amb->getValue('full-name')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
         ?>
       <?php else : ?>
         <span style="font-size: 14px;"><a href="/join/">Sign Up</a> / <a href="/login/">Log In</a></span>
@@ -35,11 +31,7 @@
     <?php if ($loggedin) : ?>
       <span id="status-mobile" class="mdl-cell--hide-desktop mdl-cell--hide-tablet" style="float: right; padding-right: 16px;">
       <?php 
-        if ($amb->getValue('image') == '' || $amb->getValue('image') == null) {
-          echo '<img src="/img/person.png" alt="' . $amb->getValue('full-name')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
-        } else {
-          echo '<img src="' . $amb->getValue('image') . '" alt="' . $amb->getValue('full-name')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
-        }
+        echo '<img src="/img/uploads/' . $amb->getValue('image') . '" alt="' . $amb->getValue('full-name')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
       ?>
     <?php else : ?>
       <span id="status-mobile-loggedout" class="mdl-cell--hide-desktop mdl-cell--hide-tablet" style="float: right; padding-right: 16px;">
