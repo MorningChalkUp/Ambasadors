@@ -17,7 +17,7 @@
 
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
         for="status">
-      <!-- <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="#" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">person</i> Profile</a></li> -->
+      <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="/profile/" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">person</i> Profile</a></li>
       <li class="mdl-menu__item" style="text-align: center;"><a href="/logout/" style="color: red; text-decoration: none;">Sign Out</a></li>
     </ul>
 
@@ -41,7 +41,7 @@
     </span>
   </span>
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status-mobile">
-    <!-- <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="#" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">person</i> Profile</a></li> -->
+    <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="/profile/" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">person</i> Profile</a></li>
     <li class="mdl-menu__item" style="text-align: center;"><a href="/logout/" style="color: red; text-decoration: none;">Sign Out</a></li>
   </ul>
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status-mobile-loggedout">
@@ -51,6 +51,7 @@
   <nav class="mdl-navigation">
     <?php if ($loggedin): ?>
       <a class="mdl-navigation__link" href="/dashboard/">Dashboard</a>
+      <a class="mdl-navigation__link" href="/profile/">Profile</a>
     <?php else: ?>
       <a class="mdl-navigation__link" href="/join/">Sign Up</a>
       <a class="mdl-navigation__link" href="/login/">Login</a>
@@ -58,5 +59,8 @@
     <a class="mdl-navigation__link" href="/benefits/">Benefits & Levels</a>
     <a class="mdl-navigation__link" href="/faq/">FAQ</a>
     <a class="mdl-navigation__link" href="/contact/">Contact Us</a>
+    <?php if ($loggedin): ?>
+      <a class="mdl-navigation__link" href="/logout/">Sign Out</a>
+    <?php endif; ?>
   </nav>
 </div>
