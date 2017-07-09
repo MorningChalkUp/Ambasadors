@@ -119,7 +119,9 @@
 
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-grid">
         <div class="mdl-cell mdl-cell--12-col">
-          <div class="text">Your Unique Share URL: <small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></div>
+          <div class="title">Your Unique Share URL:</div>
+
+          <div class="text"><small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><span class="mdl-cell--hide-phone"><?php echo $domain; ?></span>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></div>
 
           <div class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored cpy-btn" style="margin-top:20px;" data-clipboard-text="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>">COPY</div>
         </div>
