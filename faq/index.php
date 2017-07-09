@@ -20,14 +20,16 @@
   }
   .tabs li {
     height: 68px;
-    border-left: 10px solid #f0f0f0;
+    border-left: 3px solid transparent;
     margin-bottom: 10px;
     cursor: pointer;
   }
-  .tabs li.active, .tabs li:hover {
-    border-left: 10px solid #3D5BA9;
-    box-shadow:  -2px 0 4px 0 rgba(0,0,0,.5);
+  .tabs li.active {
+    border-left: 3px solid #3D5BA9;
     text-decoration: none;
+  }
+  .tabs li:hover {
+    background-color: rgba(158,158,158,.2);
   }
   .tabs a {
     color: #000000;
@@ -46,6 +48,25 @@
   }
   .faq p.question {
     cursor: pointer;
+  }
+  .question-section {
+    font-size: 16px !important;
+    margin-bottom: 14px;
+  }
+  .question-section .question {
+    font-size: 16px !important;
+    cursor: pointer;
+  }
+  .question-section .answer {
+    font-size: 16px !important;
+    color: rgba(51, 49, 50, .75);
+    margin: 10px 0 10px 10px;
+  }
+  .question-section a {
+    color: #3D5BA9;
+  }
+  .question-section a:hover {
+    text-decoration: underline;
   }
   @media (max-width: 839px) {
     .hero .right.image {
@@ -69,8 +90,8 @@
       </div>
     <div class="mdl-grid">
       <div class="mdl-cell--6-col left" style="color: #fff;">
-        <h3 style="font-weight: 500; font-size: 1.8em; line-height: 1.4em">Welcome to the Morning Chalk Up Ambassador Program</h3>
-        <p style="color: #fff;">
+        <h3 style="font-weight: 400; font-size: 36px; line-height: 1.4em">Welcome to the Morning Chalk Up Ambassador Program</h3>
+        <p style="color: #fff; font-size: 16px; font-weight: 400;">
           We’ve designed the Morning Chalk Up Ambassador Program to enable you to sell, service, and innovate by leveraging our products and platforms across the Chalk Up Cloud suite. Ambassadors are a fundamental part of the Chalk Up Cloud mission, the empower millions of people to work the way they choose and build what’s next. 
         </p>
       </div>
@@ -99,31 +120,38 @@
       <div class="mdl-cell mdl-cell--12-col">
         <h2>Frequently Asked Questions</h2>
       </div>
-      <div class="mdl-cell mdl-cell--12-col faq">
+      <div class="mdl-cell mdl-cell--12-col faq" style="font-size: 16px;">
         <p><strong>General</strong></p>
-        <p class="question" onclick="toggel('#points');"><i id="points-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How many points do you earn per new subscriber?</p>
-
-        <p id="points" class="hidden">You get 1 point per subscriber.</p>
         
+        <div class="question-section">
+          <div class="question" onclick="toggel('#points');"><i id="points-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How many points do you earn per new subscriber?</div>
 
-        <p class="question" onclick="toggel('#credit');"><i id="credit-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How long does it take before I will get credit for a subscription?</p>
-        
-        <p id="credit" class="hidden">You get your points instintaniously. So as soon as someone signs up you'll see it on your dashboard.</p>
+          <div id="points" class="hidden answer">You get 1 point per subscriber.</div>
+        </div>
 
+        <div class="question-section">
+          <div class="question" onclick="toggel('#credit');"><i id="credit-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How long does it take before I will get credit for a subscription?</div>
+          
+          <div id="credit" class="hidden answer">You get your points instintaniously. So as soon as someone signs up you'll see it on your dashboard.</div>
+        </div>
 
-        <p class="question" onclick="toggel('#remove');"><i id="remove-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>I hate Eric mostly because his hair is blonde. Can we remove him?</p>
-        
-        <p id="remove" class="hidden">Competition is the spice of life right? You can try to outwork Eric if you'd like. Of course Eric is also SuperAdmin and controlls the system. So good luck with that.</p>
+        <div class="question-section">
+          <div class="question" onclick="toggel('#remove');"><i id="remove-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>I hate Eric mostly because his hair is blonde. Can we remove him?</div>
+          
+          <div id="remove" class="hidden answer">Competition is the spice of life right? You can try to outwork Eric if you'd like. Of course Eric is also SuperAdmin and controlls the system. So good luck with that.</div>
+        </div>
 
+        <div class="question-section">
+          <div class="question" onclick="toggel('#add');"><i id="add-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>Who do I talk to about getting a friend signed up for Ambassadors?</div>
+          
+          <div id="add" class="hidden answer">You need to email <a href="mailto:justin@morningchalkup.com?subject=[Add Ambassador]">justin@morningchalkup.com</a> with a special request in order to get your friend signed up as an ambassador.</div>
+        </div>
 
-        <p class="question" onclick="toggel('#add');"><i id="add-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>Who do I talk to about getting a friend signed up for Ambassadors?</p>
-        
-        <p id="add" class="hidden">You need to email <a href="mailto:justin@morningchalkup.com?subject=[Add Ambassador]">justin@morningchalkup.com</a> with a special request in order to get your friend signed up as an ambassador.</p>
+        <div class="question-section">
+          <div class="question" onclick="toggel('#quit');"><i id="quit-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>I want to quit.</div>
 
-
-        <p class="question" onclick="toggel('#quit');"><i id="quit-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>I want to quit.</p>
-
-        <p id="quit" class="hidden">Email <a href="mailto:justin@morningchalkup.com?subject=[Ambassador Wants To Quit]">justin@morningchalkup.com</a> so he can talk you off the ledge. But if you really do want to leave the program also email Justin and we'll get you removed.</p>
+          <div id="quit" class="hidden answer">Email <a href="mailto:justin@morningchalkup.com?subject=[Ambassador Wants To Quit]">justin@morningchalkup.com</a> so he can talk you off the ledge. But if you really do want to leave the program also email Justin and we'll get you removed.</div>
+        </div>
 
         <script>
           function toggel(id) {

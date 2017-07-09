@@ -38,8 +38,17 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+      h2 {
+        font-size: 24px !important;
+        font-weight: normal !important;
+        color: #333132;
+        margin: 24px 0 !important;
+      }
+    </style>
   </head>
-  <body style="background-color: #F0F0F0;">
+  <body style="background-color: rgba(241, 242, 242, .4);">
     <?php include '../inc/fb.php'; ?>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <?php include 'nav.php'; ?>

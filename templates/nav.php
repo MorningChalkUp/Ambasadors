@@ -1,8 +1,8 @@
 <header class="mdl-layout__header">
   <div class="mdl-layout__header-row" style="padding: 0 40px 0 80px;">
     <!-- Title -->
-    <span class="mdl-layout-title mdl-cell--hide-phone"><a href="/"><span>Morning</span> Chalk Up <span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400;">Ambassador</span></a></span>
-    <span class="mdl-layout-title mdl-cell--hide-desktop mdl-cell--hide-tablet"><a href="/"><span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400;">Ambassador</span></a></span>
+    <span class="mdl-layout-title mdl-cell--hide-phone"><a href="/"><span>Morning</span> Chalk Up <span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400; text-transform: none;">Ambassador</span></a></span>
+    <span class="mdl-layout-title mdl-cell--hide-desktop mdl-cell--hide-tablet"><a href="/"><span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400; text-transform: none;">Ambassador</span></a></span>
     <div class="mdl-layout-spacer"></div>
     <div <?php echo $loggedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
       <?php if ($loggedin) : ?>
@@ -26,7 +26,7 @@
 <div class="mdl-layout__drawer" style="z-index: 6;">
   <span class="mdl-layout-title">
     <span class="mdl-cell--hide-phone">
-      <a href="/" style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400;">Ambassador</a>
+      <a href="/" style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400; text-transform: none;">Ambassador</a>
     </span>
     <?php if ($loggedin) : ?>
       <span id="status-mobile" class="mdl-cell--hide-desktop mdl-cell--hide-tablet" style="float: right; padding-right: 16px;">
