@@ -4,6 +4,15 @@ function addSnackbar(string, timeout) {
   snackbarContainer.MaterialSnackbar.showSnackbar(data);
 } 
 
+(function() {
+  'use strict';
+  var showToastButton = document.querySelector('.cpy-btn');
+  showToastButton.addEventListener('click', function() {
+    'use strict';
+    addSnackbar('Link coppied.', 3000);
+  });
+}());
+
 new Clipboard('.cpy-btn');
 
 $('.search-btn').on('click', function() {
