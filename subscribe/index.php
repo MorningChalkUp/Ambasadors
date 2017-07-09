@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="icon" href="<?php echo $domain; ?>/img/favicon.png"  media="screen,projection"/>
+    <link rel="shortcut icon" href="<?php echo $domain; ?>/img/favicon.png" type="image/x-icon">
     
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link rel="stylesheet" href="/css/material.min.css">
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/css/style.css">
     
     <script src="/js/jquery-2.2.3.min.js"></script>
+    <script src="/js/immybox/jquery.immybox.js"></script>
     <script src="https://use.typekit.net/ydo2tvd.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
@@ -298,10 +299,9 @@
     <script src="/js/material.min.js"></script>
     <script src="/js/getmdl-select.min.js"></script>
     <script src="/js/jquery.textfit.min.js"></script>
-    <script src="/js/immybox/jquery.immybox.min.js"></script>
     <script src="/js/MaterialSelect.js"></script>
     <script src="/js/mdl-selectfield.min.js"></script>
-    <script defer src="/js/init.js"></script>
+    <script src="/js/init.js"></script>
 
   </body>
 </html>

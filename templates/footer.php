@@ -18,7 +18,6 @@
     </div>
 
     <script src="/js/material.min.js"></script>
-    <script src="/js/clipboard.min.js"></script>
     <script src="/js/init.js"></script>
   </body>
 </html>

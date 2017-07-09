@@ -127,7 +127,7 @@
         </div>
       </div>
 
-      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid mdl-cell--top">
+      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet mdl-grid mdl-cell--top">
         <div class="mdl-cell mdl-cell--12-col">
           <div class="title">Share On Social Media</div>
           <div class="text" style="margin-top:20px;">
@@ -186,5 +186,28 @@
 
   </div>
 </article>
+
+<script>
+  (function() {
+    'use strict';
+    var showToastButton = document.querySelector('.cpy-btn');
+    if (typeof showToastButton !== 'undefined') {
+      showToastButton.addEventListener('click', function() {
+          'use strict';
+          addSnackbar('Link coppied.', 3000);
+      });
+    }
+  }());
+
+  new Clipboard('.cpy-btn');
+
+  $('.search-btn').on('click', function() {
+    $('.search-bar').slideToggle(100);
+    $('.overlay').toggle();
+    $('.search-btn i.mdi-magnify').toggle();
+    $('.search-btn i.mdi-close').toggle();
+    
+  });
+</script>
 
 <?php include '../templates/footer.php'; ?>

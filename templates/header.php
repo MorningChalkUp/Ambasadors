@@ -31,6 +31,7 @@
     <script src="/js/jquery-2.2.3.min.js"></script>
     <script defer src="/js/getmdl-select.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="/js/clipboard.min.js"></script>
     <script src="https://use.typekit.net/ydo2tvd.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
