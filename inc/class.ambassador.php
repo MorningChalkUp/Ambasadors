@@ -9,6 +9,7 @@ class Ambassador
     'lname' => '',
     'points' => 0,
     'username' => '',
+    'password' => '',
     'sid' => 1,
     'status' => '',
     'id' => 0,
@@ -26,11 +27,12 @@ class Ambassador
     $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $username);
 
     if($u != false) {
-      $this->ambassador['full-name'] = $u['fullname'];
+      $this->ambassador['fullname'] = $u['fullname'];
       $this->ambassador['fname'] = $u['fname'];
       $this->ambassador['lname'] = $u['lname'];
       $this->ambassador['points'] = $u['points'];
       $this->ambassador['username'] = $username;
+      $this->ambassador['password'] = $u['password'];
       $this->ambassador['id'] = $u['aid'];
       $this->ambassador['sid'] = $u['sid'];
       $this->ambassador['address'] = $u['address'];

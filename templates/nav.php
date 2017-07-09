@@ -6,9 +6,9 @@
     <div class="mdl-layout-spacer"></div>
     <div <?php echo $loggedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
       <?php if ($loggedin) : ?>
-        <span style="font-size: 14px;"><?php echo $amb->getValue('full-name'); ?></span> 
+        <span style="font-size: 14px;"><?php echo $amb->getValue('fullname'); ?></span> 
         <?php 
-          echo '<img src="/img/uploads/' . $amb->getValue('image') . '" alt="' . $amb->getValue('full-name')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
+          echo '<img src="/img/uploads/' . $amb->getValue('image') . '" alt="' . $amb->getValue('fullname')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
         ?>
       <?php else : ?>
         <span style="font-size: 14px;"><a href="/join/">Sign Up</a> / <a href="/login/">Log In</a></span>
@@ -31,7 +31,7 @@
     <?php if ($loggedin) : ?>
       <span id="status-mobile" class="mdl-cell--hide-desktop mdl-cell--hide-tablet" style="float: right; padding-right: 16px;">
       <?php 
-        echo '<img src="/img/uploads/' . $amb->getValue('image') . '" alt="' . $amb->getValue('full-name')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
+        echo '<img src="/img/uploads/' . $amb->getValue('image') . '" alt="' . $amb->getValue('fullname')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
       ?>
     <?php else : ?>
       <span id="status-mobile-loggedout" class="mdl-cell--hide-desktop mdl-cell--hide-tablet" style="float: right; padding-right: 16px;">

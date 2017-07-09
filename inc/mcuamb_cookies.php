@@ -12,7 +12,9 @@ function mcuamb_setUserCookie($useername, $password, $remember = false) {
     cookie_create('mcu_amb_pass', $password);
   }
 
-  return mcuamb_loginState();
+  global $con;
+
+  return mcuamb_loginState($con);
 }
 
 function mcuamb_getUsername() {
