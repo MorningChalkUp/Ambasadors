@@ -117,17 +117,15 @@
         <h2>Promotion Tools</h2>
       </div>
 
-      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-grid">
+      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-grid">
         <div class="mdl-cell mdl-cell--12-col">
-          <div class="title">Your Unique Share URL:</div>
-
-          <div class="text"><small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></div>
+          <div class="text">Your Unique Share URL: <small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></div>
 
           <div class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored cpy-btn" style="margin-top:20px;" data-clipboard-text="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>">COPY</div>
         </div>
       </div>
 
-      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-grid mdl-cell--top">
+      <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid mdl-cell--top">
         <div class="mdl-cell mdl-cell--12-col">
           <div class="title">Share On Social Media</div>
           <div class="text" style="margin-top:20px;">
