@@ -144,10 +144,10 @@ function mc_curl($method, $url, $new_member = NULL) {
   $result = json_decode($result, true);
 
   if ($httpCode != 200) {
-    out_pre($result['status'] . ' ' . $result['title']);
-    out_pre($result['detail']);
-    echo_pre($result['errors']);
-    out_pre('<hr>');
+    dump_pre($result['status'] . ' ' . $result['title']);
+    dump_pre($result['detail']);
+    dump_pre($result['errors']);
+    dump_pre('<hr>');
     return false;
   }
 
@@ -165,4 +165,10 @@ function mc_get_member_url($email) {
   $memberId = mc_get_member_id($email);
   
   return 'https://' . MC_DATA_CENTER . '.api.mailchimp.com/3.0/lists/' . MC_LIST_ID . '/members/' . $memberId;
+}
+
+function dump_pre($val) {
+  echo '<pre>';
+  var_dump($val);
+  echo '</pre>';
 }
