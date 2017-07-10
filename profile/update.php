@@ -80,9 +80,29 @@
                     <tbody>
                       <tr class="no-hover">
                         <td style="border: 0px;" class="mdl-data-table__cell--non-numeric" colspan="2" style="white-space: normal">
-                          <small>Square images please. Maximum file size: 5MB. jpg, jpeg, png, gif only.</small>
+                          <small>Square images please. Maximum file size: 5MB. jpg, jpeg, png, or gif only.</small>
                         </td>
                       </tr>
+                      <?php 
+                        if ($error && $error == 'image') {
+                          echo '<tr class="no-hover">';
+                            echo '<td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"></td>';
+                            echo '<td style="border: 0px;" class="mdl-data-table__cell--non-numeric">';
+                              echo '<span style="color: red;"><em>File not jpg, jpeg, png, or gif. Please select a new file.</em></span>';
+                            echo '</td>';
+                          echo '</tr>';
+                        }
+                      ?>
+                      <?php 
+                        if ($error && $error == 'size') {
+                          echo '<tr class="no-hover">';
+                            echo '<td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"></td>';
+                            echo '<td style="border: 0px;" class="mdl-data-table__cell--non-numeric">';
+                              echo '<span style="color: red;"><em>File too big. PLease reduce the file size to below 5MB.</em></span>';
+                            echo '</td>';
+                          echo '</tr>';
+                        }
+                      ?>
                       <tr class="no-hover">
                         <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">account_circle</i></td>
                         <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
