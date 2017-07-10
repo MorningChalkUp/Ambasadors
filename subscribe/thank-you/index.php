@@ -10,6 +10,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="ambassadors" content="true">
+    <link rel="canonical" href="https://morningchalkup.com/subscribe/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Subscribe | Morning Chalk Up" />
+    <meta property="og:url" content="https://morningchalkup.com/subscribe/" />
+    <meta property="og:site_name" content="Morning Chalk Up" />
+    <meta property="article:publisher" content="https://www.facebook.com/MorningChalkUp/" />
+    <meta property="fb:app_id" content="1635216993444923" />
+    <meta property="og:image" content="http://morningchalkup.com/wp-content/uploads/2017/01/fb_og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Subscribe | Morning Chalk Up" />
+    <meta name="twitter:image" content="http://morningchalkup.com/wp-content/uploads/2017/01/fb_og.png" />
+
     <link rel="shortcut icon" href="<?php echo $domain; ?>/img/favicon.png" type="image/x-icon">
     
     <link rel="profile" href="http://gmpg.org/xfn/11">
