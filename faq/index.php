@@ -61,10 +61,10 @@
     color: rgba(51, 49, 50, .75);
     margin: 10px 0 10px 10px;
   }
-  .question-section a {
+  .question-section a, .faq a {
     color: #3D5BA9;
   }
-  .question-section a:hover {
+  .question-section a:hover, .faq a:hover {
     text-decoration: underline;
   }
 
@@ -116,9 +116,10 @@
         </a>
       </ul>
     </div>
-    <div class="mdl-cell mdl-cell--9-col mdl-grid mdl-color--white mdl-shadow--2dp">
+    <div class="mdl-cell mdl-cell--9-col mdl-grid mdl-color--white mdl-shadow--2dp faq">
       <div class="mdl-cell mdl-cell--12-col">
         <h2>Frequently Asked Questions</h2>
+        <p style="font-size: 16px;">Don't see an answer to your question? <a href="/contact/">Contact us</a> and we'll help out.</p>
       </div>
       <div class="mdl-cell mdl-cell--12-col faq" style="font-size: 16px;">
         <p><strong>General</strong></p>
