@@ -30,7 +30,7 @@
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
 
-          <div class="title" style="font-size: 20px;"><?php echo $amb->getValue('full-name'); ?></div>
+          <div class="title" style="font-size: 20px;"><?php echo $amb->getValue('fullname'); ?></div>
           <div class="text" style="font-size: 16px;">Level: <strong><?php echo $amb->getValue('status'); ?></strong></div>
           <div class="text" style="font-size: 16px;">Next Level: <strong><?php echo $amb->getNextLevel($con); ?></strong></div>
           <div class="text" style="font-size: 16px;">Points to <?php echo $amb->getNextLevel($con); ?>: <strong><?php echo $amb->getNextPoints($con); ?></strong></div>
