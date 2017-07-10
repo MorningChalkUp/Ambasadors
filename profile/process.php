@@ -5,10 +5,34 @@ require '../inc/functions.php';
 $section = $_POST['section'];
 $id = $_POST['id'];
 
+// Profile Image
 if ($section == 'image') {
   $u = $con->fetch('SELECT username FROM cu_amb_usr WHERE aid = ?', $id);
 
   if (isset($_FILES["profile_pic"]["name"]) && $_FILES["profile_pic"]["size"] > 0) {
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+      if($check === false) {
+        $loc = 'Location: /profile/update.php/?update=image&error=image';
+        header($loc);
+        die();
+      }
+    }
+    // Check file size
+    if ($_FILES["fileToUpload"]["size"] > 500000) {
+      $loc = 'Location: /profile/update.php/?update=image&error=size';
+      header($loc);
+      die();
+    }
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+      $loc = 'Location: /profile/update.php/?update=image&error=image';
+      header($loc);
+      die();
+    }
+
     $target_dir = "../img/uploads/";
     $name = $_FILES["profile_pic"]["name"];
     $tmp = explode(".", $name);
@@ -25,6 +49,8 @@ if ($section == 'image') {
   }
   
 }
+
+// Personal Information
 if ($section == 'personal') {
   $name = explode(' ',$_POST['fullname']);
   $email = explode(' ',$_POST['email']);

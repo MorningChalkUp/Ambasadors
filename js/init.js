@@ -1,4 +1,4 @@
-function addSnackbar(string, timeout) {
+function addSnackbar(string, timeout = 3000) {
   snackbarContainer = document.querySelector('#toast');
   var data = { message: string, timeout: timeout };
   snackbarContainer.MaterialSnackbar.showSnackbar(data);
