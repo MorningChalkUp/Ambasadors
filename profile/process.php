@@ -6,7 +6,24 @@ $section = $_POST['section'];
 $id = $_POST['id'];
 
 if ($section == 'image') {
+  $u = $con->fetch('SELECT username FROM cu_amb_usr WHERE aid = ?', $id);
 
+  if (isset($_FILES["profile_pic"]["name"]) && $_FILES["profile_pic"]["size"] > 0) {
+    $target_dir = "../img/uploads/";
+    $name = $_FILES["profile_pic"]["name"];
+    $tmp = explode(".", $name);
+    $filename = $u['username'] . '_' . round(microtime(true)) . '.' . end($tmp);
+    $target_file = $target_dir . $filename;
+    dump_pre($target_file);
+    move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $target_file);
+    $set = array($filename, $id);
+    $con->execute("UPDATE cu_amb_usr SET image = ? WHERE aid = ?", $set);
+  } else {
+    $default = 'person.png';
+    $set = array($default, $id);
+    $con->execute("UPDATE cu_amb_usr SET image = ? WHERE aid = ?", $set);
+  }
+  
 }
 if ($section == 'personal') {
   $name = explode(' ',$_POST['fullname']);

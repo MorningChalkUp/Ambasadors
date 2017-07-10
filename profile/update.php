@@ -34,6 +34,25 @@
   .no-hover:hover {
     background-color: #fff !important;
   }
+  .mdl-button--file input {
+    cursor: pointer;
+    height: 100%;
+    right: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    width: 300px;
+    z-index: 4;
+  }
+  
+  .mdl-textfield--file .mdl-textfield__input {
+    box-sizing: border-box;
+    width: calc(100% - 32px);
+  }
+
+  .mdl-textfield--file .mdl-button--file {
+    right: 0;
+  }
 </style>
 
 <article class="main dashboard">
@@ -48,7 +67,36 @@
           <div class="mdl-cell mdl-cell--12-col" style="border-bottom: 1px solid #F1F2F2;">
             <h1 style="text-align: center; font-family: 'Open Sans', sans-serif; font-weight: normal;">Eric Sherred</h1>
           </div>
-          <form action="/profile/process.php" method="post" class="mdl-grid" style="padding: 0;">
+          <form action="/profile/process.php" enctype="multipart/form-data" method="post" class="mdl-grid" style="padding: 0;">
+            <?php if ($image): ?>
+            <div class="mdl-cell mdl-cell--12-col mdl-grid" style="border-bottom: 1px solid #F1F2F2;">
+              <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
+                <strong>Update Profile Picture</strong>
+              </div>
+              <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-cell mdl-cell--8-col">
+                  <table class="mdl-data-table" style="border: 0px; width: 100%;">
+                    <tbody>
+                      <tr class="no-hover">
+                        <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">account_circle</i></td>
+                        <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--file">
+                            <input class="mdl-textfield__input" placeholder="File" type="text" id="uploadFile" readonly/>
+                            <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
+                              <i class="material-icons">attach_file</i><input type="file" id="uploadBtn" name="profile_pic">
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="mdl-layout-spacer"></div>
+              </div>
+            </div>
+            <?php endif; ?>
+
             <?php if ($personal): ?>
               <div class="mdl-cell mdl-cell--12-col mdl-grid" style="border-bottom: 1px solid #F1F2F2;">
                 <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
@@ -205,5 +253,11 @@
     <div class="mdl-layout-spacer"></div>
   </div>
 </article>
+
+<script>
+  document.getElementById("uploadBtn").onchange = function () {
+    document.getElementById("uploadFile").value = this.files[0].name;
+  };
+</script>
 
 <?php include '../templates/footer.php'; ?>
