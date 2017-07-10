@@ -25,7 +25,7 @@
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col mdl-grid">
       <div class="mdl-cell mdl-cell--12-col">
-        <h2>Account Summery</h2>
+        <h2>Account Summary</h2>
       </div>
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
