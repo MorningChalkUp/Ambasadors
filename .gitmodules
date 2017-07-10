@@ -1,0 +1,3 @@
+[submodule "inc/db"]
+	path = inc/db
+	url = https://github.com/a1phanumeric/PHP-MySQL-Class.git
