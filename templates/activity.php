@@ -42,7 +42,7 @@ function getActions($count, $page, $amb, $con) {
                 echo '<span style="float: left;"><a style="cursor:pointer;" href="?page=' . ($page-1) . '">< Next 10</a></span>';
               }
               if ($showPrev) {
-                echo '<span style="float: right;"><a style="cursor:pointer;" href="?page=' . $page+1 . '">Previous 10 ></a></span>';
+                echo '<span style="float: right;"><a style="cursor:pointer;" href="?page=' . ($page+1) . '">Previous 10 ></a></span>';
               }
 
             echo '</td>';
