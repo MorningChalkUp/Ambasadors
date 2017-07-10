@@ -61,10 +61,10 @@
     color: rgba(51, 49, 50, .75);
     margin: 10px 0 10px 10px;
   }
-  .question-section a {
+  .question-section a, .faq a {
     color: #3D5BA9;
   }
-  .question-section a:hover {
+  .question-section a:hover, .faq a:hover {
     text-decoration: underline;
   }
 
@@ -89,8 +89,8 @@
     <div class="mdl-cell--6-col right image" style="background-image: url(/img/chalkupambassadorteam.jpg); background-position: center center; background-size: cover; background-repeat: no-repeat; min-height: 389px; min-width: 50%; float:right;height: 100%; position: absolute; right: 0; top: 0;">
       </div>
     <div class="mdl-grid">
-      <div class="mdl-cell--6-col left" style="color: #fff;">
-        <h3 style="font-weight: 400; font-size: 36px; line-height: 1.4em">Welcome to the Morning Chalk Up Ambassador Program</h3>
+      <div class="mdl-cell--6-col left" style="color: #fff; margin: 32px 0;">
+        <h3 style="font-weight: 400; font-size: 36px; line-height: 1.4em; margin-top: 0px;">Welcome to the Morning Chalk Up Ambassador Program</h3>
         <p style="color: #fff; font-size: 16px; font-weight: 400;">
           We’ve designed the Morning Chalk Up Ambassador Program to enable you to sell, service, and innovate by leveraging our products and platforms across the Chalk Up Cloud suite. Ambassadors are a fundamental part of the Chalk Up Cloud mission, the empower millions of people to work the way they choose and build what’s next. 
         </p>
@@ -116,9 +116,10 @@
         </a>
       </ul>
     </div>
-    <div class="mdl-cell mdl-cell--9-col mdl-grid mdl-color--white mdl-shadow--2dp">
+    <div class="mdl-cell mdl-cell--9-col mdl-grid mdl-color--white mdl-shadow--2dp faq">
       <div class="mdl-cell mdl-cell--12-col">
         <h2>Frequently Asked Questions</h2>
+        <p style="font-size: 16px;">Don't see an answer to your question? <a href="/contact/">Contact us</a> and we'll help out.</p>
       </div>
       <div class="mdl-cell mdl-cell--12-col faq" style="font-size: 16px;">
         <p><strong>General</strong></p>
