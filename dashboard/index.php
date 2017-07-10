@@ -124,7 +124,7 @@
 
           <div class="text"><small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></div>
 
-          <div class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored cpy-btn" style="margin-top:20px;" data-clipboard-text="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>">COPY</div>
+          <div class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored cpy-btn" style="margin-top:20px;" data-clipboard-text="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" onclick="addSnackbar('Link Coppied')">COPY</div>
         </div>
       </div>
 

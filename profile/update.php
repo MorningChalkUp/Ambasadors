@@ -80,7 +80,7 @@
                     <tbody>
                       <tr class="no-hover">
                         <td style="border: 0px;" class="mdl-data-table__cell--non-numeric" colspan="2" style="white-space: normal">
-                          <small>Square images please. Maximum file size: 5MB. jpg,joeg, png, gif only.</small>
+                          <small>Square images please. Maximum file size: 5MB. jpg, jpeg, png, gif only.</small>
                         </td>
                       </tr>
                       <tr class="no-hover">
