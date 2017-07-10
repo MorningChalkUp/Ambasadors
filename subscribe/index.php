@@ -1,7 +1,20 @@
 <?php
-  $error = $_GET['e'];
+  require '../inc/functions.php';
 
-  $domain = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+  $ip = get_client_ip();
+
+  $url = $domain . strtok($_SERVER['REQUEST_URI'], '?');
+
+  $time = date("Y-m-d H:i:s");
+
+  $reff = isset($_GET['reff']) ? $_GET['reff'] : null;
+  
+  track_pageview($ip,$url,$time,$reff);
+
+  if (isset($_GET['e'])) {
+    $error = $_GET['e'];
+  }
+
 ?>
 
 <!DOCTYPE html>
