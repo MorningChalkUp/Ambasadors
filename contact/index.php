@@ -84,9 +84,9 @@
   <div class="hero" style="background-color: #ffffff; overflow: hidden; position: relative;">
     <div class="mdl-cell--6-col right image" style="background-image: url(/img/chalkupcontact.jpg); background-position: center center; background-size: cover; background-repeat: no-repeat; min-height: 389px; min-width: 50%; float:right;height: 100%; position: absolute; right: 0; top: 0;">
       </div>
-    <div class="mdl-grid">
+    <div class="mdl-grid"  style="padding-top: 32px; padding-bottom: 32px;">
       <div class="mdl-cell--6-col left">
-        <h3 style="font-weight: 500; font-size: 1.8em; line-height: 1.4em">Get in Touch.</h3>
+        <h3 style="font-weight: 500; font-size: 1.8em; line-height: 1.4em; margin-top: 0px;">Get in Touch.</h3>
         <p>
           If you’re experiencing a problem, have a question or need to get in touch with us for any reason, please fill out the form and one of our staff will get back to you shortly.
         </p>
