@@ -164,7 +164,7 @@
 
     <div class="mdl-cell mdl-cell--8-col mdl-grid mdl-cell--top">
       <div class="mdl-cell mdl-cell--12-col">
-        <h2>Recent Actions</h2>
+        <h2>Recent Activity</h2>
       </div>
 
       <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
