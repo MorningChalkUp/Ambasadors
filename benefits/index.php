@@ -21,14 +21,16 @@
   }
   .tabs li {
     height: 68px;
-    border-left: 10px solid #f0f0f0;
+    border-left: 3px solid transparent;
     margin-bottom: 10px;
     cursor: pointer;
   }
-  .tabs li.active, .tabs li:hover {
-    border-left: 10px solid #3D5BA9;
-    box-shadow:  -2px 0 4px 0 rgba(0,0,0,.5);
+  .tabs li.active {
+    border-left: 3px solid #3D5BA9;
     text-decoration: none;
+  }
+  .tabs li:hover {
+    background-color: rgba(158,158,158,.2);
   }
   .tabs a {
     color: #000000;
@@ -36,6 +38,16 @@
   }
   .tabs a:hover {
     text-decoration: none;
+  }
+  .faq p {
+    font-size: 16px;
+  }
+
+  .faq p.hidden {
+    display: none;
+  }
+  .faq p.question {
+    cursor: pointer;
   }
   @media (max-width: 839px) {
     .hero .right.image {
@@ -59,8 +71,8 @@
       </div>
     <div class="mdl-grid">
       <div class="mdl-cell--6-col left" style="color: #fff;">
-        <h3 style="font-weight: 500; font-size: 1.8em; line-height: 1.4em">Welcome to the Morning Chalk Up Ambassador Program</h3>
-        <p style="color: #fff;">
+        <h3 style="font-weight: 400; font-size: 36px; line-height: 1.4em">Welcome to the Morning Chalk Up Ambassador Program</h3>
+        <p style="color: #fff; font-size: 16px; font-weight: 400;">
           We’ve designed the Morning Chalk Up Ambassador Program to enable you to sell, service, and innovate by leveraging our products and platforms across the Chalk Up Cloud suite. Ambassadors are a fundamental part of the Chalk Up Cloud mission, the empower millions of people to work the way they choose and build what’s next. 
         </p>
       </div>
@@ -114,9 +126,9 @@
                 }
 
                 echo '<tr class="no-hover">';
-                  echo '<td class="mdl-data-table__cell--non-numeric" style="border: 0;"><strong>' . $level['status'] . '</strong></td>';
-                  echo '<td class="mdl-data-table__cell--non-numeric" style="border: 0;">' . $level['points_min'] . ' - ' . $level['points_max'] . '</td>';
-                  echo '<td class="mdl-data-table__cell--non-numeric" style="border: 0;">' . $level['reward'] . '</td>';
+                  echo '<td class="mdl-data-table__cell--non-numeric" style="border: 0; font-size: 16px; font-weight:bold;"><strong>' . $level['status'] . '</strong></td>';
+                  echo '<td class="mdl-data-table__cell--non-numeric" style="border: 0; font-size: 16px; ">' . $level['points_min'] . ' - ' . $level['points_max'] . '</td>';
+                  echo '<td class="mdl-data-table__cell--non-numeric" style="border: 0; font-size: 16px; ">' . $level['reward'] . '</td>';
                 echo '</tr>';
               }
             ?>

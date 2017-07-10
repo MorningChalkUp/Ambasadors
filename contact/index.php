@@ -11,6 +11,18 @@
 
 <?php include '../templates/header.php'; ?>
 
+<style>
+  footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+  }
+  .mdl-mini-footer__right-section {
+    padding-right: 30px;
+  }
+</style>
+
+
 <?php
   if ($_GET['ty']) {
     echo "<script>
@@ -81,7 +93,7 @@
       </div>
       <form style="width: 100%" action="process.php" method="post">
         <?php if (!$loggedin): ?>
-          <div class="mdl-cell mdl-cell--12-col">
+          <div class="mdl-cell mdl-cell--6-col">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
               <input class="mdl-textfield__input" type="text" id="email" name="email">
               <label class="mdl-textfield__label" for="email">Email *</label>
@@ -90,13 +102,13 @@
         <?php else: ?>
           <input type="hidden" name="email" value="<?php echo $amb->getValue('email'); ?>">
         <?php endif; ?>
-        <div class="mdl-cell mdl-cell--12-col">
-            <div class="mdl-textfield mdl-js-textfield">
+        <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-textfield mdl-js-textfield" style="width: 100%;">
               <textarea class="mdl-textfield__input" type="text" rows= "1" id="question" name="question"></textarea>
               <label class="mdl-textfield__label" for="question">How can we help?</label>
             </div>
         </div>
-        <div class="mdl-cell mdl-cell--12-col">
+        <div class="mdl-cell mdl-cell--6-col">
           <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect submit"">
             Send
           </button>
