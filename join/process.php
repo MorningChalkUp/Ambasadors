@@ -31,11 +31,11 @@ require '../inc/functions.php';
       if (isset($u) && $u != false) {
         $error[] = 'email-exists';
       }
-     /* else {
+      else {
         if (limitSignup($data['email'])) {
           $error[] = 'no-signup';
         }
-      }*/
+      }
     } else {
       $error[] = 'email';
     }
