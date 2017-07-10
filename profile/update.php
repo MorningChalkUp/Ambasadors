@@ -65,7 +65,7 @@
         </div>
         <div class="mdl-grid" style="margin-top: 30px;">
           <div class="mdl-cell mdl-cell--12-col" style="border-bottom: 1px solid #F1F2F2;">
-            <h1 style="text-align: center; font-family: 'Open Sans', sans-serif; font-weight: normal;">Eric Sherred</h1>
+            <h1 style="text-align: center; font-family: 'Open Sans', sans-serif; font-weight: normal;"><?php echo $amb->getValue('fullname'); ?></h1>
           </div>
           <form action="/profile/process.php" enctype="multipart/form-data" method="post" class="mdl-grid" style="padding: 0;">
             <?php if ($image): ?>
@@ -78,6 +78,11 @@
                 <div class="mdl-cell mdl-cell--8-col">
                   <table class="mdl-data-table" style="border: 0px; width: 100%;">
                     <tbody>
+                      <tr class="no-hover">
+                        <td style="border: 0px;" class="mdl-data-table__cell--non-numeric" colspan="2" style="white-space: normal">
+                          <small>Square images please. Maximum file size: 5MB. jpg,joeg, png, gif only.</small>
+                        </td>
+                      </tr>
                       <tr class="no-hover">
                         <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">account_circle</i></td>
                         <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
