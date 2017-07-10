@@ -10,6 +10,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="ambassadors" content="true">
+    <link rel="canonical" href="https://morningchalkup.com/subscribe/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Subscribe | Morning Chalk Up" />
+    <meta property="og:url" content="https://morningchalkup.com/subscribe/" />
+    <meta property="og:site_name" content="Morning Chalk Up" />
+    <meta property="article:publisher" content="https://www.facebook.com/MorningChalkUp/" />
+    <meta property="fb:app_id" content="1635216993444923" />
+    <meta property="og:image" content="http://morningchalkup.com/wp-content/uploads/2017/01/fb_og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Subscribe | Morning Chalk Up" />
+    <meta name="twitter:image" content="http://morningchalkup.com/wp-content/uploads/2017/01/fb_og.png" />
     <link type="icon" href="<?php echo $domain; ?>/img/favicon.png"  media="screen,projection"/>
     
     <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -71,9 +84,9 @@
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span class="mdl-layout-title"><a href="/"><span>Morning</span> Chalk Up</a></span>
+          <span class="mdl-layout-title"><a href="https://morningchalkup.com"><span>Morning</span> Chalk Up</a></span>
           <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="/" title="Home">Home</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/tidbits/" title="Tidbits">Tidbits</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="the Morning Chalk Up">the Morning Chalk Up</a><a class="mdl-navigation__link" href="/events" title="Events">Events</a><a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>    </nav>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com" title="Home">Home</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/tidbits/" title="Tidbits">Tidbits</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="the Morning Chalk Up">the Morning Chalk Up</a><a class="mdl-navigation__link" href="/events" title="Events">Events</a><a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>    </nav>
           <div class="mdl-layout-spacer"></div>
           <div class="right sub">
             <a href="https://morningchalkup.com/subscribe">
