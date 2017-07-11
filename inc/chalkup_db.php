@@ -17,6 +17,9 @@ function addSubscriber($user) {
   if (!isInPerson($user['email'])) {
     $user['mcid'] = md5($user['email']);
     addPerson($user);
+    $exists = false;
+  } else {
+    $exists = true;
   }
   
   $user['pid'] = getPersonId($user['email']);
@@ -27,7 +30,7 @@ function addSubscriber($user) {
 
   $suid = addSignup($user);
 
-  if (isset($user['reff'])) {
+  if (isset($user['reff']) && !$exists) {
     updateAmbassador($user['reff'], $suid, 1);
   }
 }
