@@ -4,5 +4,4 @@
   <input type="hidden" name="UTM_MEDIUM" id="UTM_MEDIUM" value="">
   <input type="hidden" name="UTM_CAMP" id="UTM_CAMP" value="">
   <input type="hidden" name="GCLID" id="GCLID" value="">
-  <input type="hidden" name="reff" id="reff" value="">
 </div>
