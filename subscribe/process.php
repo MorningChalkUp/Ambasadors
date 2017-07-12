@@ -154,7 +154,7 @@ if(!isset($data['sub']) || $data['sub'] == '') {
 addSubscriber($data);
 
 
-$location = 'Location: thank-you?fname=' . $name[0];
+$location = 'Location: thankyou?fname=' . $name[0];
 
 header($location);
 
