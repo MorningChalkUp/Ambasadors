@@ -5,6 +5,39 @@ require_once(__ROOT__.'/inc/vars.php');
 include('../inc/chalkup_db.php');
 include('../inc/mc.php');
 
+$data['url']      = $_POST['URL'];
+$data['source']   = $_POST['UTM_SOURCE'];
+$data['medium']   = $_POST['UTM_MEDIUM'];
+$data['campaign'] = $_POST['UTM_CAMP'];
+$data['gclid']    = $_POST['GCLID'];
+$data['content']  = $_POST['utm_content'];
+$data['term']     = $_POST['utm_term'];
+$data['reff']     = $_POST['reff'];
+
+$query = '';
+
+if (isset($data['source'])) {
+$query .= 'utm_source' . $data['source'] . '&';
+}
+if (isset($data['medium'])) {
+$query .= 'utm_medium' . $data['medium'] . '&';
+}
+if (isset($data['campaign'])) {
+$query .= 'utm_campaign' . $data['campaign'] . '&';
+}
+if (isset($data['gclid'])) {
+$query .= 'gclid' . $data['gclid'] . '&';
+}
+if (isset($data['content'])) {
+$query .= 'utm_content' . $data['content'] . '&';
+}
+if (isset($data['term'])) {
+$query .= 'utm_term' . $data['term'] . '&';
+}
+if (isset($data['reff'])) {
+$query .= 'reff' . $data['reff'] . '&';
+}
+
 $e = '';
 
 if ($_POST['full-name'] && $_POST['full-name'] != '') {
@@ -62,19 +95,10 @@ if (isset($error)) {
   foreach ($dat as $k => $v) {
     $d .= $k . '=' . $v . '&';
   }
-  $location = 'Location: ' . $_POST['URL'] . '?' . $d . trim($e, '&');
+  $location = 'Location: ' . $_POST['URL'] . '?' . $query . $d . trim($e, '&');
   header($location);
   die();
 }
-
-$data['url']      = $_POST['URL'];
-$data['source']   = $_POST['UTM_SOURCE'];
-$data['medium']   = $_POST['UTM_MEDIUM'];
-$data['campaign'] = $_POST['UTM_CAMP'];
-$data['gclid']    = $_POST['GCLID'];
-$data['content']  = $_POST['utm_content'];
-$data['term']     = $_POST['utm_term'];
-$data['reff']     = $_POST['reff'];
 
 $data['sub'] = 'sub';
 $data['new_subscriber'] = true;
