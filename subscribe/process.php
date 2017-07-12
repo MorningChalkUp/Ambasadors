@@ -17,25 +17,25 @@ $data['reff']     = $_POST['reff'];
 $query = '';
 
 if (isset($data['source']) && $data['source'] != '') {
-$query .= 'utm_source' . $data['source'] . '&';
+$query .= 'utm_source=' . $data['source'] . '&';
 }
 if (isset($data['medium']) && $data['medium'] != '') {
-$query .= 'utm_medium' . $data['medium'] . '&';
+$query .= 'utm_medium=' . $data['medium'] . '&';
 }
 if (isset($data['campaign']) && $data['campaign'] != '') {
-$query .= 'utm_campaign' . $data['campaign'] . '&';
+$query .= 'utm_campaign=' . $data['campaign'] . '&';
 }
 if (isset($data['gclid']) && $data['gclid'] != '') {
-$query .= 'gclid' . $data['gclid'] . '&';
+$query .= 'gclid=' . $data['gclid'] . '&';
 }
 if (isset($data['content']) && $data['content'] != '') {
-$query .= 'utm_content' . $data['content'] . '&';
+$query .= 'utm_content=' . $data['content'] . '&';
 }
 if (isset($data['term']) && $data['term'] != '') {
-$query .= 'utm_term' . $data['term'] . '&';
+$query .= 'utm_term=' . $data['term'] . '&';
 }
 if (isset($data['reff']) && $data['reff'] != '') {
-$query .= 'reff' . $data['reff'] . '&';
+$query .= 'reff=' . $data['reff'] . '&';
 }
 
 $e = '';
