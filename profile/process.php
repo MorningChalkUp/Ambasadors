@@ -7,9 +7,20 @@ $id = $_POST['id'];
 
 // Profile Image
 if ($section == 'image') {
+  dump_pre($_FILES["profile_pic"]);
+
   $u = $con->fetch('SELECT username FROM cu_amb_usr WHERE aid = ?', $id);
 
   if (isset($_FILES["profile_pic"]["name"]) && $_FILES["profile_pic"]["size"] > 0) {
+
+
+    $target_dir = "../img/uploads/";
+    $name = $_FILES["profile_pic"]["name"];
+    $tmp = explode(".", $name);
+    $filename = $u['username'] . '_' . round(microtime(true)) . '.' . end($tmp);
+
+    $target_file = $target_dir . $filename;
+
     // Check if image file is a actual image or fake image
     if(isset($_POST["submit"])) {
       $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -26,6 +37,7 @@ if ($section == 'image') {
       die();
     }
     // Allow certain file formats
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
     && $imageFileType != "gif" ) {
       $loc = 'Location: /profile/update.php/?update=image&error=image';
@@ -33,12 +45,6 @@ if ($section == 'image') {
       die();
     }
 
-    $target_dir = "../img/uploads/";
-    $name = $_FILES["profile_pic"]["name"];
-    $tmp = explode(".", $name);
-    $filename = $u['username'] . '_' . round(microtime(true)) . '.' . end($tmp);
-    $target_file = $target_dir . $filename;
-    dump_pre($target_file);
     move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $target_file);
     $set = array($filename, $id);
     $con->execute("UPDATE cu_amb_usr SET image = ? WHERE aid = ?", $set);
@@ -70,28 +76,32 @@ if ($section == 'personal') {
     $name[1] = '';
   }
 
-  $fname = $name[0];
-  $lname = $name[1];
-
   $update = array(
     'fullname' => $_POST['fullname'],
-    'fname' => $fname,
-    'lname' => $lname,
+    'fname' => $name[0],
+    'lname' => $name[1],
     'address' => $_POST['address'],
     'city' => $_POST['city'],
     'state' => $_POST['state'],
-    'zip' => $_POST['zip'],
+    'zip' => $zip,
     'email' => $_POST['email'],
     'size' => $_POST['size'],
   );
 
   foreach ($update as $value) {
+    if ($value == '') {
+      $value = null;
+    }
     $set[] = $value;
   }
 
   $set[] = $id;
 
+  dump_pre($set);
+
   $r = $con->execute('UPDATE cu_amb_usr SET fullname = ?, fname = ?, lname = ?, address = ?, city = ?, state = ?, zip = ?, email = ?, size = ? WHERE aid = ?', $set);
+
+  dump_pre($r);
 
 }
 if ($section == 'unpw') {
