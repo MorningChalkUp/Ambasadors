@@ -101,11 +101,11 @@
           <nav class="mdl-navigation mdl-layout--large-screen-only">
             <a class="mdl-navigation__link" href="https://morningchalkup.com" title="Home">Home</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/tidbits/" title="Tidbits">Tidbits</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="the Morning Chalk Up">the Morning Chalk Up</a><a class="mdl-navigation__link" href="/events" title="Events">Events</a><a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>    </nav>
           <div class="mdl-layout-spacer"></div>
-          <div class="right sub">
+          <!-- <div class="right sub">
             <a href="https://morningchalkup.com/subscribe">
               <i class="mdi mdi-email"></i> <span class="mdl-layout--large-screen-only">Subscribe</span>
             </a>
-          </div>
+          </div> -->
           <div class="right search">
             <a class="search-btn">
               <i class="mdi mdi-magnify"></i>
