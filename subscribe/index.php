@@ -36,6 +36,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Subscribe | Morning Chalk Up" />
     <meta name="twitter:image" content="http://morningchalkup.com/wp-content/uploads/2017/01/fb_og.png" />
+    <link rel="shortcut icon" href="<?php echo $domain; ?>/img/favicon.png" type="image/x-icon">
     <link type="icon" href="<?php echo $domain; ?>/img/favicon.png"  media="screen,projection"/>
     
     <link rel="profile" href="http://gmpg.org/xfn/11">
