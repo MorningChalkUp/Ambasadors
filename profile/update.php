@@ -53,6 +53,12 @@
   .mdl-textfield--file .mdl-button--file {
     right: 0;
   }
+
+  @media screen and (max-width: 838px) {
+    .mdl-textfield {
+      width: 100%;
+    }
+  }
 </style>
 
 <article class="main dashboard">
@@ -76,7 +82,7 @@
               <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
                 <div class="mdl-layout-spacer"></div>
                 <div class="mdl-cell mdl-cell--8-col">
-                  <table class="mdl-data-table" style="border: 0px; width: 100%;">
+                  <table class="mdl-data-table" style="border: 0px;">
                     <tbody>
                       <tr class="no-hover">
                         <td class="mdl-data-table__cell--non-numeric" colspan="2" style="white-space: normal; border: 0px;">
@@ -106,7 +112,7 @@
                       <tr class="no-hover">
                         <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">account_circle</i></td>
                         <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="width: 100%;">
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--file" style="">
                             <input class="mdl-textfield__input" placeholder="File" type="text" id="uploadFile" readonly/>
                             <div class="mdl-button mdl-button--primary mdl-button--icon mdl-button--file">
                               <i class="material-icons">attach_file</i><input type="file" id="uploadBtn" name="profile_pic">
@@ -130,7 +136,7 @@
                 <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
                   <div class="mdl-layout-spacer"></div>
                   <div class="mdl-cell mdl-cell--8-col">
-                    <table class="mdl-data-table" style="border: 0px; width: 100%;">
+                    <table class="mdl-data-table" style="border: 0px;">
                       <tbody>
                         <?php 
                           if ($error && $error == 'email') {
@@ -145,7 +151,7 @@
                         <tr class="no-hover">
                           <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">person</i></td>
                           <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
                               <input class="mdl-textfield__input" type="text" id="fullname" name="fullname" value="<?php echo $amb->getValue('fullname'); ?>">
                               <label class="mdl-textfield__label" for="fullname">Full Name</label>
                             </div>
@@ -154,7 +160,7 @@
                         <tr class="no-hover">
                           <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">location_on</i></td>
                           <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
                               <input class="mdl-textfield__input" type="text" id="address" name="address" value="<?php echo $amb->getValue('address'); ?>">
                               <label class="mdl-textfield__label" for="address">Address</label>
                             </div>
@@ -166,17 +172,17 @@
                             <div class="mdl-grid" style="padding: 0;">
                               <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
 
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--5-col" style="max-width: 100%; margin-left: 0; width: 100%;">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--5-col" style="max-width: 100%; margin-left: 0;">
                                   <input class="mdl-textfield__input" type="text" id="city" name="city" value="<?php echo $amb->getValue('city'); ?>">
                                   <label class="mdl-textfield__label" for="city">City</label>
                                 </div>
 
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col" style="max-width: 100%;width: 100%;">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col" style="max-width: 100%;">
                                   <input class="mdl-textfield__input" type="text" id="state" name="state"  value="<?php echo $amb->getValue('state'); ?>">
                                   <label class="mdl-textfield__label" for="state">State</label>
                                 </div>
 
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col" style="max-width: 100%; margin-right: 0;width: 100%;">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col" style="max-width: 100%; margin-right: 0;">
                                   <input class="mdl-textfield__input" type="text" id="zip" name="zip" value="<?php echo $amb->getValue('zip'); ?>">
                                   <label class="mdl-textfield__label" for="zip">Zip Code</label>
                                 </div>
@@ -187,7 +193,7 @@
                         <tr class="no-hover">
                           <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">email</i></td>
                           <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label <?php echo $error == 'email' ? 'is-invalid' : ''; ?>" style="width: 100%;">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label <?php echo $error == 'email' ? 'is-invalid' : ''; ?>" style="">
                               <input class="mdl-textfield__input" type="text" id="email" name="email" value="<?php echo $amb->getValue('email'); ?>">
                               <label class="mdl-textfield__label" for="email">Email</label>
                             </div>
@@ -196,7 +202,7 @@
                         <tr class="no-hover">
                           <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></td>
                           <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
                               <input class="mdl-textfield__input" type="text" id="size" name="size" value="<?php echo $amb->getValue('size'); ?>">
                               <label class="mdl-textfield__label" for="size">Size</label>
                             </div>
@@ -218,7 +224,7 @@
                 <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-cell mdl-cell--8-col">
-                      <table class="mdl-data-table" style="border: 0px; width: 100%;">
+                      <table class="mdl-data-table" style="border: 0px;">
                       <tbody>
                         <?php 
                           if ($error && $error == 'username') {
@@ -233,7 +239,7 @@
                         <tr class="no-hover">
                           <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">person</i></td>
                           <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label <?php echo $error == 'username' ? 'is-invalid' : ''; ?>" style="width: 100%;">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label <?php echo $error == 'username' ? 'is-invalid' : ''; ?>" style="">
                               <input class="mdl-textfield__input" type="text" id="username" name="username" value="<?php echo $amb->getValue('username'); ?>">
                               <label class="mdl-textfield__label" for="username">Username</label>
                             </div>
@@ -242,7 +248,7 @@
                         <tr class="no-hover">
                           <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">lock</i></td>
                           <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 100%;">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
                               <input class="mdl-textfield__input" type="password" id="password" name="password" value="<?php echo $amb->getValue('password'); ?>">
                               <label class="mdl-textfield__label" for="password">Password</label>
                             </div>
