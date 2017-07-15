@@ -26,7 +26,7 @@ if ($section == 'image') {
       $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
       if($check === false) {
         $loc = 'Location: /profile/update.php/?update=image&error=image';
-        header($loc);
+        // header($loc);
         die();
       }
     }
@@ -37,11 +37,12 @@ if ($section == 'image') {
       die();
     }
     // Allow certain file formats
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    // if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    // && $imageFileType != "gif" ) {
+    if($_FILES["profile_pic"]['type'] != "image/jpg" && $_FILES["profile_pic"]['type'] != "image/png" && $_FILES["profile_pic"]['type'] != "image/jpeg" && $_FILES["profile_pic"]['type'] != "image/gif" ) {
       $loc = 'Location: /profile/update.php/?update=image&error=image';
-      header($loc);
+      // header($loc);
       die();
     }
 
