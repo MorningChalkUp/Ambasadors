@@ -28,7 +28,7 @@ function sendPasswordReset($aid,$token,$site) {
 
   $link = $site . '/reset/?token=' . $token;
 
-  $html = "<p>We have received a request to reset your password for Morning Chalk Up Ambassadors. If you did not make this request feel free to ignore it. If you did make this request your reset will expire in 24 hours.</p>";
+  $html = "<p>We have received a request to reset your password on Morning Chalk Up Ambassadors for username <strong>" . $u['username'] . "</strong>. If you did not make this request feel free to ignore it. If you did make this request your reset will expire in 24 hours.</p>";
 
   $html .= '<p><a href="' . $link . '">Reset your password.</a></p>';
 
