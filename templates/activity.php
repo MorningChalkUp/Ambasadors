@@ -27,7 +27,7 @@ function getActions($count, $page, $amb, $con) {
               echo '</span>';
             echo '</td>';
             echo '<td class="mdl-data-table__cell--non-numeric mdl-cell--hide-phone" style="white-space: normal"';
-              echo '<span>' . $action['email'] . '</span><span class="mdl-cell--hide-phone"> Subscribed to the Morning Chalk Up.</span>';
+              echo '<span style="color: green;">' . $action['email'] . '</span><span class="mdl-cell--hide-phone"> Subscribed to the Morning Chalk Up.</span>';
             echo '</td>';
             echo '<td>';
               echo '<i class="mdi mdi-clock"></i> ' . date('M j, Y', strtotime($action['su_time']));
