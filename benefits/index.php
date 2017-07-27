@@ -124,6 +124,13 @@
                     $level['status'] = '';
                   }
                 }
+                if ($test == 'Partner') {
+                  if ($level['status'] == 'Partner 1') {
+                    $level['status'] = 'Partner';
+                  } else {
+                    $level['status'] = '';
+                  }
+                }
 
                 echo '<tr class="no-hover">';
                   echo '<td class="mdl-data-table__cell--non-numeric" style="border: 0; font-size: 16px; font-weight:bold;"><strong>' . $level['status'] . '</strong></td>';
