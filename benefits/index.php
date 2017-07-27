@@ -124,6 +124,7 @@
                     $level['status'] = '';
                   }
                 }
+                $test = substr($level['status'], 0, 7);
                 if ($test == 'Partner') {
                   if ($level['status'] == 'Partner 1') {
                     $level['status'] = 'Partner';
