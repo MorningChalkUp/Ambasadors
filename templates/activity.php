@@ -26,7 +26,7 @@ function getActions($count, $page, $amb, $con) {
                 echo '+' . $action['points'];
               echo '</span>';
             echo '</td>';
-            echo '<td class="mdl-data-table__cell--non-numeric mdl-cell--hide-phone" style="white-space: normal"';
+            echo '<td class="mdl-data-table__cell--non-numeric mdl-cell--hide-phone" style="white-space: normal">';
               echo '<span style="color: green;">' . $action['email'] . '</span><span class="mdl-cell--hide-phone"> Subscribed to the Morning Chalk Up.</span>';
             echo '</td>';
             echo '<td>';
