@@ -38,7 +38,7 @@ function sendPasswordReset($aid,$token,$site) {
     'from'    => 'Morning Chalk Up Ambassadors <info@mail.morningchalkup.com>',
     'h:Reply-To' => 'Morning Chalk Up <info@morningchalkup.com>',
     'to'      => $to,
-    'subject' => 'Passwrod Reset Morning Chalk Up Ambassadors',
+    'subject' => 'Password Reset Morning Chalk Up Ambassadors',
     'html'    => $html,
   ));
 }
