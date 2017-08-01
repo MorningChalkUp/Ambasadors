@@ -71,7 +71,7 @@ class Ambassador
       if($nextLevel != false) {
         $this->ambassador['next-status'] = $nextLevel['status'];
       } else {
-        $this->ambassador['next-status'] = 'MAXED OUT';
+        $this->ambassador['next-status'] = 'Max Level';
       }
 
       return $this->ambassador['next-status'];

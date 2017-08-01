@@ -38,6 +38,7 @@
           
         </div>
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
+          <center><small>Proggress to <?php echo $amb->getNextLevel($con); ?></small></center>
           <canvas id="current" width="150" height="150"></canvas>
           <script>
             var current = document.getElementById("current");
@@ -68,6 +69,8 @@
           </script>
         </div>
         <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+          <div style="float: right;"><small>Past 5 Days</small></div>
+          <small>Recent Growth</small>
           <canvas id="recent" height="150"></canvas>
           <script>
             var recent = document.getElementById("recent");
