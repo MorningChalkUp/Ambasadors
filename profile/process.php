@@ -39,7 +39,7 @@ if ($section == 'image') {
     // Allow certain file formats
     if($_FILES["profile_pic"]['type'] != "image/jpg" && $_FILES["profile_pic"]['type'] != "image/png" && $_FILES["profile_pic"]['type'] != "image/jpeg" && $_FILES["profile_pic"]['type'] != "image/gif" ) {
       $loc = 'Location: /profile/update.php/?update=image&error=image';
-      // header($loc);
+      header($loc);
       die();
     }
 
@@ -81,7 +81,7 @@ if ($section == 'personal') {
     'address' => $_POST['address'],
     'city' => $_POST['city'],
     'state' => $_POST['state'],
-    'zip' => $zip,
+    'zip' => $_POST['zip'],
     'email' => $_POST['email'],
     'size' => $_POST['size'],
   );
@@ -144,3 +144,49 @@ if ($section == 'unpw') {
 
 $loc = 'Location: /profile/?updated=1';
 header($loc);
+
+
+function makeThumb( $filename , $thumbSize=100 ){
+  global $max_width, $max_height;
+ /* Set Filenames */
+  $srcFile = '../img/uploads/original/'.$filename;
+  $thumbFile = '../img/uploads/'.$filename;
+ /* Determine the File Type */
+  $type = substr( $filename , strrpos( $filename , '.' )+1 );
+ /* Create the Source Image */
+  switch( $type ){
+    case 'jpg' : case 'jpeg' :
+      $src = imagecreatefromjpeg( $srcFile ); break;
+    case 'png' :
+      $src = imagecreatefrompng( $srcFile ); break;
+    case 'gif' :
+      $src = imagecreatefromgif( $srcFile ); break;
+  }
+ /* Determine the Image Dimensions */
+  $oldW = imagesx( $src );
+  $oldH = imagesy( $src );
+ /* Calculate the New Image Dimensions */
+  if( $oldH > $oldW ){
+   /* Portrait */
+    $newW = $thumbSize;
+    $newH = $oldH * ( $thumbSize / $newW );
+  }else{
+   /* Landscape */
+    $newH = $thumbSize;
+    $newW = $oldW * ( $thumbSize / $newH );
+  }
+ /* Create the New Image */
+  $new = imagecreatetruecolor( $thumbSize , $thumbSize );
+ /* Transcribe the Source Image into the New (Square) Image */
+  imagecopyresampled( $new , $src , 0 , 0 , ( $newW-$thumbSize )/2 , ( $newH-$thumbSize )/2 , $thumbSize , $thumbSize , $oldW , $oldH );
+  switch( $type ){
+    case 'jpg' : case 'jpeg' :
+      $src = imagejpeg( $new , $thumbFile ); break;
+    case 'png' :
+      $src = imagepng( $new , $thumbFile ); break;
+    case 'gif' :
+      $src = imagegif( $new , $thumbFile ); break;
+  }
+  imagedestroy( $new );
+  imagedestroy( $src );
+}
