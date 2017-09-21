@@ -1,17 +1,6 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__)));
-
-require_once(__ROOT__.'/inc/vars.php');
-require_once(__ROOT__.'/inc/db/class.DBPDO.php');
-
-if (!isset($con)) {
-  try {
-    $con = new DBPDO();
-  } catch (Exception $e) {
-    echo 'There was an issue establishing a connection with the Database';
-  }
-}
+require '../inc/functions.php';
 
 function addSubscriber($user) {
   if (!isInPerson($user['email'])) {
@@ -155,6 +144,7 @@ function updateAmbassador($username, $suid, $points) {
 
     if ($status['points_max'] < $amb['points'] + $points) {
       ++$amb['sid'];
+      sendLevelUpdate($amb['aid'], $amb['sid']);
     }
 
     $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points, $amb['sid'], $username));

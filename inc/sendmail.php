@@ -16,8 +16,35 @@ function sendContact($email, $text) {
   ));
 }
 
+function sendLevelUpdate($aid, $sid) {
+  global $con;
+
+  $mg = new Mailgun(MAILGUN_KEY);
+  $domain = MAILGUN_DOMAIN;
+
+  $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE aid = ?", $aid);
+
+  $status = $con->fetch("SELECT * FROM cu_amb_status WHERE sid = ?", $sid);
+
+  $to = $u['fullname'] . '<' . $u['email'] . '>';
+
+  $html = "<p>Congradulations on your new status: " . $status['status'] . "</p>"
+
+  $html = getTemplateTop() . $html . getTemplateBottom();
+
+  $result = $mg->sendMessage($domain, array(
+    'from'    => 'Morning Chalk Up Ambassadors <info@mail.morningchalkup.com>',
+    'h:Reply-To' => 'Morning Chalk Up <info@morningchalkup.com>',
+    'to'      => $to,
+    'subject' => 'You\'ve Leveld Up to ' . $status['status'] . '!',
+    'html'    => $html,
+  ));
+
+
+}
+
 function sendPasswordReset($aid,$token,$site) {
-  global$con;
+  global $con;
 
   $mg = new Mailgun(MAILGUN_KEY);
   $domain = MAILGUN_DOMAIN;
