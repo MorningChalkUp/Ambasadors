@@ -1,126 +1,56 @@
-/*
-Theme Name: MorningChalkUp
-Author: Eric Sherred
-Author URI: http://ericsherred.org/
-Description: Full Morning Chalk Up site development - January 2017
-Version: 2.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: morningchalkup_v2
-*/
-/* Event Chip Colors */
-body,
-p,
-div,
-li {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  line-height: 1.6em;
-  font-size: 20px;
-  color: #333132;
-}
-.center {
-  text-align: center;
-}
-.aligncenter {
-  margin: auto;
-  display: block;
-}
-a {
-  color: #3D5BA9;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-img.circle {
-  border-radius: 50%;
-}
-h1 {
-  font-size: 48px;
-  font-family: "industry", sans-serif;
-  line-height: 48px;
-  margin: 21px 0;
-  font-weight: 700;
-}
-h1 a {
-  font-weight: 700;
-}
-h1 a:hover {
-  text-decoration: none;
-}
-h2 {
-  font-size: 28px;
-  font-family: "industry", sans-serif;
-  line-height: 28px;
-  margin: 28px 0 !important;
-  font-weight: 600;
-}
-h3 {
-  font-size: 1.5em;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 700;
-  margin: .75em 0em;
-  line-height: 2em;
-}
-h4 {
-  font-size: 30px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  line-height: 1.5em;
-  margin: 0 0 .5em 0;
-}
-h5 {
-  font-size: 24px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-  line-height: 1.5em;
-  margin: 0;
-}
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i');
+
+html,body{font-family: 'Roboto', sans-serif;font-weight: 400;line-height: 170%;font-size: 20px;color: #484546;margin:0;padding:0;-webkit-text-size-adjust: none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
+
+.center {text-align: center;}
+.aligncenter {margin: auto;display: block;}
+
+a {color: #3D5BA9;position:relative;transition:0.2s all;text-decoration:none;}
+a:after{background-color:#3D5BA9;content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:0.2s all;}
+a:hover:after{width:100%;}
+
+a.block{display:block;}
+a.block:after{display:none;}
+
+img.circle {border-radius: 50%;}
+
+h1,h2,h3,h4,h5,h6{color:#333132;font-family: 'Roboto', sans-serif;font-weight: 600;line-height:120%;}
+h1 *,h2 *,h3 *,h4 *,h5 *,h6 *{line-height:100%;}
+
+h2 {font-size: 28px;}
+h3 {font-size: 26px;}
+h4 {font-size: 28px;}
+h5 {font-size: 24px;margin: 0;}
+
+h2.post-title{font-size:48px;}
+
+h3.section-title{font-family: "industry", sans-serif;font-weight: 400;text-transform:uppercase;letter-spacing:0.1em;margin:2rem 0 0.5rem;}
+h3.section-title strong{font-weight: 700;}
+
+hr{background-color:#3D5BA9;border:none;height:5px;margin:3rem 0;}
+
 blockquote {
-  font-family: "industry", sans-serif;
-  font-weight: 500;
-  width: 75%;
+  background-color:#f9f9f9;
+  font-weight: 400;
   font-size: 28px;
   text-align: center;
-  margin: auto;
+  margin: 2rem auto;
+  padding:1rem 2rem;
   font-style: italic;
-  letter-spacing: 1px;
   color: #333132;
+  position:relative;
+  border-left:3px solid #3D5BA9;
 }
-blockquote p,
-blockquote div {
-  font-family: "industry", sans-serif;
-  font-weight: 500;
-  font-size: 28px !important;
-  line-height: 1.3em;
-  font-style: italic;
-  letter-spacing: 1px;
-  color: #333132;
-}
-blockquote:before {
-  font-family: "industry", sans-serif;
-  font-weight: 600;
-  content: '“';
-  font-size: 100px;
-  margin-bottom: -70px;
-  display: block;
-  position: relative;
-  left: auto;
-  color: #3D5BA9;
-}
-blockquote:after {
-  content: '';
-}
-.mdl-grid {
-  max-width: 1170px;
-}
-.mdl-grid.feature {
-  max-width: 100%;
-}
-.mdl-grid.subscribe {
-  max-width: 100%;
-}
+
+.mdl-grid {max-width: 1170px;}
+.mdl-grid.feature {max-width: 100%;}
+.mdl-grid.subscribe {max-width: 100%;}
+
+a#logo:after{display:none;}
+#mcu-logo{width:240px;margin-right:2rem;}
+#mcu-logo .morning{fill:#333132;}
+#mcu-logo .chalkup{fill:#3D5BA9;}
+
 header.mdl-layout__header {
   z-index: 6;
   background-color: #fff;
@@ -149,7 +79,7 @@ header.mdl-layout__header .mdl-layout__header-row .mdl-layout-title a:hover {
 }
 header.mdl-layout__header .mdl-layout__header-row nav.mdl-navigation a.mdl-navigation__link {
   color: #333132;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 16px;
   padding: 0px 12px;
@@ -164,7 +94,7 @@ header.mdl-layout__header .mdl-layout__header-row .right {
 }
 header.mdl-layout__header .mdl-layout__header-row .right a {
   color: #333132;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 16px;
 }
@@ -249,7 +179,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 }
 .mdl-layout__drawer nav.mdl-navigation a.mdl-navigation__link {
   color: #333132;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 16px;
 }
@@ -263,7 +193,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   font-size: 18px;
 }
 .mdl-layout__content .page-content article.main h2 {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 700;
   font-size: 36px;
   line-height: 1em;
@@ -273,7 +203,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   color: rgba(51, 49, 50, 0.75);
   text-transform: uppercase;
   line-height: 1.5em;
-  font-family: 'Open Sans', sans-serif;
+  
 }
 .mdl-layout__content .page-content article.main .share {
   margin: 21px 0;
@@ -332,14 +262,14 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   margin-bottom: 10px;
 }
 .mdl-layout__content .page-content article.main .img .caption {
-  font-family: 'Open Sans', sans-serif;
+  
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
   text-align: right;
 }
 .mdl-layout__content .page-content article.main .sub-sec {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 700;
   font-size: 24px;
   text-transform: uppercase;
@@ -374,7 +304,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   text-align: right;
   max-width: 675px;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  
   font-size: 64px;
   font-weight: 400;
   /*max-width: 675px;*/
@@ -392,7 +322,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   display: block;
 }
 .mdl-layout__content .page-content article.main.about h2 {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 700;
   font-size: 36px;
   text-transform: uppercase;
@@ -426,7 +356,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   max-width: 200px;
 }
 .mdl-layout__content .page-content article.main.about .team section.team-member .name {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 700;
   font-size: 36px;
   color: #333132;
@@ -446,7 +376,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   font-weight: 500;
 }
 .mdl-layout__content .page-content article.main.about .team section.team-member .quote .title {
-  font-family: 'Open Sans', sans-serif;
+  
 }
 .mdl-layout__content .page-content article.main.about .team section.team-member .email a {
   background: #3D5BA9;
@@ -492,7 +422,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   float: right;
   max-width: 675px;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  
   font-size: 64px;
   font-weight: 400;
   line-height: 1.25em;
@@ -514,7 +444,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   padding: 0px 0px;
 }
 .mdl-layout__content .page-content article.main.subscribe-page .hero .form .headline {
-  font-family: 'Open Sans', sans-serif;
+  
   font-size: 24px;
   text-align: center;
 }
@@ -562,7 +492,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   margin: 18px 0;
 }
 .mdl-layout__content .page-content article.main.events .title p {
-  font-family: 'Open Sans', sans-serif;
+  
   font-size: 20px;
   color: #333132;
   line-height: 1.5em;
@@ -653,7 +583,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 }
 .mdl-layout__content .page-content section.archive .title p,
 .mdl-layout__content .page-content section.archive .title div {
-  font-family: 'Open Sans', sans-serif;
+  
   font-size: 20px;
   color: #333132;
   line-height: 1.5em;
@@ -661,7 +591,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 }
 .mdl-layout__content .page-content section.archive .title p.location,
 .mdl-layout__content .page-content section.archive .title div.location {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   color: #595858;
   margin: 5px 0;
@@ -686,7 +616,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 .mdl-layout__content .page-content section.archive.home .sec-title a {
   border-bottom: 3px solid #3D5BA9;
   color: #333132;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 32px;
 }
@@ -734,7 +664,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 .mdl-layout__content .page-content section.archive.home article.sub-feature .content .category mark {
   background: #3D5BA9;
   color: #fff;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 14px;
   padding: 5px;
@@ -747,7 +677,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 .mdl-layout__content .page-content section.archive.home article.sub-feature .content .title mark {
   background: #fff;
   color: #333132;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 48px;
   padding: 10px;
@@ -756,7 +686,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 .mdl-layout__content .page-content section.archive.home article.sub-feature .content .title mark a {
   background: #fff;
   color: #333132;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
 }
 .mdl-layout__content .page-content section.archive.home article.sub-feature .content .title mark a:hover {
@@ -778,14 +708,14 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   margin: 5px 0;
 }
 .mdl-layout__content .page-content section.archive.author .location {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 30px;
   color: #595858;
   margin: 5px 0;
 }
 .mdl-layout__content .page-content section.archive.author .bio {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 500;
   font-size: 24px;
   margin: 5px 0;
@@ -866,7 +796,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
   border-bottom: 1px solid rgba(51, 49, 50, 0.3);
 }
 .mdl-layout__content section.feature .mcu-roll .stories article.mcu .info .title {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 700;
   font-size: 18px;
   color: #333132;
@@ -875,14 +805,14 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 .mdl-layout__content section.feature .mcu-roll .stories article.mcu .info .title a {
   color: #333132;
   font-weight: 700;
-  font-family: 'Open Sans', sans-serif;
+  
   font-size: 18px;
 }
 .mdl-layout__content section.feature .mcu-roll .stories article.mcu .info .title a:hover {
   text-decoration: none;
 }
 .mdl-layout__content section.feature .mcu-roll .stories article.mcu .info .date {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 14px;
   color: #3D5BA9;
@@ -913,7 +843,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 .mdl-layout__content section.feature .featured .content .category mark {
   background: #3D5BA9;
   color: #fff;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 14px;
   padding: 5px;
@@ -923,7 +853,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 .mdl-layout__content section.feature .featured .content .title mark {
   background: #fff;
   color: #333132;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 48px;
   padding: 10px;
@@ -932,7 +862,7 @@ header.mdl-layout__header .mdl-layout__drawer-button {
 .mdl-layout__content section.feature .featured .content .title mark a {
   background: #fff;
   color: #333132;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
 }
 .mdl-layout__content section.feature .featured .content .title mark a:hover {
@@ -996,7 +926,7 @@ section.subscribe .sub-form .mdl-textfield label {
   color: rgba(255, 255, 255, 0.5);
   font-size: 16px;
   top: 18px;
-  font-family: 'Open Sans', sans-serif;
+  
 }
 section.subscribe .sub-form .mdl-textfield label:after {
   background: #fff;
@@ -1005,7 +935,7 @@ section.subscribe .sub-form .mdl-textfield input {
   border-bottom-color: rgba(255, 255, 255, 0.5);
   font-size: 16px;
   color: #fff;
-  font-family: 'Open Sans', sans-serif;
+  
 }
 section.subscribe .sub-form .mdl-textfield.is-dirty label {
   color: #fff;
@@ -1050,7 +980,7 @@ article.teaser .img .teaser-img:hover {
 }
 article.teaser .meta {
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 500;
   text-transform: uppercase;
   margin-top: 15px;
@@ -1084,13 +1014,13 @@ footer.mdl-mini-footer {
   background: #fff;
 }
 footer.mdl-mini-footer ul li {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 16px;
   color: #333132;
 }
 footer.mdl-mini-footer ul li a {
-  font-family: 'Open Sans', sans-serif;
+  
   font-weight: 600;
   font-size: 16px;
   color: #333132;

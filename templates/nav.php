@@ -1,8 +1,12 @@
 <header class="mdl-layout__header">
   <div class="mdl-layout__header-row" style="padding: 0 40px 0 80px;">
     <!-- Title -->
-    <span class="mdl-layout-title mdl-cell--hide-phone"><a href="/"><span>Morning</span> Chalk Up <span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400; text-transform: none;">Ambassador</span></a></span>
-    <span class="mdl-layout-title mdl-cell--hide-desktop mdl-cell--hide-tablet"><a href="/"><span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400; text-transform: none;">Ambassador</span></a></span>
+    <span class="mdl-layout-title">
+      <a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a>
+    </span>
+    <span class="mdl-layout-title mdl-cell--hide-desktop mdl-cell--hide-tablet">
+      <a href="/"><span style="color: rgba(51,49,50,0.75); sans-serif; font-weight: 400; text-transform: none;">Ambassador</span></a>
+    </span>
     <div class="mdl-layout-spacer"></div>
     <div <?php echo $loggedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
       <?php if ($loggedin) : ?>
