@@ -7,7 +7,10 @@
 
   require __ROOT__.'/inc/mcuamb_cookies.php';
   require __ROOT__.'/inc/class.ambassador.php';
-  require __ROOT__.'/inc/sendmail.php';
+  
+  if($_SERVER['SERVER_NAME'] != 'mcu-ambassadors.dev'){
+    require __ROOT__.'/inc/sendmail.php';
+  }
   require __ROOT__.'/templates/leaderboard.php';
   require __ROOT__.'/templates/activity.php';
 
