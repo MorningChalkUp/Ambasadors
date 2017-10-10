@@ -10,7 +10,7 @@
                 </tr>
                 <tr>
                     <td align="center" style="padding: 0 40px ;font-family: Roboto, sans-serif; font-size: 16px; line-height: 24px; color: #333333;">
-                        <p>Congratulations *|FNAME|*! Your hard work has paid off and you've attained <span style="font-weight:bold">*|Level|*</span> by earning <span style="font-weight:bold">*|100|*</span> points. We'll be sending out your prize soon so be on the lookout. In the meantime, why not try sharing the Morning Chalk Up on your CrossFit box's Facebook group?</p>
+                        <p>Congratulations *|FNAME|*! Your hard work has paid off and to reward you, we'll be sending you a prize! Be on the lookout. In the meantime, why not try sharing the Morning Chalk Up on your CrossFit box's Facebook group?</p>
                     </td>
                 </tr>
                 <tr>
@@ -33,7 +33,6 @@
                                 </td>
                                 <td align="center" valign="middle" width="50%" style="border:3px solid #3d5ba9;text-align: center;font-family: sans-serif; font-size: 18px; line-height: 27px; color: #333333; padding: 10px;" class="stack-column-center">
                                     <p style="margin: 0;">
-                                        Level: <span style="font-weight:bold">*|Level|*</span><br>
                                         Next Level: <span style="font-weight:bold">*|Next Level|*</span><br>
                                         Points needed: <span style="font-weight:bold">*|5|*<br>
                                     </p>
