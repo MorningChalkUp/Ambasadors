@@ -47,6 +47,7 @@ blockquote {
 .mdl-grid.subscribe {max-width: 100%;}
 
 a#logo:after{display:none;}
+a#logo{display:block;padding-bottom:8px;}
 #mcu-logo{width:240px;margin-right:2rem;}
 #mcu-logo .morning{fill:#333132;}
 #mcu-logo .chalkup{fill:#3D5BA9;}
