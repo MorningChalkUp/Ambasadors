@@ -13,8 +13,14 @@ $data['source']   = $_POST['UTM_SOURCE'];
 $data['medium']   = $_POST['UTM_MEDIUM'];
 $data['campaign'] = $_POST['UTM_CAMP'];
 $data['gclid']    = $_POST['GCLID'];
-// $data['content']  = $_POST['utm_content'];
-// $data['term']     = $_POST['utm_term'];
+$data['content']  = $_POST['utm_content'];
+$data['term']     = $_POST['utm_term'];
+$data['reff']     = $_POST['reff'];
+if (isset($_POST['FBID'])) {
+  $data['fbid']   = $_POST['FBID'];
+} else {
+  $data['fbid']   = '';
+}
 $data['reff']     = $_POST['reff'];
 
 $query = '';
@@ -55,24 +61,19 @@ if ($_POST['email'] && $_POST['email'] != '') {
 } else {
   $error[] = 'email';
 }
+if (isset($_POST['zip']) && $_POST['zip'] != '') {
+  $data['zip'] = $_POST['zip'];
+  $dat['zip'] = $data['zip'];
+} else {
+  $data['zip'] = '';
+  $error[] = 'zip';
+}
 if (isset($_POST['about']) && $_POST['about'] != '') {
   $data['about'] = $_POST['about'];
   $dat['about'] = $data['about'];
 } else {
   // $data['about'] = 'CrossFit Fan!';
   $error[] = 'about';
-}
-if (isset($_POST['website']) && $_POST['website'] != '') {
-  $data['website'] = $_POST['website'];
-  $dat['website'] = $data['website'];
-} else {
-  $data['website'] = '';
-}
-if (isset($_POST['affiliate']) && $_POST['affiliate'] != '') {
-  $data['affiliate'] = $_POST['affiliate'];
-  $dat['affiliate'] = $data['affiliate'];
-} else {
-  $data['affiliate'] = '';
 }
 if (isset($_POST['us']) || isset($_POST['eu'])) {
   if (isset($_POST['us'])) {
@@ -91,7 +92,7 @@ if (isset($_POST['us']) || isset($_POST['eu'])) {
   $error[] = 'list';
 }
 
-if (isset($error)) {
+if (isset($error) && (!isset($_POST['FBID']) || $data['fbid'] == '')) {
   foreach ($error as $err) {
     $e .= 'e[' . $err . ']=1&';
   }
@@ -125,13 +126,14 @@ $mc_data = array(
   'UTM_MEDIUM'      =>  $data['medium'],
   'UTM_CAMP'        =>  $data['campaign'],
   'GCLID'           =>  $data['gclid'],
-  'ZIP'             =>  '',
-  'WEBSITE'         =>  $data['website'],
-  'AFFILIATE'       =>  $data['affiliate'],
+  'ZIP'             =>  $data['zip'],
+  'WEBSITE'         =>  '',
+  'AFFILIATE'       =>  '',
   'COUNTRY'         =>  '',
   'us'              =>  $data['us'],
   'europe'          =>  $data['eu'],
-  'alerts'          =>  false,
+  'alerts'          =>  '',
+  'FBID'            =>  $data['fbid'],
 );
 
 $status = mc_get_status($data['email']);
