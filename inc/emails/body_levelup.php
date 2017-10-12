@@ -10,7 +10,7 @@
                 </tr>
                 <tr>
                     <td align="center" style="padding: 0 40px ;font-family: Roboto, sans-serif; font-size: 16px; line-height: 24px; color: #333333;">
-                        <p>Congratulations *|FNAME|*! Your hard work has paid off and to reward you, we'll be sending you a prize! Be on the lookout. In the meantime, why not try sharing the Morning Chalk Up on your CrossFit box's Facebook group?</p>
+                        <p>Congratulations $u['fname']! Your hard work has paid off and to reward you, we'll be sending you a prize! Be on the lookout. In the meantime, why not try sharing the Morning Chalk Up on your CrossFit box's Facebook group?</p>
                     </td>
                 </tr>
                 <tr>

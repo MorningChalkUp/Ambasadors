@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 define('__ROOT__', dirname(dirname(__FILE__)));
 
 require_once(__ROOT__.'/inc/vars.php');
@@ -10,8 +13,8 @@ $data['source']   = $_POST['UTM_SOURCE'];
 $data['medium']   = $_POST['UTM_MEDIUM'];
 $data['campaign'] = $_POST['UTM_CAMP'];
 $data['gclid']    = $_POST['GCLID'];
-$data['content']  = $_POST['utm_content'];
-$data['term']     = $_POST['utm_term'];
+// $data['content']  = $_POST['utm_content'];
+// $data['term']     = $_POST['utm_term'];
 $data['reff']     = $_POST['reff'];
 
 $query = '';
@@ -128,6 +131,7 @@ $mc_data = array(
   'COUNTRY'         =>  '',
   'us'              =>  $data['us'],
   'europe'          =>  $data['eu'],
+  'alerts'          =>  false,
 );
 
 $status = mc_get_status($data['email']);

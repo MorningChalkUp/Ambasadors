@@ -76,7 +76,7 @@ function addPerson($person) {
 }
 
 function getPersonId($email) {
-  global $con;/**/
+  global $con;
 
   $u = $con->fetch("SELECT pid FROM cu_people WHERE email = ?", $email);
 
@@ -107,15 +107,7 @@ function addSignup($signup) {
 
   global $con;
 
-  echo "<pre>";
-  var_dump($s);
-  echo "</pre>";
-
   $r = $con->execute("INSERT INTO cu_signup(pid, mcid, url, utm_source, utm_medium, utm_campaign, gclid, utm_content, utm_term, new_subscriber, reff_user, su_time) VALUES(:pid, :mcid, :url, :source, :medium, :campaign, :gclid, :content, :term, :new_subscriber, :reff, :su_time)", $s);
-
-  echo "<pre>";
-  var_dump($r);
-  echo "</pre>";
 
   if ($con->lastInsertId() == 0) {
     echo 'There was an issue adding your signup to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
@@ -144,9 +136,12 @@ function updateAmbassador($username, $suid, $points) {
 
     if ($status['points_max'] < $amb['points'] + $points) {
       ++$amb['sid'];
-      sendLevelUpdate($amb['aid'], $amb['sid']);
     }
 
     $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points, $amb['sid'], $username));
+
+    if ($status['points_max'] < $amb['points'] + $points) {
+      sendLevelUpdate($amb['aid'], $amb['sid'], (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]");
+    }
   }
 }
