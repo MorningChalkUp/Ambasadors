@@ -2,6 +2,8 @@
   $error = $_GET['e'];
 
   $domain = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+
+  $name = $_GET['fname'];
 ?>
 
 <!DOCTYPE html>
