@@ -100,7 +100,12 @@
           <!-- Title -->
           <span class="mdl-layout-title"><a href="https://morningchalkup.com"><span>Morning</span> Chalk Up</a></span>
           <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="https://morningchalkup.com" title="Home">Home</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/tidbits/" title="Tidbits">Tidbits</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="the Morning Chalk Up">the Morning Chalk Up</a><a class="mdl-navigation__link" href="/events" title="Events">Events</a><a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>    </nav>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/community/" title="Community">Community</a>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/tips/" title="Tips">Tips</a>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="Daily Email">Daily Email</a>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>
+          </nav>
           <div class="mdl-layout-spacer"></div>
           <!-- <div class="right sub">
             <a href="https://morningchalkup.com/subscribe">
@@ -164,14 +169,15 @@
                               case 'full-name':
                                 echo 'Full Name<br>';
                                 break;
+                              case 'zip':
+                                echo 'Zip Code Required<br>';
+                                break;
                               case 'country':
                                 echo 'Country<br>';
                                 break;
                               case 'about':
                                 echo 'Tell Us More About Youself<br>';
                                 break;
-                              case 'list':
-                                echo 'Subscribe To';
                             }
                           }
                         ?>
@@ -206,8 +212,8 @@
 
                         <div class="mdl-cell mdl-cell--4-col">
                           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="text" id="affiliate" name="affiliate">
-                            <label class="mdl-textfield__label" for="affiliate">Search For Your Box</label>
+                            <input class="mdl-textfield__input" type="text" id="zip" name="zip">
+                            <label class="mdl-textfield__label" for="zip">Zip Code *</label>
                           </div>
                         </div>
 

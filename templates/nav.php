@@ -1,8 +1,6 @@
 <header class="mdl-layout__header">
   <div class="mdl-layout__header-row" style="padding: 0 40px 0 80px;">
-    <!-- Title -->
-    <span class="mdl-layout-title mdl-cell--hide-phone"><a href="/"><span>Morning</span> Chalk Up <span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400; text-transform: none;">Ambassador</span></a></span>
-    <span class="mdl-layout-title mdl-cell--hide-desktop mdl-cell--hide-tablet"><a href="/"><span style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400; text-transform: none;">Ambassador</span></a></span>
+    <span class="mdl-layout-title"><a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a></span>
     <div class="mdl-layout-spacer"></div>
     <div <?php echo $loggedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
       <?php if ($loggedin) : ?>
@@ -15,8 +13,7 @@
       <?php endif; ?>
     </div>
 
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-        for="status">
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status">
       <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="/profile/" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">person</i> Profile</a></li>
       <li class="mdl-menu__item" style="text-align: center;"><a href="/logout/" style="color: red; text-decoration: none;">Sign Out</a></li>
     </ul>
@@ -25,9 +22,6 @@
 </header>
 <div class="mdl-layout__drawer" style="z-index: 6;">
   <span class="mdl-layout-title">
-    <span class="mdl-cell--hide-phone">
-      <a href="/" style="color: rgba(51,49,50,0.75); font-family: 'Open Sans', sans-serif; font-weight: 400; text-transform: none;">Ambassador</a>
-    </span>
     <?php if ($loggedin) : ?>
       <span id="status-mobile" class="mdl-cell--hide-desktop mdl-cell--hide-tablet" style="float: right; padding-right: 16px;">
       <?php 

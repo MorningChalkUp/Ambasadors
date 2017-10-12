@@ -21,6 +21,54 @@ require '../inc/functions.php';
   } else {
     $error[] = 'full-name';
   }
+  
+  /* First Name */
+  if ($_POST['first-name'] && $_POST['first-name'] != '') {
+    $data['first-name'] = $_POST['first-name'];
+    $dat['first-name'] = $data['first-name'];
+  } else {
+    $error[] = 'first-name';
+  }
+  
+  /* Last Name */
+  if ($_POST['last-name'] && $_POST['last-name'] != '') {
+    $data['last-name'] = $_POST['last-name'];
+    $dat['last-name'] = $data['last-name'];
+  } else {
+    $error[] = 'last-name';
+  }
+
+  /* Address */
+  if ($_POST['address'] && $_POST['address'] != '') {
+    $data['address'] = $_POST['address'];
+    $dat['address'] = $data['address'];
+  } else {
+    $error[] = 'address';
+  }
+
+  /* City */
+  if ($_POST['city'] && $_POST['city'] != '') {
+    $data['city'] = $_POST['city'];
+    $dat['city'] = $data['city'];
+  } else {
+    $error[] = 'city';
+  }
+
+  /* State */
+  if ($_POST['state'] && $_POST['state'] != '') {
+    $data['state'] = $_POST['state'];
+    $dat['state'] = $data['state'];
+  } else {
+    $error[] = 'state';
+  }
+
+  /* Zip */
+  if ($_POST['zip'] && $_POST['zip'] != '') {
+    $data['zip'] = $_POST['zip'];
+    $dat['zip'] = $data['zip'];
+  } else {
+    $error[] = 'zip';
+  }
 
   /* Regex Email Address And Does email Exist */
   if ($_POST['email'] && $_POST['email'] != '') {
@@ -98,6 +146,10 @@ require '../inc/functions.php';
     'fullname' => $data['full-name'],
     'fname' => $data['first-name'],
     'lname' => $data['last-name'],
+    'address' => $data['address'],
+    'city' => $data['city'],
+    'state' => $data['state'],
+    'zip' => $data['zip'],
     'email' => $data['email'],
     'password' => md5($data['password']),
     'username' => $data['username'],
@@ -105,7 +157,7 @@ require '../inc/functions.php';
   );
 
   /* Execute Insert */
-  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, email, password, username, join_time) VALUES(:fullname, :fname, :lname, :email, :password, :username, :join_time)", $user);
+  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, address, city, state, zip, email, password, username, join_time) VALUES(:fullname, :fname, :lname, :email, :password, :username, :join_time)", $user);
 
   /* Check If Successful */
   if ($con->lastInsertId() == 0) {
