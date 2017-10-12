@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i');
 
-html,body{font-family: 'Roboto', sans-serif;font-weight: 400;line-height: 170%;font-size: 20px;color: #484546;margin:0;padding:0;-webkit-text-size-adjust: none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
+html,body{font-family: 'Roboto', sans-serif;font-weight: 400;line-height: 170%;font-size: 18px;color: #484546;margin:0;padding:0;-webkit-text-size-adjust: none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
 
 .center {text-align: center;}
 .aligncenter {margin: auto;display: block;}
@@ -28,6 +28,9 @@ h3.section-title{font-family: "industry", sans-serif;font-weight: 400;text-trans
 h3.section-title strong{font-weight: 700;}
 
 hr{background-color:#3D5BA9;border:none;height:5px;margin:3rem 0;}
+
+/*needed to override mdl*/
+p, ul, ol{font-size:18px;line-height: 170%;}
 
 blockquote {
   background-color:#f9f9f9;
