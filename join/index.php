@@ -17,6 +17,8 @@
               
               <h2 class="headline">Become an Ambassador</h2>
 
+              <p>The Morning Chalk Up is an email newsletter for people who treat CrossFit as a lifestyle. If you love the Morning Chalk Up as much as we do, then apply to join our Ambassador program and earn cool swag for spreading the word.</p>
+
               <?php if (isset($error)): ?>
                 <div class="mdl-grid">
 
