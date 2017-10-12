@@ -3,9 +3,9 @@
           <div class="mdl-mini-footer__right-section">
             <ul class="mdl-mini-footer__link-list">
               <li>Connect With Us: </li>
-              <li><a href="#"><i class="mdi mdi-youtube-play"></i></a></li>
-              <li><a href="#"><i class="mdi mdi-instagram"></i></a></li>
-              <li><a href="#"><i class="mdi mdi-facebook-box"></i></a></li>
+              <li><a target="_blank" href="https://www.youtube.com/channel/UCaVuIEkcQkaLKCUfWF2-Nqg"><i class="mdi mdi-youtube-play"></i></a></li>
+              <li><a target="_blank" href="https://www.instagram.com/morningchalkup/"><i class="mdi mdi-instagram"></i></a></li>
+              <li><a target="_blank" href="https://www.facebook.com/MorningChalkUp/"><i class="mdi mdi-facebook-box"></i></a></li>
             </ul>
           </div>
         </footer>
