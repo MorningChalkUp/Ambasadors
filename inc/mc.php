@@ -27,7 +27,7 @@ function mc_get_status($email) {
       'timestamp_opt' => $result['timestamp_opt'],
     );
   }
-  return 'not subscribed';
+  return array('status' => 'not subscribed');
 }
 
 function mc_build_member($data) {
@@ -165,10 +165,4 @@ function mc_get_member_url($email) {
   $memberId = mc_get_member_id($email);
   
   return 'https://' . MC_DATA_CENTER . '.api.mailchimp.com/3.0/lists/' . MC_LIST_ID . '/members/' . $memberId;
-}
-
-function dump_pre($val) {
-  echo '<pre>';
-  var_dump($val);
-  echo '</pre>';
 }

@@ -4,7 +4,6 @@
   redirectIfLoggedOut('/login/');
   redirectIfLoggedIn('/dashboard/');
 
-
   $error = $_GET['e'];
 ?>
 
