@@ -38,8 +38,23 @@
                       <?php
                         foreach ($error as $e => $v) {
                           switch ($e) {
-                            case 'full-name':
-                              echo 'Full Name<br>';
+                            case 'first-name':
+                              echo 'First Name<br>';
+                              break;
+                            case 'last-name':
+                              echo 'Last Name<br>';
+                              break;
+                            case 'address':
+                              echo 'Address<br>';
+                              break;
+                            case 'city':
+                              echo 'City<br>';
+                              break;
+                            case 'state':
+                              echo 'State<br>';
+                              break;
+                            case 'zip':
+                              echo 'ZIP<br>';
                               break;
                             case 'email':
                               echo 'Email<br>';
