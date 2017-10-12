@@ -22,7 +22,7 @@
                             </tr>
                             <tr>
                                 <td align="center" style="padding: 0 40px 60px 40px;font-family: Roboto, sans-serif; font-size: 12px; line-height: 24px; color: #ffffff;">
-                                    <p style="margin:0">This automated email was sent to you by the Morning Chalkup Ambassador program.</p>
+                                    This automated email was sent to you by the Morning Chalkup Ambassador program.
                                 </td>
                             </tr>
                         </table>

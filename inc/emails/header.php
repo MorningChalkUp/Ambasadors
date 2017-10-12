@@ -96,8 +96,8 @@
     }
     @media screen and (max-width: 600px) {
         .email-container p {
-            font-size: 17px !important;
-            line-height: 22px !important;
+            font-size: 18px !important;
+            line-height: 27px !important;
         }
 
     }
