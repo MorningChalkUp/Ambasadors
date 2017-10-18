@@ -16,7 +16,7 @@ function getActions($count, $page, $amb, $con) {
     $showNext = true;
   }
 
-  echo '<table class="mdl-data-table mdl-js-data-table" style="width: 100%;">';
+  echo '<table class="mdl-data-table mdl-js-data-table" style="width: 100%;border:none">';
     echo '<tbody>';
       if (count($activityList) > 0) {
         foreach ($activityList as $action) {
