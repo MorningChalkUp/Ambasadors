@@ -19,21 +19,14 @@
             <div class="mdl-layout-spacer"></div>
             <div class="mdl-cell mdl-cell--10-col">
               
-              <div class="mdl-grid">
-                <div class="mdl-cell mdl-cell--12-col headline">
-                  <img src="https://morningchalkup.com/wp-content/themes/mcu-theme-version-2/img/chalkup.png" alt="Morning Chalk Up" style="max-width: 370px;width: 100%;display: block;margin: 0 auto 10px auto;">
-                </div>
-              </div>
 
               <div class="mdl-grid fields">
                 
                 <p>Check <?php echo isset($email) ? $email : 'your email' ?> for instructions to reset your password.</p>
 
-                <div class="mdl-cell mdl-cell--12-col">
                   <a href="/login/" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect submit" style="width: 100%;">
                     <- Return To Login
                   </a>
-                </div>
 
               </div>
 
