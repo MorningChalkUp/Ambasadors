@@ -1,5 +1,13 @@
 <?php 
   $domain = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
+
+  $current_page = $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+  if (isset($page_name)) {
+    $title = $page_name . ' | Morning Chalk Up Ambassadors';
+  } else {
+    $title = 'Morning Chalk Up Ambassadors';
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,17 +16,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="ambassadors" content="true">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-      <?php 
-        if (isset($page_name)) {
-          echo $page_name;
-          echo ' | Morning Chalk Up Ambassadors';
-        } else {
-          echo 'Morning Chalk Up Ambassadors';
-        }
-      ?>
-      
-    </title>
+    <meta property="og:title" content="<?php echo $title; ?>">
+    <meta property="og:description" content="We know you’ve already been spreading the word about the Morning Chalk Up with your CrossFit friends. Believe us when we say -- we appreciate it so much, and we never would have grown so big without your help. We built the Morning Chalk Up Ambassador program with you in mind, to reward your hard work and give you a little something extra when your friends subscribe.">
+    <meta property="og:image" content="<?php echo $domain ?>/img/chalkupambassadorteam2.jpg">
+    <meta property="og:url" content="<?php echo $current_page ?>">
+    <meta name="twitter:card" content="summary_large_image">
+    <title><?php echo $title; ?></title>
     <link rel="shortcut icon" href="<?php echo $domain; ?>/img/favicon.png" type="image/x-icon">
     <link type="icon" href="<?php echo $domain; ?>/img/favicon.png" />
     <link rel="stylesheet" href="/css/material.min.css">
