@@ -76,6 +76,17 @@ class Ambassador
 
       return $this->ambassador['next-status'];
   }
+  function getNextReward($con) {
+    $nextLevel = $con->fetch("SELECT reward FROM cu_amb_status WHERE sid = ?", $this->ambassador['sid']+1);
+
+      if($nextLevel != false) {
+        $this->ambassador['next-reward'] = $nextLevel['reward'];
+      } else {
+        $this->ambassador['next-reward'] = 'MAXED OUT';
+      }
+
+      return $this->ambassador['next-reward'];
+  }
 
   function getNextPoints($con) {
     $nextPoints = $con->fetch("SELECT points_min FROM cu_amb_status WHERE sid = ?", $this->ambassador['sid']+1);

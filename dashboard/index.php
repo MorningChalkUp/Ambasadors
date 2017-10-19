@@ -28,10 +28,13 @@
       <div class="mdl-grid mdl-color--white mdl-shadow--2dp">
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
           <p style="font-size: 24px;"><?php echo $amb->getValue('fullname'); ?></p>
-          <div class="text" style="font-size: 16px;">Level: <strong><?php echo $amb->getValue('status'); ?></strong></div>
-          <div class="text" style="font-size: 16px;">Next Level: <strong><?php echo $amb->getNextLevel($con); ?></strong></div>
-          <div class="text" style="font-size: 16px;">Points to <?php echo $amb->getNextLevel($con); ?>: <strong><?php echo $amb->getNextPoints($con); ?></strong></div>
-          <div class="text" style="font-size: 16px;"><a href="/benefits/">Benefits & Levels</a></div>
+          <p style="font-size: 16px;">
+            Your Points: <strong><?php echo $amb->getValue('points'); ?></strong></p>
+          <p style="font-size: 16px;">
+            <strong><?php echo $amb->getNextPoints($con); ?></strong> Points to Next Reward:<br/>
+            <strong><?php echo $amb->getNextReward($con); ?></strong><br/>
+          </p>
+          <small><a href="/benefits/">Benefits & Levels</a></small>
         </div>
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
           <p>Progress to Next Level</p>
@@ -46,7 +49,7 @@
                   <?php echo $amb->getValue('points'); ?>, 
                   <?php echo $amb->getNextPoints($con); ?>,
                 ],
-                backgroundColor: ['#178552', 'rgba(0, 0, 0, 0.1)'],
+                backgroundColor: ['#3D5BA9', 'rgba(0, 0, 0, 0.1)'],
               }],
               labels: [
                 'Points',
