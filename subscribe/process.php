@@ -2,7 +2,7 @@
 
 require_once '../inc/vars.php';
 include('../inc/chalkup_db.php');
-require_once 'cm/csrest_subscribers.php';
+require_once '../inc/cm/csrest_subscribers.php';
 
 $auth = array('api_key' => CM_API_KEY);
 $wrap = new CS_REST_Subscribers(CM_MCU_LIST_ID, $auth);
