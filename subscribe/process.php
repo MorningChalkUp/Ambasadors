@@ -157,11 +157,11 @@ $cm_data['CustomFields'] = $cm_custom_fields;
 
 $result = $wrap->add($cm_data);
 
-$data['subscribe'] = false;
+$data['subscribed'] = false;
 echo "Result of POST /api/v3.1/subscribers/{list id}.{format}\n<br />";
 if($result->was_successful()) {
     echo "Subscribed with code ".$result->http_status_code;
-    $data['subscribe'] = true;
+    $data['subscribed'] = true;
 } else {
     echo 'Failed with code '.$result->http_status_code."\n<br /><pre>";
     var_dump($result->response);
