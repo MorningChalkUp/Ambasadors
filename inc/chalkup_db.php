@@ -39,7 +39,6 @@ function isInPerson($email) {
 function addPerson($person) {
   $p = array(
     'email' => NULL,
-    'mcid' => NULL,
     'fname' => NULL,
     'lname' => NULL,
     'website' => NULL,
@@ -49,7 +48,7 @@ function addPerson($person) {
     'city' => NULL,
     'state' => NULL,
     'zip' => NULL,
-    'games_lvl' => NULL,
+    'games_lvl' => false,
     'subscribed' => NULL,
     'reff' => NULL,
     'affiliate' => NULL,
