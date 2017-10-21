@@ -169,6 +169,8 @@ if($result->was_successful()) {
     die();
 }
 
+$data['zip'] = intval($data['zip']);
+
 /* Add To chalk DB */
 addSubscriber($data);
 
