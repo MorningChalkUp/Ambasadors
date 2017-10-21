@@ -64,7 +64,7 @@ function addPerson($person) {
   if (isset($person['email'])) {
     global $con;
     if (!isInPerson($person['email'])) {
-      $r = $con->execute("INSERT INTO cu_people(email, mcid, fname, lname, website, about, address1, address2, city, state, zip, games_lvl, subscribed, first_reff, affiliate) VALUES(:email, :mcid, :fname, :lname, :website, :about, :address1, :address2, :city, :state, :zip, :games_lvl, :subscribed, :reff, :affiliate)", $p);
+      $r = $con->execute("INSERT INTO cu_people(email, fname, lname, website, about, address1, address2, city, state, zip, games_lvl, subscribed, first_reff, affiliate) VALUES(:email, :fname, :lname, :website, :about, :address1, :address2, :city, :state, :zip, :games_lvl, :subscribed, :reff, :affiliate)", $p);
       if ($con->lastInsertId() == 0) {
         echo 'There was an issue adding you to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
         die();
