@@ -1,15 +1,17 @@
 <header class="mdl-layout__header">
-  <div class="mdl-layout__header-row" style="padding:0 16px 0 72px">
-    <span class="mdl-layout-title"><a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a></span>
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">
+      <a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a>
+    </span>
     <div class="mdl-layout-spacer"></div>
     <div <?php echo $loggedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
       <?php if ($loggedin) : ?>
-        <span style="font-size: 14px;"><?php echo $amb->getValue('fullname'); ?></span> 
+        <span style="font-size: 14px;color:#333132;"><?php echo $amb->getValue('fullname'); ?></span> 
         <?php 
           echo '<img src="/img/uploads/' . $amb->getValue('image') . '" alt="' . $amb->getValue('fullname')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
         ?>
       <?php else : ?>
-        <span style="font-size: 14px;"><a href="/join/">Sign Up</a> / <a href="/login/">Log In</a></span>
+        <span style="font-size: 14px;color:#333132;"><a href="/join/">Sign Up</a> / <a href="/login/">Log In</a></span>
       <?php endif; ?>
     </div>
 

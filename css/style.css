@@ -56,7 +56,7 @@ blockquote {
 .mdl-grid.subscribe {max-width: 100%;}
 
 a#logo:after{display:none;}
-a#logo{display:block;padding-bottom:6px;}
+a#logo{display:block;line-height:0;}
 #mcu-logo{width:240px;margin-right:2rem;}
 #mcu-logo .morning{fill:#333132;}
 #mcu-logo .chalkup{fill:#3D5BA9;}
@@ -69,18 +69,9 @@ header.mdl-layout__header {
   box-shadow: none;
   border-bottom: 1px solid rgba(51, 49, 50, 0.2);
 }
-header.mdl-layout__header .mdl-layout__header-row {
-  padding: 0px 32px;
-  color: #333132;
-}
+
 header.mdl-layout__header .mdl-layout__header-row .mdl-layout-title {
   margin-right: 28px;
-}
-header.mdl-layout__header .mdl-layout__header-row .mdl-layout-title a {
-  text-transform: uppercase;
-  font-size: 20px;
-  font-family: "industry", sans-serif;
-  font-weight: 700;
 }
 header.mdl-layout__header .mdl-layout__header-row .mdl-layout-title a span {
   color: #333132;
