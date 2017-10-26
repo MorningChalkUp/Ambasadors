@@ -1,5 +1,5 @@
 <header class="mdl-layout__header">
-  <div class="mdl-layout__header-row" style="padding: 0 40px 0 80px;">
+  <div class="mdl-layout__header-row">
     <span class="mdl-layout-title"><a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a></span>
     <div class="mdl-layout-spacer"></div>
     <div <?php echo $loggedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
