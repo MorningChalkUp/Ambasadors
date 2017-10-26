@@ -1,27 +1,21 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
 
-define('__ROOT__', dirname(dirname(__FILE__)));
-
-require_once(__ROOT__.'/inc/vars.php');
+require_once '../inc/vars.php';
 include('../inc/chalkup_db.php');
-include('../inc/mc.php');
+require_once '../inc/cm/csrest_subscribers.php';
 
-$data['url']      = $_POST['URL'];
-$data['source']   = $_POST['UTM_SOURCE'];
-$data['medium']   = $_POST['UTM_MEDIUM'];
-$data['campaign'] = $_POST['UTM_CAMP'];
-$data['gclid']    = $_POST['GCLID'];
-$data['content']  = $_POST['utm_content'];
-$data['term']     = $_POST['utm_term'];
-$data['reff']     = $_POST['reff'];
-if (isset($_POST['FBID'])) {
-  $data['fbid']   = $_POST['FBID'];
-} else {
-  $data['fbid']   = '';
-}
-$data['reff']     = $_POST['reff'];
+$auth = array('api_key' => CM_API_KEY);
+$wrap = new CS_REST_Subscribers(CM_MCU_LIST_ID, $auth);
+
+$data['url']      = isset($_POST['URL']) ? $_POST['URL'] : '';
+$data['source']   = isset($_POST['UTM_SOURCE']) ? $_POST['UTM_SOURCE'] : '';
+$data['medium']   = isset($_POST['UTM_MEDIUM']) ? $_POST['UTM_MEDIUM'] : '';
+$data['campaign'] = isset($_POST['UTM_CAMP']) ? $_POST['UTM_CAMP'] : '';
+$data['gclid']    = isset($_POST['GCLID']) ? $_POST['GCLID'] : '';
+$data['content']  = isset($_POST['utm_content']) ? $_POST['utm_content'] : '';
+$data['term']     = isset($_POST['utm_term']) ? $_POST['utm_term'] : '';
+$data['reff']     = isset($_POST['reff']) ? $_POST['reff'] : '';
+$data['fbid']     = isset($_POST['FBID']) ? $_POST['FBID'] : '';
 
 $query = '';
 
@@ -64,26 +58,35 @@ if ($_POST['email'] && $_POST['email'] != '') {
 if (isset($_POST['zip']) && $_POST['zip'] != '') {
   $data['zip'] = $_POST['zip'];
   $dat['zip'] = $data['zip'];
+  $location = getLocation($data['zip']);
+  $data['city'] = isset($location['city']) ? $location['city'] : '';
+  $data['state'] = isset($location['state']) ? $location['state'] : '';
+  $data['country'] = isset($location['country']) ? $location['country'] : '';
 } else {
   $data['zip'] = '';
   $error[] = 'zip';
+}
+if (isset($_POST['affiliate']) && $_POST['affiliate'] != '') {
+  $data['affiliate'] = $_POST['affiliate'];
+  $dat['affiliate'] = $data['affiliate'];
+} else {
+  $data['affiliate'] = '';
 }
 if (isset($_POST['about']) && $_POST['about'] != '') {
   $data['about'] = $_POST['about'];
   $dat['about'] = $data['about'];
 } else {
-  // $data['about'] = 'CrossFit Fan!';
   $error[] = 'about';
 }
 if (isset($_POST['us']) || isset($_POST['eu'])) {
   if (isset($_POST['us'])) {
-    $data['us'] = true;
+    $data['us'] = 1;
     $dat['us'] = $data['us'];
   } else {
     $data['us'] = '';
   }
   if (isset($_POST['eu'])) {
-    $data['eu'] = true;
+    $data['eu'] = 1;
     $dat['eu'] = $data['eu'];
   } else {
     $data['eu'] = '';
@@ -116,51 +119,87 @@ if (!isset($name[1])) {
 $data['fname'] = $name[0];
 $data['lname'] = $name[1];
 
-$mc_data = array(
-  'email_address'   =>  $data['email'],
-  'FNAME'           =>  $name[0],
-  'LNAME'           =>  $name[1],
-  'ABOUT'           =>  $data['about'],
-  'URL'             =>  $data['url'],
-  'UTM_SOURCE'      =>  $data['source'],
-  'UTM_MEDIUM'      =>  $data['medium'],
-  'UTM_CAMP'        =>  $data['campaign'],
-  'GCLID'           =>  $data['gclid'],
-  'ZIP'             =>  $data['zip'],
-  'WEBSITE'         =>  '',
-  'AFFILIATE'       =>  '',
-  'COUNTRY'         =>  '',
-  'us'              =>  $data['us'],
-  'europe'          =>  $data['eu'],
-  'alerts'          =>  '',
-  'FBID'            =>  $data['fbid'],
+$cm_data = array(
+  'EmailAddress'    =>  $data['email'],
+  'Name'            =>  $data['full-name'],
+  'Resubscribe'     =>  true,
 );
 
-$status = mc_get_status($data['email']);
+$fields = array(
+  'About'           =>  $data['about'],
+  'URL'             =>  $data['url'],
+  'utm_source'      =>  $data['source'],
+  'utm_medium'      =>  $data['medium'],
+  'utm_campaign'    =>  $data['campaign'],
+  'Zip Code'        =>  $data['zip'],
+  'City'            =>  $data['city'],
+  'State'           =>  $data['state'],
+  'Country'         =>  $data['country'],
+  'US Edition'      =>  $data['us'],
+  'EU Edition'      =>  $data['eu'],
+  'FBID'            =>  $data['fbid'],
+  'Affiliate'       =>  $data['affiliate'],
+  'Reff'            =>  $data['reff'],
+);
 
-if(!isset($data['sub']) || $data['sub'] == '') {
-  if ($status['status'] == 'subscribed' || $status['status'] == 'pending') {
-    $data['subscribed'] = true;
-    $mcid = mc_add_member($mc_data);
-  } else {
-    $data['subscribed'] = false;
-    $mcid = null;
+$cm_custom_fields = array();
+
+foreach ($fields as $key => $value) {
+  if (isset($value) && ($value != NULL || $value != '')) {
+    array_push(
+      $cm_custom_fields, 
+      array('key' => $key, 'value' => $value)
+    );
   }
-} else {
-  if ($status['status'] != 'subscribed') {
-    $data['new_subscriber'] = true;
-  }
-  $data['subscribed'] = true;
-  $mcid = mc_add_member($mc_data);
 }
 
+$cm_data['CustomFields'] = $cm_custom_fields;
 
+$result = $wrap->add($cm_data);
+
+$data['subscribed'] = false;
+echo "Result of POST /api/v3.1/subscribers/{list id}.{format}\n<br />";
+if($result->was_successful()) {
+    echo "Subscribed with code ".$result->http_status_code;
+    $data['subscribed'] = true;
+} else {
+    echo 'Failed with code '.$result->http_status_code."\n<br /><pre>";
+    var_dump($result->response);
+    echo '</pre>';
+    die();
+}
+
+$data['zip'] = intval($data['zip']);
 
 /* Add To chalk DB */
 addSubscriber($data);
-
 
 $location = 'Location: thankyou?fname=' . $name[0];
 
 header($location);
 
+function getLocation($zip) {
+  $key = 'AIzaSyBwTd5GESfcwrhWMp1oaIcWqeKkERZDrxc';
+  $url = 'https://maps.googleapis.com/maps/api/geocode/json';
+
+  $call = $url . '?address=' . $zip . '&key=' . $key;
+
+  $result = file_get_contents($call);
+  $data = json_decode($result, true);
+
+  foreach ($data['results'][0]['address_components'] as $key) {
+    switch ($key['types'][0]) {
+      case 'locality':
+        $loc['city'] = $key['long_name'];
+        break;
+      case 'administrative_area_level_1':
+        $loc['state'] = $key['long_name'];
+        break;
+      case 'country':
+        $loc['country'] = $key['long_name'];
+        break;
+    }
+  }
+
+  return $loc;
+}

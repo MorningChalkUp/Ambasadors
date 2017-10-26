@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require '../inc/functions.php';
 
 function addSubscriber($user) {
@@ -39,20 +42,15 @@ function isInPerson($email) {
 function addPerson($person) {
   $p = array(
     'email' => NULL,
-    'mcid' => NULL,
     'fname' => NULL,
     'lname' => NULL,
-    'website' => NULL,
     'about' => NULL,
-    'address1' => NULL,
-    'address2' => NULL,
     'city' => NULL,
     'state' => NULL,
     'zip' => NULL,
-    'games_lvl' => NULL,
+    'country' => NULL,
     'subscribed' => NULL,
     'reff' => NULL,
-    'affiliate' => NULL,
   );
 
   foreach ($p as $key => $value) {
@@ -60,11 +58,12 @@ function addPerson($person) {
       $p[$key] = $person[$key];
     }
   }
-
   if (isset($person['email'])) {
     global $con;
+
     if (!isInPerson($person['email'])) {
-      $r = $con->execute("INSERT INTO cu_people(email, mcid, fname, lname, website, about, address1, address2, city, state, zip, games_lvl, subscribed, first_reff, affiliate) VALUES(:email, :mcid, :fname, :lname, :website, :about, :address1, :address2, :city, :state, :zip, :games_lvl, :subscribed, :reff, :affiliate)", $p);
+      $r = $con->execute("INSERT INTO cu_people(email, fname, lname,  about, city, state, zip, country, subscribed, first_reff) VALUES(:email, :fname, :lname, :about, :city, :state, :zip, :country, :subscribed, :reff)", $p);
+      var_dump($con->lastInsertId());
       if ($con->lastInsertId() == 0) {
         echo 'There was an issue adding you to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
         die();
