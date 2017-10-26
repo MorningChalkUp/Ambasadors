@@ -48,22 +48,22 @@ if ($section == 'image') {
 
     $type = substr(strrchr($_FILES["profile_pic"]['type'], '/'), 1);
     switch ($type){
-      case 'image/jpeg':
+      case 'jpeg':
         $image_create_func = 'imagecreatefromjpeg';
         $image_save_func = 'imagejpeg';
         $new_image_ext = 'jpg';
         break;
-      case 'image/png':
+      case 'png':
         $image_create_func = 'imagecreatefrompng';
         $image_save_func = 'imagepng';
         $new_image_ext = 'png';
         break;
-      case 'image/bmp':
+      case 'bmp':
         $image_create_func = 'imagecreatefrombmp';
         $image_save_func = 'imagebmp';
         $new_image_ext = 'bmp';
         break;
-      case 'image/gif':
+      case 'gif':
         $image_create_func = 'imagecreatefromgif';
         $image_save_func = 'imagegif';
         $new_image_ext = 'gif';
