@@ -1,3 +1,7 @@
 vars.php
-inc/uploads/
+img/uploads/*
+!img/uploads/raw
+img/uploads/raw/*
+!img/uploads/resized
+img/uploads/resized/*
 .DS_Store
