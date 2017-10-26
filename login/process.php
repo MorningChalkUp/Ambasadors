@@ -24,7 +24,7 @@ require '../inc/functions.php';
   }
 
   if (isset($error) && $error) {
-    $location = 'Location: ' . $_POST['URL'] . '?e=1';
+    $location = 'Location: ./?e=1';
     header($location);
     die();
   }
