@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require '../inc/functions.php';
 
 $section = $_POST['section'];
@@ -23,7 +26,7 @@ if ($section == 'image') {
 
     // Check if image file is a actual image or fake image
     if(isset($_POST["submit"])) {
-      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+      $check = getimagesize($_FILES["profile_pic"]["tmp_name"]);
       if($check === false) {
         $loc = 'Location: /profile/update.php/?update=image&error=image';
         header($loc);
@@ -31,7 +34,7 @@ if ($section == 'image') {
       }
     }
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["profile_pic"]["size"] > 5000000) {
       $loc = 'Location: /profile/update.php/?update=image&error=size';
       header($loc);
       die();
@@ -43,9 +46,60 @@ if ($section == 'image') {
       die();
     }
 
-    move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $target_file);
+    $type = substr(strrchr($_FILES["profile_pic"]['type'], '/'), 1);
+    switch ($type){
+      case 'image/jpeg':
+        $image_create_func = 'imagecreatefromjpeg';
+        $image_save_func = 'imagejpeg';
+        $new_image_ext = 'jpg';
+        break;
+      case 'image/png':
+        $image_create_func = 'imagecreatefrompng';
+        $image_save_func = 'imagepng';
+        $new_image_ext = 'png';
+        break;
+      case 'image/bmp':
+        $image_create_func = 'imagecreatefrombmp';
+        $image_save_func = 'imagebmp';
+        $new_image_ext = 'bmp';
+        break;
+      case 'image/gif':
+        $image_create_func = 'imagecreatefromgif';
+        $image_save_func = 'imagegif';
+        $new_image_ext = 'gif';
+        break;
+      default:
+        $image_create_func = 'imagecreatefromjpeg';
+        $image_save_func = 'imagejpeg';
+        $new_image_ext = 'jpg';
+    }
 
-    $loc = 'Location: /profile/crop/?img=' . $filename .'&id=' . $id;
+    $image = $image_create_func($_FILES["profile_pic"]["tmp_name"]);
+
+    if($_FILES["profile_pic"]['type'] == 'image/jpeg') {
+      $exif = exif_read_data($_FILES["profile_pic"]["tmp_name"]);
+      if(isset($exif['Orientation'])) {
+        $orientation = $exif['Orientation'];
+      }
+    }
+
+    if(isset($orientation)) {
+      switch($orientation) {
+        case 3:
+          $image = imagerotate($image, 180, 0);
+          break;
+        case 6:
+          $image = imagerotate($image, -90, 0);
+          break;
+        case 8:
+          $image = imagerotate($image, 90, 0);
+          break;
+      }
+    }
+
+    $image_save_func($image, $target_file);
+
+    $loc = 'Location: /profile/crop/?img=' . $filename;
     header($loc);
     die();
 
