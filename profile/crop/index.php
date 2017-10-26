@@ -29,7 +29,7 @@
               Crop Image
             </button>
             <div id="full-img" style="text-align: center; overflow: hidden; max-width: 100%;">
-              <img style="max-width: 100%; overflow: hidden;" src="/img/uploads/raw/<?php echo $_GET['img'] ?>" data-img-file="<?php echo $_GET['img'] ?>" data-aid="<?php echo $_GET['id'] ?>">
+              <img style="max-width: 100%; overflow: hidden;" src="/img/uploads/raw/<?php echo $_GET['img'] ?>" data-img-file="<?php echo $_GET['img'] ?>">
               <div id="crop"></div>
             </div>
           </div>
