@@ -124,33 +124,53 @@
         <p><strong>General</strong></p>
 
         <div class="question-section">
-          <div class="question" onclick="toggel('#points');"><i id="points-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How many points do you earn per new subscriber?</div>
+          <div class="question" onclick="toggel('#join');"><i id="join-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How do I become an ambassador?</div>
 
-          <div id="points" class="hidden answer">You get 1 point per subscriber.</div>
+          <div id="join" class="hidden answer">You just need to <a href="/join/" alt="Join">sign up here</a>. Once you get 5 friends to subscribe you’re officially an ambassador.</div>
         </div>
 
         <div class="question-section">
-          <div class="question" onclick="toggel('#credit');"><i id="credit-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How long does it take before I will get credit for a subscription?</div>
+          <div class="question" onclick="toggel('#promo');"><i id="promo-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>Do you have any promotional materials that I can use to post to social media?</div>
           
-          <div id="credit" class="hidden answer">You get your points instintaniously. So as soon as someone signs up you'll see it on your dashboard.</div>
+          <div id="promo" class="hidden answer">Not quite yet. We’re still working on that.</div>
         </div>
 
         <div class="question-section">
-          <div class="question" onclick="toggel('#remove');"><i id="remove-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>I hate Eric mostly because his hair is blonde. Can we remove him?</div>
+          <div class="question" onclick="toggel('#invite');"><i id="invite-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>My friend wants to become an ambassador. How can I invite he/she join?</div>
           
-          <div id="remove" class="hidden answer">Competition is the spice of life right? You can try to outwork Eric if you'd like. Of course Eric is also SuperAdmin and controlls the system. So good luck with that.</div>
+          <div id="invite" class="hidden answer">Absolutely! And if you invite your friend through your dashboard you’ll get 3 points if he/she excepts.</div>
         </div>
 
         <div class="question-section">
-          <div class="question" onclick="toggel('#add');"><i id="add-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>Who do I talk to about getting a friend signed up for Ambassadors?</div>
+          <div class="question" onclick="toggel('#description');"><i id="description-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>I don't know how to describe the Morning Chalk Up to my friends. How would you describe it?</div>
           
-          <div id="add" class="hidden answer">You need to email <a href="mailto:justin@morningchalkup.com?subject=[Add Ambassador]">justin@morningchalkup.com</a> with a special request in order to get your friend signed up as an ambassador.</div>
+          <div id="description" class="hidden answer">The Morning Chalk Up is a daily newsletter that tells you everything you need to know about CrossFit news in 5 minutes or less.</div>
+        </div>
+
+        <p><strong>Earning Points</strong></p>
+
+        <div class="question-section">
+          <div class="question" onclick="toggel('#sub');"><i id="sub-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How many points do I earn per subscriber?</div>
+
+          <div id="sub" class="hidden answer">You get 1 point per subscriber.</div>
         </div>
 
         <div class="question-section">
-          <div class="question" onclick="toggel('#quit');"><i id="quit-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>I want to quit.</div>
+          <div class="question" onclick="toggel('#amb');"><i id="amb-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How many points do I earn if I recruit a new ambassador?</div>
 
-          <div id="quit" class="hidden answer">Email <a href="mailto:justin@morningchalkup.com?subject=[Ambassador Wants To Quit]">justin@morningchalkup.com</a> so he can talk you off the ledge. But if you really do want to leave the program also email Justin and we'll get you removed.</div>
+          <div id="amb" class="hidden answer">You get 3 points per ambassador.</div>
+        </div>
+
+        <div class="question-section">
+          <div class="question" onclick="toggel('#other');"><i id="other-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>Are there any other ways to get points?</div>
+
+          <div id="other" class="hidden answer">No, not at this time.</div>
+        </div>
+
+        <div class="question-section">
+          <div class="question" onclick="toggel('#credit');"><i id="credit-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>How long does it take before I will get credit for a sign up? </div>
+
+          <div id="credit" class="hidden answer">Instantly! As soon as someone signs up you will see it on your dashboard.</div>
         </div>
 
         <script>
