@@ -71,24 +71,20 @@
         </div>
         <div class="mdl-grid" style="margin-top: 30px;">
           <div class="mdl-cell mdl-cell--12-col" style="border-bottom: 1px solid #F1F2F2;">
-            <h1 style="text-align: center; font-family: 'Open Sans', sans-serif; font-weight: normal;"><?php echo $amb->getValue('fullname'); ?></h1>
+            <h1 style="text-align: center;"><?php echo $amb->getValue('fullname'); ?></h1>
           </div>
           <form action="/profile/process.php" enctype="multipart/form-data" method="post" class="mdl-grid" style="padding: 0;">
             <?php if ($image): ?>
             <div class="mdl-cell mdl-cell--12-col mdl-grid" style="border-bottom: 1px solid #F1F2F2;">
               <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
                 <strong>Update Profile Picture</strong>
+                <small>Square images please. Maximum file size: 5MB. jpg, jpeg, png, or gif only.</small>
               </div>
               <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
                 <div class="mdl-layout-spacer"></div>
                 <div class="mdl-cell mdl-cell--8-col">
                   <table class="mdl-data-table" style="border: 0px;">
                     <tbody>
-                      <tr class="no-hover">
-                        <td class="mdl-data-table__cell--non-numeric" colspan="2" style="white-space: normal; border: 0px;">
-                          <small>Square images please. Maximum file size: 5MB. jpg, jpeg, png, or gif only.</small>
-                        </td>
-                      </tr>
                       <?php 
                         if ($error && $error == 'image') {
                           echo '<tr class="no-hover">';

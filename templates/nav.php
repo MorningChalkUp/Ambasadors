@@ -1,5 +1,5 @@
 <header class="mdl-layout__header">
-  <div class="mdl-layout__header-row">
+  <div class="mdl-layout__header-row" style="padding:0 16px 0 72px">
     <span class="mdl-layout-title"><a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a></span>
     <div class="mdl-layout-spacer"></div>
     <div <?php echo $loggedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
@@ -13,7 +13,7 @@
       <?php endif; ?>
     </div>
 
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status">
+    <ul id="menu" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status">
       <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="/profile/" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">person</i> Profile</a></li>
       <li class="mdl-menu__item" style="text-align: center;"><a href="/logout/" style="color: red; text-decoration: none;">Sign Out</a></li>
     </ul>

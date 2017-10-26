@@ -31,11 +31,16 @@
     <div class="mdl-cell mdl-cell--8-col">
       <div class="mdl-color--white mdl-shadow--2dp">
         <div style="background-color: #3D5BA9; max-height: 80px; height: 100%;">
-          <div style="width: 100px; height: 100px; margin: auto; padding-top: 30px;"><a href="update.php?update=image"><img src="/img/uploads/<?php echo $amb->getValue('image'); ?>" alt="<?php echo $amb->getValue('fullname'); ?>" style="border-radius: 50%; height: 100px; width: 100px;"><i class="material-icons" style="position: absolute; top: 124px;">mode_edit</i></a></div>
+          <div style="width: 100px; height: 100px; margin: auto; padding-top: 30px;position:relative;">
+            <a href="update.php?update=image" class="nostrike">
+              <img src="/img/uploads/<?php echo $amb->getValue('image'); ?>" alt="<?php echo $amb->getValue('fullname'); ?>" style="border-radius: 50%; height: 100px; width: 100px;">
+              <i class="material-icons" style="position: absolute; top: 34px;right:-10px;">mode_edit</i>
+            </a>
+          </div>
         </div>
         <div class="mdl-grid" style="margin-top: 30px;">
           <div class="mdl-cell mdl-cell--12-col" style="border-bottom: 1px solid #F1F2F2;">
-            <h1 style="text-align: center; font-family: 'Open Sans', sans-serif; font-weight: normal;"><?php echo $amb->getValue('fullname'); ?></h1>
+            <h1 style="text-align: center;"><?php echo $amb->getValue('fullname'); ?></h1>
           </div>
           <div class="mdl-cell mdl-cell--12-col mdl-grid" style="border-bottom: 1px solid #F1F2F2;">
             <div class="mdl-cell mdl-cell--12-col" style="padding: 0; margin: 0;">

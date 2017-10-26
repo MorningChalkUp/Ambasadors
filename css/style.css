@@ -9,6 +9,8 @@ a {color: #3D5BA9;position:relative;transition:0.2s all;text-decoration:none;}
 a:after{background-color:#3D5BA9;content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:0.2s all;}
 a:hover:after{width:100%;}
 
+a.nostrike:after{display:none;}
+
 a.block{display:block;}
 a.block:after{display:none;}
 
@@ -58,6 +60,8 @@ a#logo{display:block;padding-bottom:6px;}
 #mcu-logo{width:240px;margin-right:2rem;}
 #mcu-logo .morning{fill:#333132;}
 #mcu-logo .chalkup{fill:#3D5BA9;}
+
+#menu a:after{display:none;}
 
 header.mdl-layout__header {
   z-index: 6;
