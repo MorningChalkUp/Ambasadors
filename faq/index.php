@@ -138,7 +138,7 @@
         <div class="question-section">
           <div class="question" onclick="toggel('#invite');"><i id="invite-i" class="material-icons" style="float: right;">keyboard_arrow_right</i>My friend wants to become an ambassador. How can I invite he/she join?</div>
           
-          <div id="invite" class="hidden answer">Absolutely! And if you invite your friend through your dashboard you’ll get 3 points if he/she excepts.</div>
+          <div id="invite" class="hidden answer">Absolutely! And if you invite your friend through your dashboard you’ll get 3 points if he/she accepts.</div>
         </div>
 
         <div class="question-section">
