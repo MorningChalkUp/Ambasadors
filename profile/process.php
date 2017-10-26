@@ -14,7 +14,7 @@ if ($section == 'image') {
   if (isset($_FILES["profile_pic"]["name"]) && $_FILES["profile_pic"]["size"] > 0) {
 
 
-    $target_dir = "../img/uploads/";
+    $target_dir = "../img/uploads/raw/";
     $name = $_FILES["profile_pic"]["name"];
     $tmp = explode(".", $name);
     $filename = $u['username'] . '_' . round(microtime(true)) . '.' . end($tmp);
@@ -26,7 +26,7 @@ if ($section == 'image') {
       $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
       if($check === false) {
         $loc = 'Location: /profile/update.php/?update=image&error=image';
-        // header($loc);
+        header($loc);
         die();
       }
     }
@@ -44,8 +44,11 @@ if ($section == 'image') {
     }
 
     move_uploaded_file($_FILES["profile_pic"]["tmp_name"], $target_file);
-    $set = array($filename, $id);
-    $con->execute("UPDATE cu_amb_usr SET image = ? WHERE aid = ?", $set);
+
+    $loc = 'Location: /profile/crop/?img=' . $filename .'&id=' . $id;
+    header($loc);
+    die();
+
   } else {
     $default = 'person.png';
     $set = array($default, $id);
