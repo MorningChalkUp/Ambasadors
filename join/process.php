@@ -1,41 +1,55 @@
 <?php
 require '../inc/functions.php';
+require_once '../inc/cm/csrest_subscribers.php';
 
 /* Validate Info */
 
   $e = '';
 
-  /* Full Name -> First and Last */
-  if ($_POST['full-name'] && $_POST['full-name'] != '') {
-    $data['full-name'] = $_POST['full-name'];
-    $dat['full-name'] = $data['full-name'];
-  
-    $name = explode(' ',$data['full-name']);
+  if ($_POST['full-name']) {
+    /* Full Name -> First and Last */
+    if ($_POST['full-name'] && $_POST['full-name'] != '') {
+      $data['full-name'] = $_POST['full-name'];
+      $dat['full-name'] = $data['full-name'];
+    
+      $name = explode(' ',$data['full-name']);
 
-    if (!isset($name[1])) {
-      $name[1] = '';
+      if (!isset($name[1])) {
+        $name[1] = '';
+      }
+
+      $data['first-name'] = $name[0];
+      $data['last-name'] = $name[1];
+    } else {
+      $error[] = 'full-name';
     }
 
-    $data['first-name'] = $name[0];
-    $data['last-name'] = $name[1];
+  } elseif($_POST['first-name'] || $_POST['last-name']) {
+    /* First Name */
+    if ($_POST['first-name'] && $_POST['first-name'] != '') {
+      $data['first-name'] = $_POST['first-name'];
+      $dat['first-name'] = $data['first-name'];
+      $data['full-name'] = $data['first-name'];
+    } else {
+      $error[] = 'first-name';
+    }
+    
+    /* Last Name */
+    if ($_POST['last-name'] && $_POST['last-name'] != '') {
+      $data['last-name'] = $_POST['last-name'];
+      $dat['last-name'] = $data['last-name'];
+      if ($data['first-name']) {
+        $data['full-name'] = $data['full-name'] . ' ' . $data['last-name'];
+      } else {
+        $data['full-name'] = $data['last-name'];
+      }
+    } else {
+      $error[] = 'last-name';
+    }
+
+
   } else {
     $error[] = 'full-name';
-  }
-  
-  /* First Name */
-  if ($_POST['first-name'] && $_POST['first-name'] != '') {
-    $data['first-name'] = $_POST['first-name'];
-    $dat['first-name'] = $data['first-name'];
-  } else {
-    $error[] = 'first-name';
-  }
-  
-  /* Last Name */
-  if ($_POST['last-name'] && $_POST['last-name'] != '') {
-    $data['last-name'] = $_POST['last-name'];
-    $dat['last-name'] = $data['last-name'];
-  } else {
-    $error[] = 'last-name';
   }
 
   /* Address */
@@ -79,11 +93,11 @@ require '../inc/functions.php';
       if (isset($u) && $u != false) {
         $error[] = 'email-exists';
       }
-      else {
+/*      else {
         if (limitSignup($data['email'])) {
           $error[] = 'no-signup';
         }
-      }
+      }*/
     } else {
       $error[] = 'email';
     }
@@ -157,13 +171,44 @@ require '../inc/functions.php';
   );
 
   /* Execute Insert */
-  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, address, city, state, zip, email, password, username, join_time) VALUES(:fullname, :fname, :lname, :email, :password, :username, :join_time)", $user);
+  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, address, city, state, zip, email, password, username, join_time) VALUES(:fullname, :fname, :lname, :address, :city, :state, :zip, :email, :password, :username, :join_time)", $user);
 
   /* Check If Successful */
   if ($con->lastInsertId() == 0) {
     echo 'There was an issue adding this user to the database';
     die();
   }
+
+  /* Add To Campaign Monitor */
+
+  $auth = array('api_key' => CM_API_KEY);
+  $wrap = new CS_REST_Subscribers(CM_AMB_LIST_ID, $auth);
+
+  $cm_data = array(
+    'EmailAddress'    =>  $data['email'],
+    'Name'            =>  $data['full-name'],
+    'Resubscribe'     =>  true,
+  );
+
+  $fields = array(
+    'Username' => $data['username'],
+    'Points' => 0,
+  );
+
+  $cm_custom_fields = array();
+
+  foreach ($fields as $key => $value) {
+    if (isset($value) && ($value != NULL || $value != '')) {
+      array_push(
+        $cm_custom_fields, 
+        array('key' => $key, 'value' => $value)
+      );
+    }
+  }
+
+  $cm_data['CustomFields'] = $cm_custom_fields;
+
+  $result = $wrap->add($cm_data);
 
 /*Create User Cookie */
   
