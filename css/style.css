@@ -63,6 +63,20 @@ a#logo{display:block;line-height:0;}
 
 #menu a:after{display:none;}
 
+.select-container{border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:5px;}
+.select-container select{
+  border: none;background: none;
+  -webkit-appearance: none;-moz-appearance: none;appearance: none;
+}
+.select-container .mdl-textfield__label:after{bottom:0;}
+
+
+.select-container .mdl-icon-toggle__label{
+  position:absolute;
+  right:-5px;
+  top:20px;
+  pointer-events:none;
+}
 header.mdl-layout__header {
   z-index: 6;
   background-color: #fff;
