@@ -40,6 +40,9 @@
                       <?php
                         foreach ($error as $e => $v) {
                           switch ($e) {
+                            case 'full-name':
+                              echo 'Name<br>';
+                              break;
                             case 'first-name':
                               echo 'First Name<br>';
                               break;
@@ -61,14 +64,14 @@
                             case 'email':
                               echo 'Email<br>';
                               break;
+                            case 'username':
+                              echo 'Username<br>';
+                              break;
                             case 'password':
                               echo 'Password<br>';
                               break;
                             case 'conf-password':
                               echo 'Confirm Password<br>';
-                              break;
-                            case 'username':
-                              echo 'Username<br>';
                               break;
                           }
                         }

@@ -119,7 +119,7 @@ function addSignup($signup) {
 function updateAmbassador($username, $suid, $points) {
   global $con;
 
-  $amb = $con->fetch("SELECT aid, points, sid FROM cu_amb_usr WHERE username = ?", $username);
+  $amb = $con->fetch("SELECT aid, points, sid, email FROM cu_amb_usr WHERE username = ?", $username);
 
   if ($amb) {
 
@@ -138,6 +138,18 @@ function updateAmbassador($username, $suid, $points) {
     }
 
     $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points, $amb['sid'], $username));
+
+    $auth = array('api_key' => CM_API_KEY);
+    $ambWrap = new CS_REST_Subscribers(CM_AMB_LIST_ID, $auth);
+
+    $result = $ambWrap->update($amb['email'], array(
+      'CustomFields' => array(
+        array(
+          'Key' => 'Points',
+          'Value' => $amb['points'] + $points
+        )
+      ),
+    ));
 
     if ($status['points_max'] < $amb['points'] + $points) {
       sendLevelUpdate($amb['aid'], $amb['sid'], (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]");

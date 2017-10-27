@@ -57,3 +57,81 @@ $( function() {
     );
   }
 });
+
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split('&');
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split('=');
+    if (decodeURIComponent(pair[0]) === variable) {
+      return decodeURIComponent(pair[1]);
+    }
+  }
+}
+
+$(function() {
+  $( '#URL' ).val( location.protocol + '//' + location.host + location.pathname );
+  if (getQueryVariable('utm_source')) {
+    $('#UTM_SOURCE').val(getQueryVariable('utm_source'));
+  }
+  if (getQueryVariable('utm_medium')) {
+    $('#UTM_MEDIUM').val(getQueryVariable('utm_medium'));
+  }
+  if (getQueryVariable('utm_campaign')) {
+    $('#UTM_CAMP').val(getQueryVariable('utm_campaign'));
+  }
+  if (getQueryVariable('gclid')) {
+    $('#GCLID').val(getQueryVariable('gclid'));
+  }
+  if (getQueryVariable('fname')) {
+    $('#fname').val(getQueryVariable('fname'));
+  }
+  if (getQueryVariable('lname')) {
+    $('#lname').val(getQueryVariable('lname'));
+  }
+  if (getQueryVariable('first-name')) {
+    $('#first-name').val(getQueryVariable('first-name'));
+  }
+  if (getQueryVariable('last-name')) {
+    $('#last-name').val(getQueryVariable('last-name'));
+  }
+  if (getQueryVariable('email')) {
+    $('#email').val(getQueryVariable('email'));
+  }
+  if (getQueryVariable('full-name')) {
+    $('#full-name').val(getQueryVariable('full-name'));
+  }
+  if (getQueryVariable('country')) {
+    $('#country').val(getQueryVariable('country'));
+  }
+  if (getQueryVariable('about')) {
+    $('#about').val(getQueryVariable('about'));
+  }
+  if (getQueryVariable('affiliate')) {
+    $('#affiliate').val(getQueryVariable('affiliate'));
+  }
+  if (getQueryVariable('address')) {
+    $('#address').val(getQueryVariable('address'));
+  }
+  if (getQueryVariable('city')) {
+    $('#city').val(getQueryVariable('city'));
+  }
+  if (getQueryVariable('state')) {
+    $('#state').val(getQueryVariable('state'));
+  }
+  if (getQueryVariable('zip')) {
+    $('#zip').val(getQueryVariable('zip'));
+  }
+  if (getQueryVariable('username')) {
+    $('#username').val(getQueryVariable('username'));
+  }
+  // if (getQueryVariable('reff')) {
+  //   $('#reff').val(getQueryVariable('reff'));
+  // }
+  if (getQueryVariable('us')) {
+    $('#us').prop( "checked", true );
+  }
+  if (getQueryVariable('eu')) {
+    $('#eu').prop( "checked", true );
+  }
+});
