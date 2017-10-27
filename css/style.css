@@ -29,6 +29,8 @@ h2.post-title{font-size:48px;}
 h3.section-title{font-family: "industry", sans-serif;font-weight: 400;text-transform:uppercase;letter-spacing:0.1em;margin:2rem 0 0.5rem;}
 h3.section-title strong{font-weight: 700;}
 
+label{line-height:1em;}
+
 hr{background-color:#3D5BA9;border:none;height:5px;margin:3rem 0;}
 
 table{border-collapse:collapse;}

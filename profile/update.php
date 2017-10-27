@@ -126,88 +126,92 @@
 
             <?php if ($personal): ?>
               <div class="mdl-cell mdl-cell--12-col mdl-grid" style="border-bottom: 1px solid #F1F2F2;">
-                <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
-                  <strong>Update Personal Information</strong>
-                </div>
-                <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
-                  <div class="mdl-layout-spacer"></div>
-                  <div class="mdl-cell mdl-cell--8-col">
-                    <table class="mdl-data-table" style="border: 0px;">
-                      <tbody>
-                        <?php 
-                          if ($error && $error == 'email') {
-                            echo '<tr class="no-hover">';
-                              echo '<td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"></td>';
-                              echo '<td style="border: 0px;" class="mdl-data-table__cell--non-numeric">';
-                                echo '<span style="color: red;"><em>Email taken. Please choose another.</em></span>';
-                              echo '</td>';
-                            echo '</tr>';
-                          }
-                        ?>
-                        <tr class="no-hover">
-                          <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">person</i></td>
-                          <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
-                              <input class="mdl-textfield__input" type="text" id="fullname" name="fullname" value="<?php echo $amb->getValue('fullname'); ?>">
-                              <label class="mdl-textfield__label" for="fullname">Full Name</label>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="no-hover">
-                          <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">location_on</i></td>
-                          <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
-                              <input class="mdl-textfield__input" type="text" id="address" name="address" value="<?php echo $amb->getValue('address'); ?>">
-                              <label class="mdl-textfield__label" for="address">Address</label>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="no-hover">
-                          <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"></td>
-                          <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-grid" style="padding: 0;">
-                              <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
-
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--5-col" style="max-width: 100%; margin-left: 0;">
-                                  <input class="mdl-textfield__input" type="text" id="city" name="city" value="<?php echo $amb->getValue('city'); ?>">
-                                  <label class="mdl-textfield__label" for="city">City</label>
-                                </div>
-
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col" style="max-width: 100%;">
-                                  <input class="mdl-textfield__input" type="text" id="state" name="state"  value="<?php echo $amb->getValue('state'); ?>">
-                                  <label class="mdl-textfield__label" for="state">State</label>
-                                </div>
-
-                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col" style="max-width: 100%; margin-right: 0;">
-                                  <input class="mdl-textfield__input" type="text" id="zip" name="zip" value="<?php echo $amb->getValue('zip'); ?>">
-                                  <label class="mdl-textfield__label" for="zip">Zip Code</label>
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="no-hover">
-                          <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">email</i></td>
-                          <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label <?php echo $error == 'email' ? 'is-invalid' : ''; ?>" style="">
-                              <input class="mdl-textfield__input" type="text" id="email" name="email" value="<?php echo $amb->getValue('email'); ?>">
-                              <label class="mdl-textfield__label" for="email">Email</label>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr class="no-hover">
-                          <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></td>
-                          <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
-                              <input class="mdl-textfield__input" type="text" id="size" name="size" value="<?php echo $amb->getValue('size'); ?>">
-                              <label class="mdl-textfield__label" for="size">Size</label>
-                            </div>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                <h5 class="center" style="width:100%"> Update Personal Information </h5><br><br>
+                <div class="mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
+                  
+                  <?php 
+                    if ($error && $error == 'email') {
+                      echo '<div class="mdl-cell mdl-cell--12-col mdl-grid"><div class="mdl-layout-spacer"></div><div class="mdl-cell mdl-cell--1-col">&nbsp;</div><div class="mdl-cell mdl-cell--9-col">';
+                      echo '<span style="color: red;"><em>Email taken. Please choose another.</em></span>';
+                      echo '</div></div>';
+                    }
+                  ?>
+                    
+                  <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--1-col"><i class="material-icons" style="vertical-align: middle;">person</i></div>
+                    <div class="mdl-cell mdl-cell--9-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
+                        <input class="mdl-textfield__input" type="text" id="fullname" name="fullname" value="<?php echo $amb->getValue('fullname'); ?>">
+                        <label class="mdl-textfield__label" for="fullname">Full Name</label>
+                      </div>
+                    </div>
                   </div>
-                  <div class="mdl-layout-spacer"></div>
+                  <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--1-col"><i class="material-icons" style="vertical-align: middle;">location_on</i></div>
+                    <div class="mdl-cell mdl-cell--9-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
+                        <input class="mdl-textfield__input" type="text" id="address" name="address" value="<?php echo $amb->getValue('address'); ?>">
+                        <label class="mdl-textfield__label" for="address">Address</label>
+                      </div>
+                      <div class="mdl-grid" style="padding: 0;">
+                        <div class="mdl-cell mdl-cell--12-col mdl-grid" style="padding: 0; margin: 0;">
+
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--5-col" style="max-width: 100%; margin-left: 0;">
+                            <input class="mdl-textfield__input" type="text" id="city" name="city" value="<?php echo $amb->getValue('city'); ?>">
+                            <label class="mdl-textfield__label" for="city">City</label>
+                          </div>
+
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--2-col" style="max-width: 100%;">
+                            <input class="mdl-textfield__input" type="text" id="state" name="state"  value="<?php echo $amb->getValue('state'); ?>">
+                            <label class="mdl-textfield__label" for="state">State</label>
+                          </div>
+
+                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--4-col" style="max-width: 100%; margin-right: 0;">
+                            <input class="mdl-textfield__input" type="text" id="zip" name="zip" value="<?php echo $amb->getValue('zip'); ?>">
+                            <label class="mdl-textfield__label" for="zip">Zip Code</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--1-col"><i class="material-icons" style="vertical-align: middle;">email</i></div>
+                    <div class="mdl-cell mdl-cell--9-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label <?php echo $error == 'email' ? 'is-invalid' : ''; ?>" style="">
+                        <input class="mdl-textfield__input" type="text" id="email" name="email" value="<?php echo $amb->getValue('email'); ?>">
+                        <label class="mdl-textfield__label" for="email">Email</label>
+                      </div>
+                    </div>
+                  </div>
+                    
+                  <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--1-col"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></div>
+                    <div class="mdl-cell mdl-cell--9-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
+                        <input class="mdl-textfield__input" type="text" id="size" name="size" value="<?php echo $amb->getValue('size'); ?>">
+                        <label class="mdl-textfield__label" for="size">Size</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
+                    <div class="mdl-layout-spacer"></div>
+                    <div class="mdl-cell mdl-cell--1-col"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></div>
+                    <div class="mdl-cell mdl-cell--9-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label select-container">
+                        <select class="mdl-textfield__input" type="text" id="shirt_type" name="shirt_type">
+                          <option>T-Shirt</option>
+                          <option>Tank / Racerback</option>
+                        </select>
+                        <label class="mdl-textfield__label" for="shirt_type">Shirt Type</label>
+                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             <?php endif; ?>
