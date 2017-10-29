@@ -108,7 +108,8 @@ class Ambassador
     $query = "SELECT cu_amb_points.points, cu_people.email, cu_signup.su_time FROM cu_amb_points 
       JOIN cu_signup ON cu_amb_points.suid = cu_signup.suid
       JOIN cu_people ON cu_signup.pid = cu_people.pid
-      WHERE cu_amb_points.aid = ?";
+      WHERE cu_amb_points.aid = ?
+      ORDER BY cu_signup.su_time DESC";
 
     $activity = $con->fetchAll($query,$id);
 
