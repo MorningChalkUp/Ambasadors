@@ -118,17 +118,12 @@
 
     <div class="mdl-cell mdl-cell--8-col">
       <h2>Promotion Tools</h2>
-      <div class="mdl-grid mdl-grid--no-spacing">
-        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-color--white mdl-shadow--2dp">
+      <div class="mdl-grid  mdl-color--white mdl-shadow--2dp">
+        <div class="mdl-cell mdl-cell--12-col ">
           <div class="mdl-card__supporting-text">
-            <p><strong>Your Unique Share URL:</strong></p>
-            <p><small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></p>
+            <strong>Share Your Unique URL:</strong>
+            <small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></p>
             <div class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored cpy-btn" data-clipboard-text="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" onclick="addSnackbar('Link Coppied')">COPY</div>
-          </div>
-        </div>
-        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-color--white mdl-shadow--2dp">
-          <div class="mdl-card__supporting-text">
-            <p><strong>Share On Social Media:</strong></p>
             <i style="font-size: 20px; cursor: pointer;background-color:#3b5998;" class="button mdl-button mdl-button--raised mdl-button--colored mdi mdi-facebook js-share-facebook"></i>
             <i style="font-size: 20px; cursor: pointer;background-color:#1da1f2;" class="button mdl-button mdl-button--raised mdl-button--colored mdi mdi-twitter js-share-twitter"></i>
             <i style="font-size: 20px; cursor: pointer;background-color:#333132;" class="button mdl-button mdl-button--raised mdl-button--colored mdi mdi-email js-share-email"></i>
@@ -153,6 +148,25 @@
               });
 
             </script>
+          </div>
+          <hr class="thin">
+          <div class="mdl-card__supporting-text">
+            <strong>Invite Readers via email:</strong>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
+              <input class="mdl-textfield__input" type="text" name="some_name" value="" id="invite_subs">
+              <label class="mdl-textfield__label" for="sample1">Enter a comma separated list of emails to send invitations to</label>
+              
+            </div>
+            <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
+          </div>
+          <hr class="thin">
+          <div class="mdl-card__supporting-text">
+            <strong>Invite Others to become ambassadors:</strong>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
+              <input class="mdl-textfield__input" type="text" name="some_name" value="" id="invite_ambs">
+              <label class="mdl-textfield__label" for="sample1">Enter a comma separated list of emails to send invitations to</label>
+            </div>
+            <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
           </div>
         </div>
       </div>
