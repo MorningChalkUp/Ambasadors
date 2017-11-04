@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -21,6 +23,8 @@ foreach ($data as $amb) {
     'Next Level Reward' => $next_status['reward'],
   );
 
+  $cm_custom_fields = array();
+
   foreach ($fields as $key => $value) {
     if (isset($value) && ($value != NULL || $value != '')) {
       array_push(
@@ -38,4 +42,11 @@ foreach ($data as $amb) {
       $cm_custom_fields
     ),
   ));
+
+  var_dump($amb['email']);
+  echo "\n";
+  ob_flush();
 }
+
+echo('done.');
+ob_end_flush(); 
