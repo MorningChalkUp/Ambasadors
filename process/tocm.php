@@ -38,9 +38,7 @@ foreach ($data as $amb) {
   $ambWrap = new CS_REST_Subscribers(CM_AMB_LIST_ID, $auth);
 
   $result = $ambWrap->update($amb['email'], array(
-    'CustomFields' => array(
-      $cm_custom_fields
-    ),
+    'CustomFields' => $cm_custom_fields
   ));
 
   var_dump($amb['email']);
