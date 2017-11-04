@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require '../inc/functions.php';
+require_once '../inc/cm/csrest_subscribers.php';
 
 function addSubscriber($user) {
   if (!isInPerson($user['email'])) {
@@ -139,6 +140,12 @@ function updateAmbassador($username, $suid, $points) {
 
     $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points, $amb['sid'], $username));
 
+    $current = $con->fetch("SELECT poinds, sid FROM cu_amb_usr WHERE aid = ?", $amb['aid']);
+
+    $status = $con->fetch("SELECT reward FROM cu_amb_status WHERE sid = ?", $current['sid']);
+
+    $next_status = $con->fetch("SELECT points_min, reward FROM cu_amb_status WHERE sid = ?", (int)$current['sid']+1);
+
     $auth = array('api_key' => CM_API_KEY);
     $ambWrap = new CS_REST_Subscribers(CM_AMB_LIST_ID, $auth);
 
@@ -146,8 +153,20 @@ function updateAmbassador($username, $suid, $points) {
       'CustomFields' => array(
         array(
           'Key' => 'Points',
-          'Value' => $amb['points'] + $points
-        )
+          'Value' => (int)$current['points']
+        ),
+        array(
+          'Key' => 'Current Level Reward',
+          'Value' => $status['reward'],
+        ),
+        array(
+          'Key' => 'Points Needed',
+          'Value' => (int)$next_status['points_min'] - (int)$current['points'],
+        ),
+        array(
+          'Key' => 'Next Level Reward',
+          'Value' => $next_status['reward'],
+        ),
       ),
     ));
 
