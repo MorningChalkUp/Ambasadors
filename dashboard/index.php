@@ -151,20 +151,20 @@
           </div>
           <hr class="thin">
           <div class="mdl-card__supporting-text">
-            <strong>Invite Readers via email:</strong>
+            <strong>Invite a friend to the Morning Chalk Up</strong>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
               <input class="mdl-textfield__input" type="text" name="some_name" value="" id="invite_subs">
-              <label class="mdl-textfield__label" for="sample1">Enter a comma separated list of emails to send invitations to</label>
+              <label class="mdl-textfield__label" for="sample1">To send multiple invitations, separate emails by comma.</label>
               
             </div>
             <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
           </div>
           <hr class="thin">
           <div class="mdl-card__supporting-text">
-            <strong>Invite Others to become ambassadors:</strong>
+            <strong>Invite a friend to become an Ambassador</strong>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
               <input class="mdl-textfield__input" type="text" name="some_name" value="" id="invite_ambs">
-              <label class="mdl-textfield__label" for="sample1">Enter a comma separated list of emails to send invitations to</label>
+              <label class="mdl-textfield__label" for="sample1">To send multiple invitations, separate emails by comma.</label>
             </div>
             <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
           </div>
