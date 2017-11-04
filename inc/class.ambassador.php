@@ -20,6 +20,7 @@ class Ambassador
     'zip' => '',
     'email' => '',
     'size' => '',
+    'shirt_type' => '',
   );
   
   function setUser($username, $con) {
