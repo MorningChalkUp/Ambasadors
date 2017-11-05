@@ -19,7 +19,7 @@ class Ambassador
     'state' => '',
     'zip' => '',
     'email' => '',
-    'size' => '',
+    'shirt_size' => '',
     'shirt_type' => '',
   );
   
@@ -42,7 +42,8 @@ class Ambassador
       $this->ambassador['zip'] = $u['zip'];
       $this->ambassador['image'] = $u['image'];
       $this->ambassador['email'] = $u['email'];
-      $this->ambassador['size'] = $u['size'];
+      $this->ambassador['shirt_size'] = $u['shirt_size'];
+      $this->ambassador['shirt_type'] = $u['shirt_type'];
 
       $status = $con->fetch("SELECT status FROM cu_amb_status WHERE sid = ?", $this->ambassador['sid']);
 

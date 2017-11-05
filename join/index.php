@@ -163,11 +163,12 @@
                     <div class="mdl-cell mdl-cell--6-col">
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label select-container">
                         <select class="mdl-textfield__input" id="shirt_size" name="shirt_size">
-                          <option>XS</option>
-                          <option>S</option>
-                          <option selected>M</option>
-                          <option>L</option>
-                          <option>XL</option>
+                          <option value="XS">XS</option>
+                          <option value="S">S</option>
+                          <option value="M">M</option>
+                          <option value="L">L</option>
+                          <option value="XL">XL</option>
+                          <option value="2XL">2XL</option>
                         </select>
                         
                         <label class="mdl-textfield__label" for="shirt_size">Shirt Size</label>

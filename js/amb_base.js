@@ -125,6 +125,12 @@ $(function() {
   if (getQueryVariable('username')) {
     $('#username').val(getQueryVariable('username'));
   }
+  if (getQueryVariable('shirt_size')) {
+    $('#shirt_size').val(getQueryVariable('shirt_size'));
+  }
+  if (getQueryVariable('shirt_type')) {
+    $('#shirt_type').val(getQueryVariable('shirt_type'));
+  }
   // if (getQueryVariable('reff')) {
   //   $('#reff').val(getQueryVariable('reff'));
   // }

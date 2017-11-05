@@ -84,6 +84,20 @@ require_once '../inc/cm/csrest_subscribers.php';
     $error[] = 'zip';
   }
 
+  if ($_POST['shirt_size'] && $_POST['shirt_size'] != '') {
+    $data['shirt_size'] = $_POST['shirt_size'];
+    $dat['shirt_size'] = $data['shirt_size'];
+  } else {
+    $error[] = 'shirt_size';
+  }
+
+  if ($_POST['shirt_type'] && $_POST['shirt_type'] != '') {
+    $data['shirt_type'] = $_POST['shirt_type'];
+    $dat['shirt_type'] = $data['shirt_type'];
+  } else {
+    $error[] = 'shirt_type';
+  }
+
   /* Regex Email Address And Does email Exist */
   if ($_POST['email'] && $_POST['email'] != '') {
     if (validateEMAIL($_POST['email'])) {
@@ -167,11 +181,13 @@ require_once '../inc/cm/csrest_subscribers.php';
     'email' => $data['email'],
     'password' => md5($data['password']),
     'username' => $data['username'],
+    'shirt_size' => $_POST['shirt_size'],
+    'shirt_type' => $_POST['shirt_type'],
     'join_time' => date("Y-m-d H:i:s"),
   );
 
   /* Execute Insert */
-  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, address, city, state, zip, email, password, username, join_time) VALUES(:fullname, :fname, :lname, :address, :city, :state, :zip, :email, :password, :username, :join_time)", $user);
+  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, address, city, state, zip, email, password, username, shirt_size, shirt_type, join_time) VALUES(:fullname, :fname, :lname, :address, :city, :state, :zip, :email, :password, :username, :shirt_size, :shirt_type, :join_time)", $user);
 
   /* Check If Successful */
   if ($con->lastInsertId() == 0) {
@@ -208,7 +224,7 @@ require_once '../inc/cm/csrest_subscribers.php';
 
   $cm_data['CustomFields'] = $cm_custom_fields;
 
-  $result = $wrap->add($cm_data);
+  // $result = $wrap->add($cm_data);
 
 /*Create User Cookie */
   

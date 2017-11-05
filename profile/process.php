@@ -140,7 +140,8 @@ if ($section == 'personal') {
     'state' => $_POST['state'],
     'zip' => $_POST['zip'],
     'email' => $_POST['email'],
-    'size' => $_POST['size'],
+    'shirt_size' => $_POST['shirt_size'],
+    'shirt_type' => $_POST['shirt_type'],
   );
 
   foreach ($update as $value) {
@@ -154,7 +155,7 @@ if ($section == 'personal') {
 
   dump_pre($set);
 
-  $r = $con->execute('UPDATE cu_amb_usr SET fullname = ?, fname = ?, lname = ?, address = ?, city = ?, state = ?, zip = ?, email = ?, size = ? WHERE aid = ?', $set);
+  $r = $con->execute('UPDATE cu_amb_usr SET fullname = ?, fname = ?, lname = ?, address = ?, city = ?, state = ?, zip = ?, email = ?, shirt_size = ?, shirt_type = ? WHERE aid = ?', $set);
 
   dump_pre($r);
 

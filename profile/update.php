@@ -191,9 +191,18 @@
                     <div class="mdl-layout-spacer"></div>
                     <div class="mdl-cell mdl-cell--1-col"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></div>
                     <div class="mdl-cell mdl-cell--9-col">
-                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
-                        <input class="mdl-textfield__input" type="text" id="size" name="size" value="<?php echo $amb->getValue('size'); ?>">
-                        <label class="mdl-textfield__label" for="size">Size</label>
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label select-container">
+                        <select class="mdl-textfield__input" id="shirt_size" name="shirt_size">
+                          <option value="XS" <?php echo isSelected('XS', 'size'); ?>>XS</option>
+                          <option value="S" <?php echo isSelected('S', 'size'); ?>>S</option>
+                          <option value="M" <?php echo isSelected('M', 'size'); ?>>M</option>
+                          <option value="L" <?php echo isSelected('L', 'size'); ?>>L</option>
+                          <option value="XL" <?php echo isSelected('XL', 'size'); ?>>XL</option>
+                          <option value="2XL" <?php echo isSelected('2XL', 'size'); ?>>2XL</option>
+                        </select>
+                        
+                        <label class="mdl-textfield__label" for="shirt_size">Shirt Size</label>
+                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                       </div>
                     </div>
                   </div>
@@ -204,8 +213,8 @@
                     <div class="mdl-cell mdl-cell--9-col">
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label select-container">
                         <select class="mdl-textfield__input" type="text" id="shirt_type" name="shirt_type">
-                          <option>T-Shirt</option>
-                          <option>Tank / Racerback</option>
+                          <option value="T-Shirt" <?php echo isSelected('T-Shirt', 'type'); ?>>T-Shirt</option>
+                          <option value="Tank / Racerback" <?php echo isSelected('Tank / Racerback', 'type'); ?>>Tank / Racerback</option>
                         </select>
                         <label class="mdl-textfield__label" for="shirt_type">Shirt Type</label>
                         <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>

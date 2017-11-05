@@ -81,7 +81,7 @@
                       <td style="border: 0px; width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></td>
                       <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
                         
-                        <?php echo $amb->getValue('size'); ?> / <?php echo $amb->getValue('shirt_type'); ?>
+                        <?php echo $amb->getValue('shirt_size'); ?> / <?php echo $amb->getValue('shirt_type'); ?>
 
                       </td>
                     </tr>
