@@ -130,6 +130,8 @@
                     </div>
                   </div>
                   
+
+                  
                   <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--6-col">
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -153,6 +155,34 @@
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="password" id="conf-password" name="conf-password">
                         <label class="mdl-textfield__label" for="conf-password">Confirm Password *</label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--6-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label select-container">
+                        <select class="mdl-textfield__input" id="shirt_size" name="shirt_size">
+                          <option value="XS">XS</option>
+                          <option value="S">S</option>
+                          <option value="M">M</option>
+                          <option value="L">L</option>
+                          <option value="XL">XL</option>
+                          <option value="2XL">2XL</option>
+                        </select>
+                        
+                        <label class="mdl-textfield__label" for="shirt_size">Shirt Size</label>
+                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                      </div>
+                    </div>
+                    <div class="mdl-cell mdl-cell--6-col">
+                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label select-container">
+                        <select class="mdl-textfield__input" type="text" id="shirt_type" name="shirt_type">
+                          <option>T-Shirt</option>
+                          <option>Tank / Racerback</option>
+                        </select>
+                        <label class="mdl-textfield__label" for="shirt_type">Shirt Type</label>
+                        <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                       </div>
                     </div>
                   </div>

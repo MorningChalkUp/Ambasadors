@@ -98,7 +98,16 @@
     return $ipaddress;
   }
 
+function isSelected($val, $type) {
+  global $amb;
 
+  $ambVal = $amb->getValue('shirt_' . $type);
+
+  if ($ambVal == $val) {
+    return 'selected';
+  }
+  return '';
+}
 
 
   function validateEMAIL($EMAIL) {
