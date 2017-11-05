@@ -13,6 +13,7 @@
   }
   require __ROOT__.'/templates/leaderboard.php';
   require __ROOT__.'/templates/activity.php';
+  require __ROOT__.'/inc/cm/csrest_subscribers.php';
 
   try {
     $con = new DBPDO();
