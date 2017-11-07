@@ -9,6 +9,8 @@ a {color: #3D5BA9;position:relative;transition:0.2s all;text-decoration:none;}
 a:after{background-color:#3D5BA9;content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:0.2s all;}
 a:hover:after{width:100%;}
 
+a.nostrike:after{display:none;}
+
 a.block{display:block;}
 a.block:after{display:none;}
 
@@ -28,6 +30,11 @@ h3.section-title{font-family: "industry", sans-serif;font-weight: 400;text-trans
 h3.section-title strong{font-weight: 700;}
 
 hr{background-color:#3D5BA9;border:none;height:5px;margin:3rem 0;}
+hr.thin{background-color:rgba(0,0,0,.12);height:1px;margin:1rem 0;}
+
+table{border-collapse:collapse;}
+table th{padding:5px 10px;text-align:left;}
+table td{padding:5px 10px;}
 
 /*needed to override mdl*/
 p, ul, ol{font-size:18px;line-height: 170%;}
@@ -50,10 +57,12 @@ blockquote {
 .mdl-grid.subscribe {max-width: 100%;}
 
 a#logo:after{display:none;}
-a#logo{display:block;padding-bottom:8px;}
+a#logo{display:block;line-height:0;}
 #mcu-logo{width:240px;margin-right:2rem;}
 #mcu-logo .morning{fill:#333132;}
 #mcu-logo .chalkup{fill:#3D5BA9;}
+
+#menu a:after{display:none;}
 
 header.mdl-layout__header {
   z-index: 6;
@@ -61,18 +70,9 @@ header.mdl-layout__header {
   box-shadow: none;
   border-bottom: 1px solid rgba(51, 49, 50, 0.2);
 }
-header.mdl-layout__header .mdl-layout__header-row {
-  padding: 0px 32px;
-  color: #333132;
-}
+
 header.mdl-layout__header .mdl-layout__header-row .mdl-layout-title {
   margin-right: 28px;
-}
-header.mdl-layout__header .mdl-layout__header-row .mdl-layout-title a {
-  text-transform: uppercase;
-  font-size: 20px;
-  font-family: "industry", sans-serif;
-  font-weight: 700;
 }
 header.mdl-layout__header .mdl-layout__header-row .mdl-layout-title a span {
   color: #333132;

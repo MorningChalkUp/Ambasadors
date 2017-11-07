@@ -1,19 +1,21 @@
 <header class="mdl-layout__header">
-  <div class="mdl-layout__header-row" style="padding: 0 40px 0 80px;">
-    <span class="mdl-layout-title"><a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a></span>
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">
+      <a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a>
+    </span>
     <div class="mdl-layout-spacer"></div>
     <div <?php echo $loggedin ? 'id="status"' : ''; ?> class="mdl-cell--hide-phone">
       <?php if ($loggedin) : ?>
-        <span style="font-size: 14px;"><?php echo $amb->getValue('fullname'); ?></span> 
+        <span style="font-size: 14px;color:#333132;"><?php echo $amb->getValue('fullname'); ?></span> 
         <?php 
           echo '<img src="/img/uploads/' . $amb->getValue('image') . '" alt="' . $amb->getValue('fullname')  . '" style="border-radius: 50%; height: 45px; width: 45px; cursor: pointer;">';
         ?>
       <?php else : ?>
-        <span style="font-size: 14px;"><a href="/join/">Sign Up</a> / <a href="/login/">Log In</a></span>
+        <span style="font-size: 14px;color:#333132;"><a href="/join/">Sign Up</a> / <a href="/login/">Log In</a></span>
       <?php endif; ?>
     </div>
 
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status">
+    <ul id="menu" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status">
       <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="/profile/" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">person</i> Profile</a></li>
       <li class="mdl-menu__item" style="text-align: center;"><a href="/logout/" style="color: red; text-decoration: none;">Sign Out</a></li>
     </ul>

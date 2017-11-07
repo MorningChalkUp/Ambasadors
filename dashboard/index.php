@@ -21,6 +21,17 @@
 
 <?php include '../templates/header.php'; ?>
 
+<?php
+  if ($_GET['sent']) {
+    echo "<script>
+      r(function(){
+        addSnackbar('Invites Sent!', 3000);
+      });
+      function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
+    </script>";
+  }
+?>
+
 <article class="main dashboard">
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
@@ -28,10 +39,13 @@
       <div class="mdl-grid mdl-color--white mdl-shadow--2dp">
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
           <p style="font-size: 24px;"><?php echo $amb->getValue('fullname'); ?></p>
-          <div class="text" style="font-size: 16px;">Level: <strong><?php echo $amb->getValue('status'); ?></strong></div>
-          <div class="text" style="font-size: 16px;">Next Level: <strong><?php echo $amb->getNextLevel($con); ?></strong></div>
-          <div class="text" style="font-size: 16px;">Points to <?php echo $amb->getNextLevel($con); ?>: <strong><?php echo $amb->getNextPoints($con); ?></strong></div>
-          <div class="text" style="font-size: 16px;"><a href="/benefits/">Benefits & Levels</a></div>
+          <p style="font-size: 16px;">
+            Your Points: <strong><?php echo $amb->getValue('points'); ?></strong></p>
+          <p style="font-size: 16px;">
+            <strong><?php echo $amb->getNextPoints($con); ?></strong> Points to Next Reward:<br/>
+            <strong><?php echo $amb->getNextReward($con); ?></strong><br/>
+          </p>
+          <small><a href="/benefits/">Benefits & Levels</a></small>
         </div>
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
           <p>Progress to Next Level</p>
@@ -46,7 +60,7 @@
                   <?php echo $amb->getValue('points'); ?>, 
                   <?php echo $amb->getNextPoints($con); ?>,
                 ],
-                backgroundColor: ['#178552', 'rgba(0, 0, 0, 0.1)'],
+                backgroundColor: ['#3D5BA9', 'rgba(0, 0, 0, 0.1)'],
               }],
               labels: [
                 'Points',
@@ -115,17 +129,12 @@
 
     <div class="mdl-cell mdl-cell--8-col">
       <h2>Promotion Tools</h2>
-      <div class="mdl-grid mdl-grid--no-spacing">
-        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-color--white mdl-shadow--2dp">
+      <div class="mdl-grid  mdl-color--white mdl-shadow--2dp">
+        <div class="mdl-cell mdl-cell--12-col ">
           <div class="mdl-card__supporting-text">
-            <p><strong>Your Unique Share URL:</strong></p>
-            <p><small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></p>
+            <strong>Share Your Unique URL:</strong>
+            <small><a href="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" target="_blank"><?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?></a></small></p>
             <div class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored cpy-btn" data-clipboard-text="<?php echo $domain; ?>/subscribe/?reff=<?php echo $amb->getValue('username'); ?>" onclick="addSnackbar('Link Coppied')">COPY</div>
-          </div>
-        </div>
-        <div class="mdl-cell mdl-cell--6-col mdl-card mdl-color--white mdl-shadow--2dp">
-          <div class="mdl-card__supporting-text">
-            <p><strong>Share On Social Media:</strong></p>
             <i style="font-size: 20px; cursor: pointer;background-color:#3b5998;" class="button mdl-button mdl-button--raised mdl-button--colored mdi mdi-facebook js-share-facebook"></i>
             <i style="font-size: 20px; cursor: pointer;background-color:#1da1f2;" class="button mdl-button mdl-button--raised mdl-button--colored mdi mdi-twitter js-share-twitter"></i>
             <i style="font-size: 20px; cursor: pointer;background-color:#333132;" class="button mdl-button mdl-button--raised mdl-button--colored mdi mdi-email js-share-email"></i>
@@ -150,6 +159,28 @@
               });
 
             </script>
+          </div>
+          <hr class="thin">
+          <div class="mdl-card__supporting-text">
+            <strong>Invite a friend to the Morning Chalk Up</strong>
+            <form action="invite.php" method="post">
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
+                <input class="mdl-textfield__input" type="text" name="sub_invite" value="" id="sub_invite">
+                <label class="mdl-textfield__label" for="sub_invite">To send multiple invitations, separate emails by comma.</label>
+              </div>
+              <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
+            </form>
+          </div>
+          <hr class="thin">
+          <div class="mdl-card__supporting-text">
+            <strong>Invite a friend to become an Ambassador</strong>
+            <form action="invite.php" method="post">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
+                <input class="mdl-textfield__input" type="text" name="amb_invite" value="" id="amb_invite">
+                <label class="mdl-textfield__label" for="amb_invite">To send multiple invitations, separate emails by comma.</label>
+              </div>
+              <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
+            </form>
           </div>
         </div>
       </div>
@@ -176,5 +207,6 @@
 
   </div>
 </article>
+
 
 <?php include '../templates/footer.php'; ?>

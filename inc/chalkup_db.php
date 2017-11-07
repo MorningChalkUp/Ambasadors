@@ -1,5 +1,8 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 require '../inc/functions.php';
 
 function addSubscriber($user) {
@@ -39,20 +42,15 @@ function isInPerson($email) {
 function addPerson($person) {
   $p = array(
     'email' => NULL,
-    'mcid' => NULL,
     'fname' => NULL,
     'lname' => NULL,
-    'website' => NULL,
     'about' => NULL,
-    'address1' => NULL,
-    'address2' => NULL,
     'city' => NULL,
     'state' => NULL,
     'zip' => NULL,
-    'games_lvl' => NULL,
+    'country' => NULL,
     'subscribed' => NULL,
     'reff' => NULL,
-    'affiliate' => NULL,
   );
 
   foreach ($p as $key => $value) {
@@ -60,11 +58,12 @@ function addPerson($person) {
       $p[$key] = $person[$key];
     }
   }
-
   if (isset($person['email'])) {
     global $con;
+
     if (!isInPerson($person['email'])) {
-      $r = $con->execute("INSERT INTO cu_people(email, mcid, fname, lname, website, about, address1, address2, city, state, zip, games_lvl, subscribed, first_reff, affiliate) VALUES(:email, :mcid, :fname, :lname, :website, :about, :address1, :address2, :city, :state, :zip, :games_lvl, :subscribed, :reff, :affiliate)", $p);
+      $r = $con->execute("INSERT INTO cu_people(email, fname, lname,  about, city, state, zip, country, subscribed, first_reff) VALUES(:email, :fname, :lname, :about, :city, :state, :zip, :country, :subscribed, :reff)", $p);
+      var_dump($con->lastInsertId());
       if ($con->lastInsertId() == 0) {
         echo 'There was an issue adding you to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
         die();
@@ -120,7 +119,7 @@ function addSignup($signup) {
 function updateAmbassador($username, $suid, $points) {
   global $con;
 
-  $amb = $con->fetch("SELECT aid, points, sid FROM cu_amb_usr WHERE username = ?", $username);
+  $amb = $con->fetch("SELECT aid, points, sid, email FROM cu_amb_usr WHERE username = ?", $username);
 
   if ($amb) {
 
@@ -139,6 +138,18 @@ function updateAmbassador($username, $suid, $points) {
     }
 
     $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points, $amb['sid'], $username));
+
+    $auth = array('api_key' => CM_API_KEY);
+    $ambWrap = new CS_REST_Subscribers(CM_AMB_LIST_ID, $auth);
+
+    $result = $ambWrap->update($amb['email'], array(
+      'CustomFields' => array(
+        array(
+          'Key' => 'Points',
+          'Value' => $amb['points'] + $points
+        )
+      ),
+    ));
 
     if ($status['points_max'] < $amb['points'] + $points) {
       sendLevelUpdate($amb['aid'], $amb['sid'], (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]");

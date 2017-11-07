@@ -27,7 +27,7 @@ class Ambassador
     $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $username);
 
     if($u != false) {
-      $this->ambassador['fullname'] = $u['fullname'];
+      $this->ambassador['full-name'] = $u['fullname'];
       $this->ambassador['fname'] = $u['fname'];
       $this->ambassador['lname'] = $u['lname'];
       $this->ambassador['points'] = $u['points'];
@@ -75,6 +75,17 @@ class Ambassador
       }
 
       return $this->ambassador['next-status'];
+  }
+  function getNextReward($con) {
+    $nextLevel = $con->fetch("SELECT reward FROM cu_amb_status WHERE sid = ?", $this->ambassador['sid']+1);
+
+      if($nextLevel != false) {
+        $this->ambassador['next-reward'] = $nextLevel['reward'];
+      } else {
+        $this->ambassador['next-reward'] = 'MAXED OUT';
+      }
+
+      return $this->ambassador['next-reward'];
   }
 
   function getNextPoints($con) {

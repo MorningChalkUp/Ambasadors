@@ -1,6 +1,8 @@
 <?php
   $page_name = 'Sign Up';
   $error = $_GET['e'];
+
+  $reff = isset($_GET['reff']) ? $_GET['reff'] : null;
 ?>
 
 <?php include '../templates/header.php'; ?>
@@ -40,6 +42,9 @@
                       <?php
                         foreach ($error as $e => $v) {
                           switch ($e) {
+                            case 'full-name':
+                              echo 'Name<br>';
+                              break;
                             case 'first-name':
                               echo 'First Name<br>';
                               break;
@@ -61,14 +66,14 @@
                             case 'email':
                               echo 'Email<br>';
                               break;
+                            case 'username':
+                              echo 'Username<br>';
+                              break;
                             case 'password':
                               echo 'Password<br>';
                               break;
                             case 'conf-password':
                               echo 'Confirm Password<br>';
-                              break;
-                            case 'username':
-                              echo 'Username<br>';
                               break;
                           }
                         }
@@ -152,6 +157,15 @@
                         <label class="mdl-textfield__label" for="conf-password">Confirm Password *</label>
                       </div>
                     </div>
+                  </div>
+
+                  <div class="hidden" style="display:none;">
+                    <input type="hidden" name="URL" id="URL" value="">
+                    <input type="hidden" name="UTM_SOURCE" id="UTM_SOURCE" value="">
+                    <input type="hidden" name="UTM_MEDIUM" id="UTM_MEDIUM" value="">
+                    <input type="hidden" name="UTM_CAMP" id="UTM_CAMP" value="">
+                    <input type="hidden" name="GCLID" id="GCLID" value="">
+                    <input type="hidden" name="reff" id="reff" value="<?php echo $reff != null ? $reff : ''; ?>">
                   </div>
                   
                   <div class="mdl-grid">

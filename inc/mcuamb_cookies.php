@@ -1,7 +1,7 @@
 <?php
 require 'cookies.php';
 
-$cookie_timeout = time()+60*60*14;
+$cookie_timeout = time()+60*60*24;
 
 function mcuamb_setUserCookie($useername, $password, $remember = false) {
   if ($remember) {

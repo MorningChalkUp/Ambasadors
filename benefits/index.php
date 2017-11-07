@@ -109,11 +109,11 @@
         </ul>
 
       
-        <table class="mdl-data-table mdl-js-data-table" style="width: 100%; border: 0;">
+        <table style="min-width:100%;border: 0;">
           <thead>
             <tr style="background-color: #F1F2F2;">
-              <th style="font-size: 20px; font-weight:bold;" class="mdl-data-table__cell--non-numeric">Point Level</th>
-              <th style="font-size: 20px; font-weight:bold;" class="mdl-data-table__cell--non-numeric">Benefits</th>
+              <th style="font-size: 20px; font-weight:bold;" >Points</th>
+              <th style="font-size: 20px; font-weight:bold;" >Benefits</th>
             </tr>
           </thead>
           <tbody>
@@ -123,14 +123,14 @@
               foreach ($levels as $level) {
 
                 echo '<tr class="no-hover">';
-                  echo '<td class="mdl-data-table__cell--non-numeric" style="border: 0; font-size: 16px; ">' . $level['points_min'] . '</td>';
-                  echo '<td class="mdl-data-table__cell--non-numeric" style="border: 0; font-size: 16px; ">' . $level['reward'] . '</td>';
+                  echo '<td class="" style="border: 0; font-size: 16px; ">' . $level['points_min'] . '</td>';
+                  echo '<td class="" style="border: 0; font-size: 16px; ">' . $level['reward'] . '</td>';
                 echo '</tr>';
               }
             ?>
             <tr class="no-hover">
               <td></td>
-              <td>*Prizes are subject to size, color and style availability. </td>
+              <td style="border: 0; font-size: 14px;" align="right">*Prizes are subject to size, color and style availability. </td>
             </tr>
             
           </tbody>
