@@ -21,6 +21,17 @@
 
 <?php include '../templates/header.php'; ?>
 
+<?php
+  if ($_GET['sent']) {
+    echo "<script>
+      r(function(){
+        addSnackbar('Invites Sent!', 3000);
+      });
+      function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
+    </script>";
+  }
+?>
+
 <article class="main dashboard">
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
@@ -152,21 +163,24 @@
           <hr class="thin">
           <div class="mdl-card__supporting-text">
             <strong>Invite a friend to the Morning Chalk Up</strong>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
-              <input class="mdl-textfield__input" type="text" name="some_name" value="" id="invite_subs">
-              <label class="mdl-textfield__label" for="sample1">To send multiple invitations, separate emails by comma.</label>
-              
-            </div>
-            <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
+            <form action="invite.php" method="post">
+               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
+                <input class="mdl-textfield__input" type="text" name="sub_invite" value="" id="sub_invite">
+                <label class="mdl-textfield__label" for="sub_invite">To send multiple invitations, separate emails by comma.</label>
+              </div>
+              <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
+            </form>
           </div>
           <hr class="thin">
           <div class="mdl-card__supporting-text">
             <strong>Invite a friend to become an Ambassador</strong>
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
-              <input class="mdl-textfield__input" type="text" name="some_name" value="" id="invite_ambs">
-              <label class="mdl-textfield__label" for="sample1">To send multiple invitations, separate emails by comma.</label>
-            </div>
-            <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
+            <form action="invite.php" method="post">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
+                <input class="mdl-textfield__input" type="text" name="amb_invite" value="" id="amb_invite">
+                <label class="mdl-textfield__label" for="amb_invite">To send multiple invitations, separate emails by comma.</label>
+              </div>
+              <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
+            </form>
           </div>
         </div>
       </div>
@@ -193,5 +207,6 @@
 
   </div>
 </article>
+
 
 <?php include '../templates/footer.php'; ?>
