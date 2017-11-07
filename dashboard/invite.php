@@ -21,7 +21,7 @@ if (isset($_POST['amb_invite'])) {
 foreach ($data as $email) {
   $email = str_replace(' ', '', $email);
 
-  sendInvite($email, $send, $amb);
+  sendInvite($email, $send, $amb, (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]");
 
   echo 'Sent to: ' . $email . '<br>';
 }
