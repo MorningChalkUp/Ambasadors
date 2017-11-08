@@ -11,9 +11,9 @@ function sendShopifyOrder($amb, $productID) {
   );
   $shopify = new PHPShopify\ShopifySDK($config);
 
-  if ($amb->getValue('sid') == 3) {
-    $shirt['size'] = $amb->getValue('shirt_size');
-    $shirt['type'] = $amb->getValue('shirt_type');
+  if ($amb['sid'] == 3) {
+    $shirt['size'] = $amb['shirt_size'];
+    $shirt['type'] = $amb['shirt_type'];
   } else {
     $shirt = null;
   }
@@ -25,28 +25,28 @@ function sendShopifyOrder($amb, $productID) {
     "quantity" => 1,
   );
 
-  $shopifyID = getShopifyCustomerID($amb->getValue('email'));
+  $shopifyID = getShopifyCustomerID($amb['email']);
 
   if (!$shopifyID) {
     $address = array(
-      'address1' => $amb->getValue('address'),
-      'city' => $amb->getValue('city'),
-      'state' => $amb->getValue('state'),
-      'zip' => $amb->getValue('zip'),
-      'first_name' => $amb->getValue('fname'),
-      'last_name' => $amb->getValue('lname'),
+      'address1' => $amb['address'],
+      'city' => $amb['city'],
+      'state' => $amb['state'],
+      'zip' => $amb['zip'],
+      'first_name' => $amb['fname'],
+      'last_name' => $amb['lname'],
       'country' => 'US',
     );
     $customer = array(
-      'first_name' => $amb->getValue('fname'),
-      'last_name' => $amb->getValue('lname'),
-      'email' => $amb->getValue('email'),
+      'first_name' => $amb['fname'],
+      'last_name' => $amb['lname'],
+      'email' => $amb['email'],
       'tags' => 'Ambassador',
     );
     $order['customer'] = $customer;
     $order['billing_address'] = $address;
     $order['shipping_address'] = $address;
-    $order['email'] = $amb->getValue('email');
+    $order['email'] = $amb['email'];
   } else {
     $customer = array(
       'id' => $shopifyID,

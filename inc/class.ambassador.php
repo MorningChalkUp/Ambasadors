@@ -11,7 +11,7 @@ class Ambassador
     'points' => 0,
     'username' => '',
     'password' => '',
-    'sid' => 1,
+    'sid' => 0,
     'status' => '',
     'id' => 0,
     'image' => '',
