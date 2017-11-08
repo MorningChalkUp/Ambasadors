@@ -5,6 +5,7 @@ ini_set('display_errors', 1);
 
 require '../inc/functions.php';
 require_once '../inc/cm/csrest_subscribers.php';
+require '../inc/shopify.php';
 
 function addSubscriber($user) {
   if (!isInPerson($user['email'])) {
@@ -142,7 +143,7 @@ function updateAmbassador($username, $suid, $points) {
 
     $current = $con->fetch("SELECT poinds, sid FROM cu_amb_usr WHERE aid = ?", $amb['aid']);
 
-    $status = $con->fetch("SELECT reward FROM cu_amb_status WHERE sid = ?", $current['sid']);
+    $status = $con->fetch("SELECT reward, product_id FROM cu_amb_status WHERE sid = ?", $current['sid']);
 
     $next_status = $con->fetch("SELECT points_min, reward FROM cu_amb_status WHERE sid = ?", (int)$current['sid']+1);
 
@@ -172,6 +173,9 @@ function updateAmbassador($username, $suid, $points) {
 
     if ($status['points_max'] < $amb['points'] + $points) {
       sendLevelUpdate($amb['aid'], $amb['sid'], (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]");
+      if (isset($status['product_id']) && $status['product_id'] != NULL) {
+        sendShopifyOrder($amb, $status['product_id']);
+      }
     }
   }
 }
