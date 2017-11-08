@@ -75,7 +75,7 @@ function addPerson($person) {
 
     if (!isInPerson($person['email'])) {
       $r = $con->execute("INSERT INTO cu_people(email, fname, lname,  about, city, state, zip, country, subscribed, first_reff) VALUES(:email, :fname, :lname, :about, :city, :state, :zip, :country, :subscribed, :reff)", $p);
-      var_dump($con->lastInsertId());
+
       if ($con->lastInsertId() == 0) {
         echo 'There was an issue adding you to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
         die();
@@ -178,7 +178,7 @@ function addAmbSignup($signup) {
 function updateAmbassador($username, $eid, $pvalid) {
   global $con;
 
-  $amb = $con->fetch("SELECT aid, points, sid, email FROM cu_amb_usr WHERE username = ?", $username);
+  $amb = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $username);
 
   $points = $con->fetch("SELECT * FROM cu_amb_point_value WHERE pvalid = ?" , $pvalid);
 
@@ -193,21 +193,22 @@ function updateAmbassador($username, $eid, $pvalid) {
     $amb_points = $con->execute("INSERT INTO cu_amb_points(aid, pvalid, eid) VALUES(:aid, :pvalid, :eid)", $su_points);
 
     $status = $con->fetch("SELECT points_max FROM cu_amb_status WHERE sid = ?", $amb['sid']);
+    
 
     $level_up = false;
-
-    if ($status['points_max'] < $amb['points'] + $points['points']) {
+    $amb['points'] += $points['points'];
+    if ($status['points_max'] < $amb['points']) {
       ++$amb['sid'];
       $level_up = true;
     }
 
-    $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points['points'], $amb['sid'], $username));
+    $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'], $amb['sid'], $username));
 
-    $current = $con->fetch("SELECT poinds, sid FROM cu_amb_usr WHERE aid = ?", $amb['aid']);
+    $new_status = $con->fetch("SELECT reward, product_id FROM cu_amb_status WHERE sid = ?", $amb['sid']);
 
-    $status = $con->fetch("SELECT reward, product_id FROM cu_amb_status WHERE sid = ?", $current['sid']);
+    var_dump($new_status);
 
-    $next_status = $con->fetch("SELECT points_min, reward FROM cu_amb_status WHERE sid = ?", (int)$current['sid']+1);
+    $next_status = $con->fetch("SELECT points_min, reward FROM cu_amb_status WHERE sid = ?", $amb['sid']+1);
 
     $auth = array('api_key' => CM_API_KEY);
     $ambWrap = new CS_REST_Subscribers(CM_AMB_LIST_ID, $auth);
@@ -216,15 +217,15 @@ function updateAmbassador($username, $eid, $pvalid) {
       'CustomFields' => array(
         array(
           'Key' => 'Points',
-          'Value' => (int)$current['points']
+          'Value' => (int)$amb['points']
         ),
         array(
           'Key' => 'Current Level Reward',
-          'Value' => $status['reward'],
+          'Value' => $new_status['reward'],
         ),
         array(
           'Key' => 'Points Needed',
-          'Value' => (int)$next_status['points_min'] - (int)$current['points'],
+          'Value' => (int)$next_status['points_min'] - (int)$amb['points'],
         ),
         array(
           'Key' => 'Next Level Reward',
@@ -235,8 +236,8 @@ function updateAmbassador($username, $eid, $pvalid) {
 
     if ($level_up) {
       sendLevelUpdate($amb['aid'], $amb['sid'], (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]");
-      if (isset($status['product_id']) && $status['product_id'] != NULL) {
-        sendShopifyOrder($amb, $status['product_id']);
+      if (isset($new_status['product_id']) && $new_status['product_id'] != NULL) {
+        sendShopifyOrder($amb, $new_status['product_id']);
       }
     }
   }
