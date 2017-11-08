@@ -194,8 +194,11 @@ function updateAmbassador($username, $eid, $pvalid) {
 
     $status = $con->fetch("SELECT points_max FROM cu_amb_status WHERE sid = ?", $amb['sid']);
 
+    $level_up = false;
+
     if ($status['points_max'] < $amb['points'] + $points['points']) {
       ++$amb['sid'];
+      $level_up = true;
     }
 
     $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points['points'], $amb['sid'], $username));
@@ -230,7 +233,7 @@ function updateAmbassador($username, $eid, $pvalid) {
       ),
     ));
 
-    if ($status['points_max'] < $current['points']) {
+    if ($level_up) {
       sendLevelUpdate($amb['aid'], $amb['sid'], (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]");
       if (isset($status['product_id']) && $status['product_id'] != NULL) {
         sendShopifyOrder($amb, $status['product_id']);
