@@ -1,6 +1,13 @@
 <?php
   $page_name = 'Sign Up';
   $error = $_GET['e'];
+
+  $url =(isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]" . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+  $utm_source = isset($_GET['utm_source']) ? $_GET['utm_source'] : null;
+  $utm_medium = isset($_GET['utm_medium']) ? $_GET['utm_medium'] : null;
+  $utm_campaign = isset($_GET['utm_campaign']) ? $_GET['utm_campaign'] : null;
+
+  $reff = isset($_GET['reff']) ? $_GET['reff'] : null;
 ?>
 
 <?php include '../templates/header.php'; ?>
@@ -158,6 +165,15 @@
                       </div>
                     </div>
                   </div>
+
+                  <div class="hidden" style="display:none;">
+                    <input type="hidden" name="URL" id="URL" value="">
+                    <input type="hidden" name="UTM_SOURCE" id="UTM_SOURCE" value="">
+                    <input type="hidden" name="UTM_MEDIUM" id="UTM_MEDIUM" value="">
+                    <input type="hidden" name="UTM_CAMP" id="UTM_CAMP" value="">
+                    <input type="hidden" name="GCLID" id="GCLID" value="">
+                    <input type="hidden" name="reff" id="reff" value="<?php echo $reff != null ? $reff : ''; ?>">
+                  </div>
                   
                   <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--6-col">
@@ -185,6 +201,14 @@
                         <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                       </div>
                     </div>
+                  </div>
+
+                  <div class="hidden" style="display:none;">
+                    <input type="hidden" name="URL" id="URL" value="<?php echo $url != null ? $url : ''; ?>">
+                    <input type="hidden" name="UTM_SOURCE" id="UTM_SOURCE" value="<?php echo $utm_source != null ? $utm_source : ''; ?>">
+                    <input type="hidden" name="UTM_MEDIUM" id="UTM_MEDIUM" value="<?php echo $utm_medium != null ? $utm_medium : ''; ?>">
+                    <input type="hidden" name="UTM_CAMP" id="UTM_CAMP" value="<?php echo $utm_campaign != null ? $utm_campaign : ''; ?>">
+                    <input type="hidden" name="reff" id="reff" value="<?php echo $reff != null ? $reff : ''; ?>">
                   </div>
                   
                   <div class="mdl-grid">

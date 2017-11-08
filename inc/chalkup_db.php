@@ -3,10 +3,11 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require '../inc/functions.php';
+require_once '../inc/functions.php';
 require_once '../inc/cm/csrest_subscribers.php';
+require '../inc/shopify.php';
 
-function addSubscriber($user) {
+function addSubscriberEvent($user) {
   if (!isInPerson($user['email'])) {
     $user['mcid'] = md5($user['email']);
     addPerson($user);
@@ -21,10 +22,20 @@ function addSubscriber($user) {
     $user['new_subscriber'] = 1;
   }
 
-  $suid = addSignup($user);
+  $eid = addSignup($user);
 
   if (isset($user['reff']) && !$exists) {
-    updateAmbassador($user['reff'], $suid, 1);
+    updateAmbassador($user['reff'], $eid, 1);
+  }
+}
+
+function addAmbEvent($user) {
+  $user['aid'] = getAmbId($user['email']);
+
+  $eid = addAmbSignup($user);
+
+  if (isset($user['reff'])) {
+    updateAmbassador($user['reff'], $eid, 2);
   }
 }
 
@@ -83,10 +94,17 @@ function getPersonId($email) {
   return $u['pid'];
 }
 
+function getAmbId($email) {
+  global $con;
+
+  $u = $con->fetch("SELECT aid FROM cu_amb_usr WHERE email = ?", $email);
+
+  return $u['aid'];
+}
+
 function addSignup($signup) {
   $s = array(
     'pid' => 0,
-    'mcid' => NULL,
     'url' => NULL,
     'source' => NULL,
     'medium' => NULL,
@@ -94,7 +112,7 @@ function addSignup($signup) {
     'gclid' => NULL,
     'content' => NULL,
     'term' => NULL,
-    'new_subscriber' => 1,
+    'new_subscriber' => NULL,
     'reff' => NULL,
     'su_time' => date("Y-m-d H:i:s"),
   );
@@ -107,7 +125,7 @@ function addSignup($signup) {
 
   global $con;
 
-  $r = $con->execute("INSERT INTO cu_signup(pid, mcid, url, utm_source, utm_medium, utm_campaign, gclid, utm_content, utm_term, new_subscriber, reff_user, su_time) VALUES(:pid, :mcid, :url, :source, :medium, :campaign, :gclid, :content, :term, :new_subscriber, :reff, :su_time)", $s);
+  $r = $con->execute("INSERT INTO cu_form_event(pid, url, utm_source, utm_medium, utm_campaign, gclid, utm_content, utm_term, new_subscriber, reff_user, su_time) VALUES(:pid, :url, :source, :medium, :campaign, :gclid, :content, :term, :new_subscriber, :reff, :su_time)", $s);
 
   if ($con->lastInsertId() == 0) {
     echo 'There was an issue adding your signup to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
@@ -117,32 +135,74 @@ function addSignup($signup) {
   return $con->lastInsertId();
 }
 
-function updateAmbassador($username, $suid, $points) {
+function addAmbSignup($signup) {
+  $s = array(
+    'aid' => 0,
+    'url' => NULL,
+    'source' => NULL,
+    'medium' => NULL,
+    'campaign' => NULL,
+    'gclid' => NULL,
+    'content' => NULL,
+    'term' => NULL,
+    'reff' => NULL,
+    'su_time' => date("Y-m-d H:i:s"),
+  );
+
+  foreach ($s as $key => $value) {
+    if (isset($signup[$key])) {
+      $s[$key] = $signup[$key];
+    }
+  }
+
+  global $con;
+
+  echo "<pre>";
+  var_dump($s);
+  echo "</pre>";
+
+  $r = $con->execute("INSERT INTO cu_form_event(aid, url, utm_source, utm_medium, utm_campaign, gclid, utm_content, utm_term, reff_user, su_time) VALUES(:aid, :url, :source, :medium, :campaign, :gclid, :content, :term, :reff, :su_time)", $s);
+
+   echo "<pre>";
+  var_dump($r);
+  echo "</pre>";
+
+  if ($con->lastInsertId() == 0) {
+    echo 'There was an issue adding your signup to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
+    die();
+  }
+
+  return $con->lastInsertId();
+}
+
+function updateAmbassador($username, $eid, $pvalid) {
   global $con;
 
   $amb = $con->fetch("SELECT aid, points, sid, email FROM cu_amb_usr WHERE username = ?", $username);
+
+  $points = $con->fetch("SELECT * FROM cu_amb_point_value WHERE pvalid = ?" , $pvalid);
 
   if ($amb) {
 
     $su_points = array(
       'aid' => $amb['aid'],
-      'points' => $points,
-      'suid' => $suid,
+      'pvalid' => $points['points'],
+      'eid' => $eid,
     );
 
-    $amb_points = $con->execute("INSERT INTO cu_amb_points(aid, points, suid) VALUES(:aid, :points, :suid)", $su_points);
+    $amb_points = $con->execute("INSERT INTO cu_amb_points(aid, pvalid, eid) VALUES(:aid, :pvalid, :eid)", $su_points);
 
     $status = $con->fetch("SELECT points_max FROM cu_amb_status WHERE sid = ?", $amb['sid']);
 
-    if ($status['points_max'] < $amb['points'] + $points) {
+    if ($status['points_max'] < $amb['points'] + $points['points']) {
       ++$amb['sid'];
     }
 
-    $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points, $amb['sid'], $username));
+    $con->execute("UPDATE cu_amb_usr SET points = ?, sid =? WHERE username = ?", array($amb['points'] + $points['points'], $amb['sid'], $username));
 
     $current = $con->fetch("SELECT poinds, sid FROM cu_amb_usr WHERE aid = ?", $amb['aid']);
 
-    $status = $con->fetch("SELECT reward FROM cu_amb_status WHERE sid = ?", $current['sid']);
+    $status = $con->fetch("SELECT reward, product_id FROM cu_amb_status WHERE sid = ?", $current['sid']);
 
     $next_status = $con->fetch("SELECT points_min, reward FROM cu_amb_status WHERE sid = ?", (int)$current['sid']+1);
 
@@ -170,8 +230,11 @@ function updateAmbassador($username, $suid, $points) {
       ),
     ));
 
-    if ($status['points_max'] < $amb['points'] + $points) {
+    if ($status['points_max'] < $current['points']) {
       sendLevelUpdate($amb['aid'], $amb['sid'], (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]");
+      if (isset($status['product_id']) && $status['product_id'] != NULL) {
+        sendShopifyOrder($amb, $status['product_id']);
+      }
     }
   }
 }
