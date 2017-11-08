@@ -5,6 +5,7 @@ class Ambassador
 
   public $ambassador =  array(
     'full-name' => '',
+    'fullname' => '',
     'fname' => '',
     'lname' => '',
     'points' => 0,
@@ -29,6 +30,7 @@ class Ambassador
 
     if($u != false) {
       $this->ambassador['full-name'] = $u['fullname'];
+      $this->ambassador['fullname'] = $u['fullname'];
       $this->ambassador['fname'] = $u['fname'];
       $this->ambassador['lname'] = $u['lname'];
       $this->ambassador['points'] = $u['points'];
