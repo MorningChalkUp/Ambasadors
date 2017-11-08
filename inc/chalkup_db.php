@@ -186,7 +186,7 @@ function updateAmbassador($username, $eid, $pvalid) {
 
     $su_points = array(
       'aid' => $amb['aid'],
-      'pvalid' => $points['points'],
+      'pvalid' => $pvalid,
       'eid' => $eid,
     );
 

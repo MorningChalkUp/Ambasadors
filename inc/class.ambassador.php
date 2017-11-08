@@ -109,13 +109,61 @@ class Ambassador
   function getActivityList($con) {
     $id = $this->getValue('id');
 
-    $query = "SELECT cu_amb_points.points, cu_people.email, cu_signup.su_time FROM cu_amb_points 
-      JOIN cu_signup ON cu_amb_points.suid = cu_signup.suid
-      JOIN cu_people ON cu_signup.pid = cu_people.pid
+    $query = "SELECT cu_form_event.eid, cu_amb_point_value.points, cu_people.email, cu_form_event.su_time, cu_amb_point_value.description 
+      FROM cu_amb_points 
+        JOIN cu_form_event ON cu_amb_points.eid = cu_form_event.eid 
+        JOIN cu_people ON cu_form_event.pid = cu_people.pid 
+        JOIN cu_amb_point_value ON cu_amb_points.pvalid = cu_amb_point_value.pvalid
       WHERE cu_amb_points.aid = ?
-      ORDER BY cu_signup.su_time DESC";
+      ORDER BY cu_form_event.su_time DESC";
 
-    $activity = $con->fetchAll($query,$id);
+    $subs = $con->fetchAll($query,$id);
+
+    $query = "SELECT cu_form_event.eid, cu_amb_point_value.points, cu_amb_usr.email, cu_form_event.su_time, cu_amb_point_value.description 
+      FROM cu_amb_points 
+        JOIN cu_form_event ON cu_amb_points.eid = cu_form_event.eid
+        JOIN cu_amb_point_value ON cu_amb_points.pvalid = cu_amb_point_value.pvalid
+        JOIN cu_amb_usr ON cu_amb_usr.aid = cu_form_event.aid
+      WHERE cu_amb_points.aid = ?
+      ORDER BY cu_form_event.su_time DESC";
+
+    $ambs = $con->fetchAll($query,$id);
+
+    if ($ambs != null && $subs != null) {
+      if (count($ambs) > count($subs)) {
+        foreach ($ambs as $amb) {
+          foreach ($subs as $sub) {
+            if ($sub['eid'] > $amb['eid']) {
+              $activity[] = $sub;
+            }
+          }
+          $activity[] = $amb;
+        }
+      } else {
+        foreach ($subs as $sub) {
+          if (isset($hold)) { unset($hold); }
+          foreach ($ambs as $amb) {
+            if ($amb['eid'] > $sub['eid']) {
+              $activity[] = $amb;
+            } else {
+              $hold[] = $amb;
+            }
+          }
+          $activity[] = $sub;
+        }
+        if (isset($hold)) {
+          $activity = array_merge($activity, $hold);
+        }
+      }
+    } elseif ($ambs == null || $subs == null) {
+      if ($ambs == null) {
+        $activity = $subs;
+      } else {
+        $activity = $ambs;
+      }
+    } else {
+      $activity = false;
+    }
 
     return $activity;
   }

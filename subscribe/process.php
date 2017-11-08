@@ -155,7 +155,7 @@ foreach ($fields as $key => $value) {
 
 $cm_data['CustomFields'] = $cm_custom_fields;
 
-$result = $wrap->add($cm_data);
+/*$result = $wrap->add($cm_data);
 
 $data['subscribed'] = false;
 echo "Result of POST /api/v3.1/subscribers/{list id}.{format}\n<br />";
@@ -167,7 +167,7 @@ if($result->was_successful()) {
     var_dump($result->response);
     echo '</pre>';
     die();
-}
+}*/
 
 $data['zip'] = intval($data['zip']);
 
