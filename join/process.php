@@ -1,12 +1,48 @@
 <?php
-require '../inc/functions.php';
+error_reporting(E_ALL); ini_set('display_errors', 1);
+
+require_once '../inc/functions.php';
+include('../inc/chalkup_db.php');
 require_once '../inc/cm/csrest_subscribers.php';
 
 /* Validate Info */
 
+  $data['url']      = isset($_POST['URL']) ? $_POST['URL'] : '';
+  $data['source']   = isset($_POST['UTM_SOURCE']) ? $_POST['UTM_SOURCE'] : '';
+  $data['medium']   = isset($_POST['UTM_MEDIUM']) ? $_POST['UTM_MEDIUM'] : '';
+  $data['campaign'] = isset($_POST['UTM_CAMP']) ? $_POST['UTM_CAMP'] : '';
+  $data['gclid']    = isset($_POST['GCLID']) ? $_POST['GCLID'] : '';
+  $data['content']  = isset($_POST['utm_content']) ? $_POST['utm_content'] : '';
+  $data['term']     = isset($_POST['utm_term']) ? $_POST['utm_term'] : '';
+  $data['reff']     = isset($_POST['reff']) ? $_POST['reff'] : '';
+
+  $query = '';
+
+  if (isset($data['source']) && $data['source'] != '') {
+  $query .= 'utm_source=' . $data['source'] . '&';
+  }
+  if (isset($data['medium']) && $data['medium'] != '') {
+  $query .= 'utm_medium=' . $data['medium'] . '&';
+  }
+  if (isset($data['campaign']) && $data['campaign'] != '') {
+  $query .= 'utm_campaign=' . $data['campaign'] . '&';
+  }
+  if (isset($data['gclid']) && $data['gclid'] != '') {
+  $query .= 'gclid=' . $data['gclid'] . '&';
+  }
+  if (isset($data['content']) && $data['content'] != '') {
+  $query .= 'utm_content=' . $data['content'] . '&';
+  }
+  if (isset($data['term']) && $data['term'] != '') {
+  $query .= 'utm_term=' . $data['term'] . '&';
+  }
+  if (isset($data['reff']) && $data['reff'] != '') {
+  $query .= 'reff=' . $data['reff'] . '&';
+  }
+
   $e = '';
 
-  if ($_POST['full-name']) {
+  if (isset($_POST['full-name'])) {
     /* Full Name -> First and Last */
     if ($_POST['full-name'] && $_POST['full-name'] != '') {
       $data['full-name'] = $_POST['full-name'];
@@ -24,7 +60,7 @@ require_once '../inc/cm/csrest_subscribers.php';
       $error[] = 'full-name';
     }
 
-  } elseif($_POST['first-name'] || $_POST['last-name']) {
+  } elseif(isset($_POST['first-name']) || isset($_POST['last-name'])) {
     /* First Name */
     if ($_POST['first-name'] && $_POST['first-name'] != '') {
       $data['first-name'] = $_POST['first-name'];
@@ -35,7 +71,7 @@ require_once '../inc/cm/csrest_subscribers.php';
     }
     
     /* Last Name */
-    if ($_POST['last-name'] && $_POST['last-name'] != '') {
+    if (isset($_POST['last-name']) && $_POST['last-name'] != '') {
       $data['last-name'] = $_POST['last-name'];
       $dat['last-name'] = $data['last-name'];
       if ($data['first-name']) {
@@ -157,7 +193,7 @@ require_once '../inc/cm/csrest_subscribers.php';
     foreach ($dat as $k => $v) {
       $d .= $k . '=' . $v . '&';
     }
-    $location = 'Location: ' . $_POST['URL'] . '?' . $d . trim($e, '&');
+    $location = 'Location: ' . $_POST['URL'] . '?' . $query . $d . trim($e, '&');
     header($location);
     die();
   }
@@ -194,6 +230,9 @@ require_once '../inc/cm/csrest_subscribers.php';
     echo 'There was an issue adding this user to the database';
     die();
   }
+
+  /* Add to Event DB */
+  addAmbEvent($data);
 
   /* Add To Campaign Monitor */
 

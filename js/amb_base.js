@@ -131,9 +131,9 @@ $(function() {
   if (getQueryVariable('shirt_type')) {
     $('#shirt_type').val(getQueryVariable('shirt_type'));
   }
-  // if (getQueryVariable('reff')) {
-  //   $('#reff').val(getQueryVariable('reff'));
-  // }
+/*  if (getQueryVariable('reff')) {
+    $('#reff').val(getQueryVariable('reff'));
+  }*/
   if (getQueryVariable('us')) {
     $('#us').prop( "checked", true );
   }
