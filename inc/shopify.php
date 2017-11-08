@@ -41,7 +41,7 @@ function sendShopifyOrder($amb, $productID) {
       'first_name' => $amb->getValue('fname'),
       'last_name' => $amb->getValue('lname'),
       'email' => $amb->getValue('email'),
-      'tags' => 'Ambassadors',
+      'tags' => 'Ambassador',
     );
     $order['customer'] = $customer;
     $order['billing_address'] = $address;
@@ -50,19 +50,16 @@ function sendShopifyOrder($amb, $productID) {
   } else {
     $customer = array(
       'id' => $shopifyID,
-      'tags' => 'Ambassadors',
+      'tags' => 'Ambassador',
     );
     $order['customer'] = $customer;
   }
 
   $order['line_items'] = $lineItem;
   $order['financial_status'] = 'paid';
+  $order['tags'] = 'Ambassadors';
 
   $r = $shopify->Order->post($order);
-
-  echo "<pre>";
-  var_dump($r);
-  echo "</pre>";
 
 }
 
