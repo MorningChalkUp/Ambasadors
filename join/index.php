@@ -1,6 +1,8 @@
 <?php
   $page_name = 'Sign Up';
   $error = $_GET['e'];
+
+  $reff = isset($_GET['reff']) ? $_GET['reff'] : null;
 ?>
 
 <?php include '../templates/header.php'; ?>
@@ -157,6 +159,15 @@
                         <label class="mdl-textfield__label" for="conf-password">Confirm Password *</label>
                       </div>
                     </div>
+                  </div>
+
+                  <div class="hidden" style="display:none;">
+                    <input type="hidden" name="URL" id="URL" value="">
+                    <input type="hidden" name="UTM_SOURCE" id="UTM_SOURCE" value="">
+                    <input type="hidden" name="UTM_MEDIUM" id="UTM_MEDIUM" value="">
+                    <input type="hidden" name="UTM_CAMP" id="UTM_CAMP" value="">
+                    <input type="hidden" name="GCLID" id="GCLID" value="">
+                    <input type="hidden" name="reff" id="reff" value="<?php echo $reff != null ? $reff : ''; ?>">
                   </div>
                   
                   <div class="mdl-grid">

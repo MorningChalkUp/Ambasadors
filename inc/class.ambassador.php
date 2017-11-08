@@ -28,7 +28,7 @@ class Ambassador
     $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $username);
 
     if($u != false) {
-      $this->ambassador['fullname'] = $u['fullname'];
+      $this->ambassador['full-name'] = $u['fullname'];
       $this->ambassador['fname'] = $u['fname'];
       $this->ambassador['lname'] = $u['lname'];
       $this->ambassador['points'] = $u['points'];
