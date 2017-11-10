@@ -172,7 +172,7 @@ if($result->was_successful()) {
 $data['zip'] = intval($data['zip']);
 
 /* Add To chalk DB */
-addSubscriberEvent($data);
+addEvent($data, 'subscriber');
 
 $location = 'Location: thankyou?fname=' . $name[0];
 

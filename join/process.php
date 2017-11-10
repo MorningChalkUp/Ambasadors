@@ -232,7 +232,7 @@ require_once '../inc/cm/csrest_subscribers.php';
   }
 
   /* Add to Event DB */
-  addAmbEvent($data);
+  addEvent($data, 'ambassador');
 
   /* Add To Campaign Monitor */
 
