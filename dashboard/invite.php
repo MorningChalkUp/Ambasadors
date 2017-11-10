@@ -7,14 +7,14 @@ require '../inc/functions.php';
 
 global $amb;
 
-if (isset($_POST['amb_invite'])) {
+if (isset($_POST['amb_invite']) && $_POST['amb_invite'] != NULL) {
   $data = explode(',', $_POST['amb_invite']);
   $send = 'amb';
-} else if (isset($_POST['sub_invite'])) {
+} else if (isset($_POST['sub_invite'])  && $_POST['sub_invite'] != NULL) {
   $data = explode(',', $_POST['sub_invite']);
   $send = 'sub';
 } else {
-  header('Location: ./');
+  header('Location: ./?error=1');
   die();
 }
 
