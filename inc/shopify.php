@@ -11,7 +11,7 @@ function sendShopifyOrder($amb, $productID) {
   );
   $shopify = new PHPShopify\ShopifySDK($config);
 
-  if ($amb['sid'] == 3) {
+  if ($amb['sid'] == 4) {
     $shirt['size'] = $amb['shirt_size'];
     $shirt['type'] = $amb['shirt_type'];
   } else {
