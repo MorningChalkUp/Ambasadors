@@ -7,35 +7,46 @@ require_once '../inc/functions.php';
 require_once '../inc/cm/csrest_subscribers.php';
 require '../inc/shopify.php';
 
-function addSubscriberEvent($user) {
-  if (!isInPerson($user['email'])) {
-    $user['mcid'] = md5($user['email']);
-    addPerson($user);
-    $exists = false;
-  } else {
-    $exists = true;
-  }
-  
-  $user['pid'] = getPersonId($user['email']);
-  
-  if (!isset($user['new_subscriber'])) {
-    $user['new_subscriber'] = 1;
-  }
+function addEvent($user, $type) {
+  if ($type = 'subscriber'){
+    if (!isInPerson($user['email'])) {
+      $user['mcid'] = md5($user['email']);
+      addPerson($user);
+      $exists = false;
+    } else {
+      $exists = true;
+    }
+    
+    $user['id'] = getPersonId($user['email']);
+    $user['id_type'] = 'pid';
+    
+    if (!isset($user['new_subscriber'])) {
+      $user['new_subscriber'] = 1;
+    }
 
-  $eid = addSignup($user);
+    $pvalid = 1;
+
+  } elseif ($type = 'ambassador') {
+    $user['id'] = getAmbId($user['email']);
+    $user['id_type'] = 'aid';
+
+    $eid = addFormEvent($user);
+
+    if (isset($user['reff'])) {
+      updateAmbassador($user['reff'], $eid, 2);
+    }
+    
+    $pvalid = 2;
+
+  } else {
+    echo 'There was an issue adding this to the database. PLease contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
+    die();
+  }
+  
+  $eid = addFormEvent($user);
 
   if (isset($user['reff']) && !$exists) {
-    updateAmbassador($user['reff'], $eid, 1);
-  }
-}
-
-function addAmbEvent($user) {
-  $user['aid'] = getAmbId($user['email']);
-
-  $eid = addAmbSignup($user);
-
-  if (isset($user['reff'])) {
-    updateAmbassador($user['reff'], $eid, 2);
+    updateAmbassador($user['reff'], $eid, $pvalid);
   }
 }
 
@@ -102,9 +113,10 @@ function getAmbId($email) {
   return $u['aid'];
 }
 
-function addSignup($signup) {
+function addFormEvent($signup) {
   $s = array(
-    'pid' => 0,
+    'id' => 0,
+    'id_type' => NULL,
     'url' => NULL,
     'source' => NULL,
     'medium' => NULL,
@@ -125,47 +137,7 @@ function addSignup($signup) {
 
   global $con;
 
-  $r = $con->execute("INSERT INTO cu_form_event(pid, url, utm_source, utm_medium, utm_campaign, gclid, utm_content, utm_term, new_subscriber, reff_user, su_time) VALUES(:pid, :url, :source, :medium, :campaign, :gclid, :content, :term, :new_subscriber, :reff, :su_time)", $s);
-
-  if ($con->lastInsertId() == 0) {
-    echo 'There was an issue adding your signup to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
-    die();
-  }
-
-  return $con->lastInsertId();
-}
-
-function addAmbSignup($signup) {
-  $s = array(
-    'aid' => 0,
-    'url' => NULL,
-    'source' => NULL,
-    'medium' => NULL,
-    'campaign' => NULL,
-    'gclid' => NULL,
-    'content' => NULL,
-    'term' => NULL,
-    'reff' => NULL,
-    'su_time' => date("Y-m-d H:i:s"),
-  );
-
-  foreach ($s as $key => $value) {
-    if (isset($signup[$key])) {
-      $s[$key] = $signup[$key];
-    }
-  }
-
-  global $con;
-
-  echo "<pre>";
-  var_dump($s);
-  echo "</pre>";
-
-  $r = $con->execute("INSERT INTO cu_form_event(aid, url, utm_source, utm_medium, utm_campaign, gclid, utm_content, utm_term, reff_user, su_time) VALUES(:aid, :url, :source, :medium, :campaign, :gclid, :content, :term, :reff, :su_time)", $s);
-
-   echo "<pre>";
-  var_dump($r);
-  echo "</pre>";
+  $r = $con->execute("INSERT INTO cu_form_event(id, id_type, url, utm_source, utm_medium, utm_campaign, gclid, utm_content, utm_term, new_subscriber, reff_user, su_time) VALUES(:id, :id_type, :url, :source, :medium, :campaign, :gclid, :content, :term, :new_subscriber, :reff, :su_time)", $s);
 
   if ($con->lastInsertId() == 0) {
     echo 'There was an issue adding your signup to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
