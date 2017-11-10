@@ -140,11 +140,14 @@ class Ambassador
   function getActivityCount($before,$con) {
     $id = $this->getValue('id');
 
-    $query = "SELECT cu_signup.su_time FROM cu_signup 
-      JOIN cu_amb_points ON cu_amb_points.suid = cu_signup.suid
-      WHERE cu_amb_points.aid = ? AND cu_signup.su_time < ?";
-
-    $activity = $con->fetchAll($query,array($id,date("Y-m-d H:i:s",$before)));
+    $query = "SELECT cu_form_event.su_time FROM cu_form_event 
+      JOIN cu_amb_points ON cu_amb_points.eid = cu_form_event.eid
+      WHERE cu_amb_points.aid = ? AND cu_form_event.su_time < ?";
+    $vars = array(
+      $id,
+      date("Y-m-d H:i:s",$before),
+    );
+    $activity = $con->fetchAll($query,$vars);
 
     return count($activity);
 
