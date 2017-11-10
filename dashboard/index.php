@@ -30,6 +30,14 @@
       function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
     </script>";
   }
+  if ($_GET['error']) {
+    echo "<script>
+      r(function(){
+        addSnackbar('Please enter an email.', 3000);
+      });
+      function r(f){/in/.test(document.readyState)?setTimeout('r('+f+')',9):f()}
+    </script>";
+  }
 ?>
 
 <article class="main dashboard">
