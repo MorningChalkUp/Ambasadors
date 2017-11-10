@@ -17,6 +17,8 @@
     $activityCount = 10;
   }
 
+  global $con;
+
 ?>
 
 <?php include '../templates/header.php'; ?>
