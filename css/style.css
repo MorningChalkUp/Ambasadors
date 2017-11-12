@@ -1296,4 +1296,7 @@ footer.mdl-mini-footer ul li a i {
   .instagram .mdl-grid .mdl-cell {
     width: calc(50%);
   }
+  .activity .mdl-data-table td {
+    padding: 8px;
+  }
 }

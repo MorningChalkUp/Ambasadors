@@ -41,7 +41,6 @@
     </script>";
   }
 ?>
-
 <article class="main dashboard">
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
@@ -59,11 +58,20 @@
         </div>
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
           <p>Progress to Next Level</p>
-          <div style="max-width:200px">
-            <canvas id="current"></canvas>
+          <div style="width: 200px; height: 200px;" id="levelPoints">
           </div>
           <script>
-            var current = document.getElementById("current");
+            Morris.Donut({
+              element: 'levelPoints',
+              data: [
+                {label: "Points", value: <?php echo $amb->getValue('points'); ?>},
+                {label: "Needed", value: <?php echo $amb->getNextPoints($con); ?>},
+              ],
+              colors: ['#3D5BA9', 'rgba(0, 0, 0, 0.1)'],
+              resize: true,
+            });
+
+           /* var current = document.getElementById("current");
             doughnutData = {
               datasets: [{
                 data: [
@@ -87,14 +95,41 @@
                 type: 'doughnut',
                 data: doughnutData,
                 options: doughnutOptions,
-            });
+            });*/
           </script>
         </div>
         <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
           <p>Recent Growth</p>
-          <canvas id="recent" height="130"></canvas>
+          <div id="recent" style="max-width: 553px; max-height: 200px;"></div>
           <script>
-            var recent = document.getElementById("recent");
+            Morris.Bar({
+              element: 'recent',
+              data: [
+                { date: '<?php echo date('m/d/y', time()-(4 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(4 * 24 * 60 * 60),$con); ?> 
+                },
+                { date: '<?php echo date('m/d/y', time()-(3 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(3 * 24 * 60 * 60),$con); ?> 
+                },
+                { date: '<?php echo date('m/d/y', time()-(2 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(2 * 24 * 60 * 60),$con); ?> 
+                },
+                { date: '<?php echo date('m/d/y', time()-(1 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(1 * 24 * 60 * 60),$con); ?> 
+                },
+                { date: '<?php echo date('m/d/y', time()-(0 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(0 * 24 * 60 * 60),$con); ?> 
+                },
+              ],
+              xkey: 'date',
+              ykeys: ['points'],
+              labels: 'Points',
+              hideHover: 'auto',
+              resize: true,
+              barColors: ['#3D5BA9'],
+            });
+
+            /*var recent = document.getElementById("recent");
             recentData = {
               datasets: [{
                 data: [
@@ -131,7 +166,7 @@
               type: 'bar',
               data: recentData,
               options: recentOptions,
-            });
+            });*/
           </script>
         </div>
       </div>
@@ -175,7 +210,7 @@
             <strong>Invite a friend to the Morning Chalk Up</strong>
             <form action="invite.php" method="post">
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
-                <input class="mdl-textfield__input" type="text" name="sub_invite" value="" id="sub_invite">
+                <input class="mdl-textfield__input" type="text" name="sub_invite" value="" id="sub_invite" style="color: #484546;">
                 <label class="mdl-textfield__label" for="sub_invite">To send multiple invitations, separate emails by comma.</label>
               </div>
               <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
@@ -186,7 +221,7 @@
             <strong>Invite a friend to become an Ambassador</strong>
             <form action="invite.php" method="post">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
-                <input class="mdl-textfield__input" type="text" name="amb_invite" value="" id="amb_invite">
+                <input class="mdl-textfield__input" type="text" name="amb_invite" value="" id="amb_invite" style="color: #484546;">
                 <label class="mdl-textfield__label" for="amb_invite">To send multiple invitations, separate emails by comma.</label>
               </div>
               <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
@@ -197,7 +232,7 @@
       <br>
       <h2>Recent Activity</h2>
       
-      <div class="mdl-grid mdl-grid--no-spacing">
+      <div class="mdl-grid mdl-grid--no-spacing activity">
         <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col">
           <?php getActions($activityCount,$activityPage,$amb,$con); ?>
         </div>
