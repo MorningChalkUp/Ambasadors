@@ -20,17 +20,22 @@ function getActions($count, $page, $amb, $con) {
     echo '<tbody>';
       if (count($activityList) > 0) {
         foreach ($activityList as $action) {
+          if ($action['id_type'] == 'aid') {
+            $short_desc = 'Subscribed';
+          } elseif ($action['id_type'] == 'pid') {
+            $short_desc = 'Joined Amassadors';
+          }
           echo '<tr>';
             echo '<td class="mdl-data-table__cell--non-numeric">';
               echo '<span style="border: 1px solid green; padding: 1px 2px; color: green;">';
                 echo '+' . $action['points'];
               echo '</span>';
             echo '</td>';
-            echo '<td class="mdl-data-table__cell--non-numeric mdl-cell--hide-phone" style="white-space: normal">';
-              echo '<span style="color: green; font-weight: 700;">' . $action['email'] . '</span><span class="mdl-cell--hide-phone"> ' . $action['description'] . '</span>';
+            echo '<td class="mdl-data-table__cell--non-numeric" style="white-space: normal">';
+              echo '<span style="color: green; font-weight: 700;">' . $action['email'] . '</span><span class="mdl-cell--hide-phone"> ' . $action['description'] . '</span><span class="mdl-cell--hide-desktop mdl-cell--hide-tablet"> ' . $short_desc . '</span>';
             echo '</td>';
             echo '<td>';
-              echo '<i class="mdi mdi-clock"></i> ' . date('M j, Y', strtotime($action['su_time']));
+              echo '<i class="mdi mdi-clock"></i> <span class="mdl-cell--hide-tablet mdl-cell--hide-phone">' . date('M j, Y', strtotime($action['su_time'])) . '</span><span class="mdl-cell--hide-desktop">' . date('m/d/y', strtotime($action['su_time'])) . '</span>';
             echo '</td>';
           echo '</tr>';
         }

@@ -41,7 +41,6 @@
     </script>";
   }
 ?>
-
 <article class="main dashboard">
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
@@ -197,7 +196,7 @@
       <br>
       <h2>Recent Activity</h2>
       
-      <div class="mdl-grid mdl-grid--no-spacing">
+      <div class="mdl-grid mdl-grid--no-spacing activity">
         <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col">
           <?php getActions($activityCount,$activityPage,$amb,$con); ?>
         </div>

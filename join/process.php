@@ -265,7 +265,7 @@ require_once '../inc/cm/csrest_subscribers.php';
 
   $cm_data['CustomFields'] = $cm_custom_fields;
 
-  // $result = $wrap->add($cm_data);
+  $result = $wrap->add($cm_data);
 
 /*Create User Cookie */
   
