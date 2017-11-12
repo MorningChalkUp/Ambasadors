@@ -174,7 +174,7 @@
             <strong>Invite a friend to the Morning Chalk Up</strong>
             <form action="invite.php" method="post">
                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
-                <input class="mdl-textfield__input" type="text" name="sub_invite" value="" id="sub_invite">
+                <input class="mdl-textfield__input" type="text" name="sub_invite" value="" id="sub_invite" style="color: #484546;">
                 <label class="mdl-textfield__label" for="sub_invite">To send multiple invitations, separate emails by comma.</label>
               </div>
               <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
@@ -185,7 +185,7 @@
             <strong>Invite a friend to become an Ambassador</strong>
             <form action="invite.php" method="post">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
-                <input class="mdl-textfield__input" type="text" name="amb_invite" value="" id="amb_invite">
+                <input class="mdl-textfield__input" type="text" name="amb_invite" value="" id="amb_invite" style="color: #484546;">
                 <label class="mdl-textfield__label" for="amb_invite">To send multiple invitations, separate emails by comma.</label>
               </div>
               <button class="button mdl-button mdl-js-button mdl-button--raised mdl-button--colored">Send</button>
