@@ -139,7 +139,7 @@
                     
                   <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
                     <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--1-col"><i class="material-icons" style="vertical-align: middle;">person</i></div>
+                    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone mdl-cell--hide-tablet"><i class="material-icons" style="vertical-align: middle;">person</i></div>
                     <div class="mdl-cell mdl-cell--9-col">
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
                         <input class="mdl-textfield__input" type="text" id="fullname" name="fullname" value="<?php echo $amb->getValue('fullname'); ?>">
@@ -149,7 +149,7 @@
                   </div>
                   <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
                     <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--1-col"><i class="material-icons" style="vertical-align: middle;">location_on</i></div>
+                    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone mdl-cell--hide-tablet"><i class="material-icons" style="vertical-align: middle;">location_on</i></div>
                     <div class="mdl-cell mdl-cell--9-col">
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="">
                         <input class="mdl-textfield__input" type="text" id="address" name="address" value="<?php echo $amb->getValue('address'); ?>">
@@ -178,7 +178,7 @@
                   </div>
                   <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
                     <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--1-col"><i class="material-icons" style="vertical-align: middle;">email</i></div>
+                    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone mdl-cell--hide-tablet"><i class="material-icons" style="vertical-align: middle;">email</i></div>
                     <div class="mdl-cell mdl-cell--9-col">
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label <?php echo $error == 'email' ? 'is-invalid' : ''; ?>" style="">
                         <input class="mdl-textfield__input" type="text" id="email" name="email" value="<?php echo $amb->getValue('email'); ?>">
@@ -189,7 +189,7 @@
                     
                   <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
                     <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--1-col"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></div>
+                    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone mdl-cell--hide-tablet"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></div>
                     <div class="mdl-cell mdl-cell--9-col">
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label select-container">
                         <select class="mdl-textfield__input" id="shirt_size" name="shirt_size">
@@ -209,8 +209,9 @@
                   
                   <div class="mdl-cell--12-col mdl-grid mdl-grid--no-spacing">
                     <div class="mdl-layout-spacer"></div>
-                    <div class="mdl-cell mdl-cell--1-col"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></div>
+                    <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone mdl-cell--hide-tablet"><i class="mdi mdi-tshirt-crew" style="font-size: 24px; vertical-align: middle;"></i></div>
                     <div class="mdl-cell mdl-cell--9-col">
+                      <br>
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label select-container">
                         <select class="mdl-textfield__input" type="text" id="shirt_type" name="shirt_type">
                           <option value="T-Shirt" <?php echo isSelected('T-Shirt', 'type'); ?>>T-Shirt</option>

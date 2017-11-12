@@ -4,6 +4,7 @@ html,body{font-family: 'Roboto', sans-serif;font-weight: 400;line-height: 170%;f
 
 .center {text-align: center;}
 .aligncenter {margin: auto;display: block;}
+.righttext{text-align:right;}
 
 a {color: #3D5BA9;position:relative;transition:0.2s all;text-decoration:none;}
 a:after{background-color:#3D5BA9;content:'';position:absolute;bottom:0;left:0;width:0;height:2px;transition:0.2s all;}
