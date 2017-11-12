@@ -98,7 +98,10 @@
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span class="mdl-layout-title"><a href="https://morningchalkup.com"><span>Morning</span> Chalk Up</a></span>
+          
+          <span class="mdl-layout-title">
+            <a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a>
+          </span>
           <nav class="mdl-navigation mdl-layout--large-screen-only">
             <a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a>
             <a class="mdl-navigation__link" href="https://morningchalkup.com/category/community/" title="Community">Community</a>
