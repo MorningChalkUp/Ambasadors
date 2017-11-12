@@ -80,6 +80,11 @@ a#logo{display:block;line-height:0;}
   top:20px;
   pointer-events:none;
 }
+
+/* Graph */
+#levelPoints path{stroke:transparent;}
+
+
 header.mdl-layout__header {
   z-index: 6;
   background-color: #fff;
