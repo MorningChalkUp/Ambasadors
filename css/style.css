@@ -37,6 +37,7 @@ hr.thin{background-color:rgba(0,0,0,.12);height:1px;margin:1rem 0;}
 table{border-collapse:collapse;}
 table th{padding:5px 10px;text-align:left;}
 table td{padding:5px 10px;}
+td{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
 
 /*needed to override mdl*/
 p, ul, ol{font-size:18px;line-height: 170%;}
