@@ -58,11 +58,20 @@
         </div>
         <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-cell--12-col-phone">
           <p>Progress to Next Level</p>
-          <div style="max-width:200px">
-            <canvas id="current"></canvas>
+          <div style="width: 200px; height: 200px;" id="levelPoints">
           </div>
           <script>
-            var current = document.getElementById("current");
+            Morris.Donut({
+              element: 'levelPoints',
+              data: [
+                {label: "Points", value: <?php echo $amb->getValue('points'); ?>},
+                {label: "Needed", value: <?php echo $amb->getNextPoints($con); ?>},
+              ],
+              colors: ['#3D5BA9', 'rgba(0, 0, 0, 0.1)'],
+              resize: true,
+            });
+
+           /* var current = document.getElementById("current");
             doughnutData = {
               datasets: [{
                 data: [
@@ -86,14 +95,41 @@
                 type: 'doughnut',
                 data: doughnutData,
                 options: doughnutOptions,
-            });
+            });*/
           </script>
         </div>
         <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
           <p>Recent Growth</p>
-          <canvas id="recent" height="130"></canvas>
+          <div id="recent" style="max-width: 553px; max-height: 200px;"></div>
           <script>
-            var recent = document.getElementById("recent");
+            Morris.Bar({
+              element: 'recent',
+              data: [
+                { date: '<?php echo date('m/d/y', time()-(4 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(4 * 24 * 60 * 60),$con); ?> 
+                },
+                { date: '<?php echo date('m/d/y', time()-(3 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(3 * 24 * 60 * 60),$con); ?> 
+                },
+                { date: '<?php echo date('m/d/y', time()-(2 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(2 * 24 * 60 * 60),$con); ?> 
+                },
+                { date: '<?php echo date('m/d/y', time()-(1 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(1 * 24 * 60 * 60),$con); ?> 
+                },
+                { date: '<?php echo date('m/d/y', time()-(0 * 24 * 60 * 60)); ?>',
+                  points: <?php echo $amb->getActivityCount(time()-(0 * 24 * 60 * 60),$con); ?> 
+                },
+              ],
+              xkey: 'date',
+              ykeys: ['points'],
+              labels: 'Points',
+              hideHover: 'auto',
+              resize: true,
+              barColors: ['#3D5BA9'],
+            });
+
+            /*var recent = document.getElementById("recent");
             recentData = {
               datasets: [{
                 data: [
@@ -130,7 +166,7 @@
               type: 'bar',
               data: recentData,
               options: recentOptions,
-            });
+            });*/
           </script>
         </div>
       </div>
