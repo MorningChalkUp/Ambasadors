@@ -95,50 +95,10 @@
 
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          
-          <span class="mdl-layout-title">
-            <a id="logo" href="/"><?php echo file_get_contents('../img/mcu.svg') ?></a>
-          </span>
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a>
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/community/" title="Community">Community</a>
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/tips/" title="Tips">Tips</a>
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="Daily Email">Daily Email</a>
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>
-          </nav>
-          <div class="mdl-layout-spacer"></div>
-          <!-- <div class="right sub">
-            <a href="https://morningchalkup.com/subscribe">
-              <i class="mdi mdi-email"></i> <span class="mdl-layout--large-screen-only">Subscribe</span>
-            </a>
-          </div> -->
-          <div class="right search">
-            <a class="search-btn">
-              <i class="mdi mdi-magnify"></i>
-              <i class="mdi mdi-close"></i>
-            </a>
-          </div>
-        </div>
-        <div class="mdl-layout__header-row search-bar">
-          <form action="https://morningchalkup.com/search/" method="get">
-            <i class="mdi mdi-magnify"></i>
-            <input type="text" name="keyword" placeholder="Search ...">
-            <button class="mdl-btn" type="submit">Search</button>
-          </form>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-        <span class="mdl-layout-title"><a href="/"><span>Morning</span> Chalk Up</a></span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="/" title="Home">Home</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/tidbits/" title="Tidbits">Tidbits</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="the Morning Chalk Up">the Morning Chalk Up</a><a class="mdl-navigation__link" href="/events" title="Events">Events</a><a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>  </nav>
-      </div>
+    
 
       <main class="mdl-layout__content">
         <div class="page-content">
-
           <article class="main subscribe-page">
             <section class="hero" style="background-image: url(https://morningchalkup.com/wp-content/themes/mcu-theme-version-2/img/about-bg.png);">
               <div class="mdl-grid">
@@ -146,15 +106,12 @@
                   <div class="mdl-layout-spacer"></div>
                   <div class="mdl-cell mdl-cell--10-col form" style="padding: 25px 0px;">
                     <div class="mdl-grid">
-                      
-                      <div class="mdl-layout-spacer"></div>
-
+                    
                       <div class="mdl-cell mdl-cell--10-col headline">
-                        <img src="https://morningchalkup.com/wp-content/themes/mcu-theme-version-2/img/chalkup.png" alt="Morning Chalk Up" style="max-width: 370px;width: 100%;display: block;margin: 0 auto 10px auto;">
+                        <h2><img src="https://morningchalkup.com/wp-content/themes/mcu-theme-version-2/img/chalkup.png" alt="Morning Chalk Up" style="max-width: 370px;width: 100%;display: block;margin: 0 auto 10px auto;"></h2>
                         The Morning Chalk Up is the daily newsletter for people who do CrossFit<sup style="font-size: small;">&reg;</sup>. Get the email that athletes, insiders and fans are reading every morning.
                       </div>
 
-                      <div class="mdl-layout-spacer"></div>
                     </div>
                     <?php if (isset($error)): ?>
                     <div class="mdl-grid">
@@ -312,9 +269,7 @@
 
         <footer class="mdl-mini-footer">
           <div class="mdl-mini-footer__left-section">
-            <ul class="mdl-mini-footer__link-list">
-              <li><a class="mdl-navigation__link" href="/" title="Home">Home</a></li><li><a class="mdl-navigation__link" href="https://morningchalkup.com/category/tidbits/" title="Tidbits">Tidbits</a></li><li><a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a></li><li><a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="the Morning Chalk Up">the Morning Chalk Up</a></li><li><a class="mdl-navigation__link" href="/events" title="Events">Events</a></li><li><a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a></li>
-            </ul>
+
           </div>
           <div class="mdl-mini-footer__right-section">
             <ul class="mdl-mini-footer__link-list">
