@@ -10,7 +10,7 @@ function sendContact($email, $text) {
   $result = $mg->messages()->send($domain, array(
     'from'    => 'Morning Chalk Up Ambassadors <info@mail.morningchalkup.com>',
     'h:Reply-To' => $email,
-    'to'      => 'Morning Chalk Up <info@morningchalkup.com>',
+    'to'      => 'Morning Chalk Up <ambassadors@morningchalkup.com>',
     'subject' => 'Ambassador Question: ' . $email,
     'text'    => $text,
   ));
@@ -37,7 +37,7 @@ function sendLevelUpdate($aid, $sid, $site) {
 
   $result = $mg->messages()->send($domain, array(
     'from'    => 'Morning Chalk Up Ambassadors <info@mail.morningchalkup.com>',
-    'h:Reply-To' => 'Morning Chalk Up <info@morningchalkup.com>',
+    'h:Reply-To' => 'Morning Chalk Up <ambassadors@morningchalkup.com>',
     'to'      => $to,
     'subject' => 'Congratulations ' . $u['fname'] . '! You\'ve leveled up.',
     'html'    => $html,
