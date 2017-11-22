@@ -249,7 +249,7 @@ require_once '../inc/cm/csrest_subscribers.php';
     'Username' => $data['username'],
     'Points' => 0,
     'Points Needed' => 5,
-    'Next Level Reward' => "Congratulations! You're now an official ambassador.",
+    'Next Level Reward' => 'Congratulations! You\'re now an official ambassador.',
   );
 
   $cm_custom_fields = array();

@@ -177,7 +177,6 @@
                           <option value="WV">WV</option>
                           <option value="WI">WI</option>
                           <option value="WY">WY</option>
-                          <option value="n:">n:</option>
                           <option value="AS">AS</option>
                           <option value="DC">DC</option>
                           <option value="FM">FM</option>
@@ -187,10 +186,7 @@
                           <option value="PW">PW</option>
                           <option value="PR">PR</option>
                           <option value="VI">VI</option>
-                          <option value="AE">AE</option>
                           <option value="AA">AA</option>
-                          <option value="AE">AE</option>
-                          <option value="AE">AE</option>
                           <option value="AE">AE</option>
                           <option value="AP">AP</option>
                         </select>
