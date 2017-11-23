@@ -32,11 +32,13 @@ function sendShopifyOrder($amb, $productID) {
     $address = array(
       'address1' => $amb['address'],
       'city' => $amb['city'],
-      'state' => $amb['full_state'],
+      'province' => $amb['full_state'],
       'zip' => $amb['zip'],
       'first_name' => $amb['fname'],
       'last_name' => $amb['lname'],
-      'country' => 'US',
+      'country_code' => 'US',
+      'country_name'  => 'United States',
+      'country' =>  'united states',
     );
     $customer = array(
       'first_name' => $amb['fname'],
