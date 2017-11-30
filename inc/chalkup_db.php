@@ -21,9 +21,7 @@ function addEvent($user, $type) {
     $user['id'] = getPersonId($user['email']);
     $user['id_type'] = 'pid';
     
-    if (!isset($user['new_subscriber'])) {
-      $user['new_subscriber'] = 1;
-    }
+    $user['new_subscriber'] = !$exists;
 
     $pvalid = 1;
 
