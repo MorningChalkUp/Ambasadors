@@ -14,6 +14,7 @@ function addEvent($user, $type) {
       addPerson($user);
       $exists = false;
     } else {
+      updatePerson($user);
       $exists = true;
     }
     
@@ -29,12 +30,6 @@ function addEvent($user, $type) {
   } elseif ($type = 'ambassador') {
     $user['id'] = getAmbId($user['email']);
     $user['id_type'] = 'aid';
-
-    $eid = addFormEvent($user);
-
-    if (isset($user['reff'])) {
-      updateAmbassador($user['reff'], $eid, 2);
-    }
     
     $pvalid = 2;
 
@@ -92,6 +87,42 @@ function addPerson($person) {
         die();
       }
     }
+    return true;
+  }
+  return false;
+}
+
+function updatePerson($person) {
+  $p = array(
+    'fname' => NULL,
+    'lname' => NULL,
+    'about' => NULL,
+    'city' => NULL,
+    'state' => NULL,
+    'zip' => NULL,
+    'country' => NULL,
+    'subscribed' => NULL,
+    'reff' => NULL,
+  );
+
+  foreach ($p as $key => $value) {
+    if (isset($person[$key]) && ($person[$key] != NULL || $person[$key] != '')) {
+      $p[$key] = $person[$key];
+    } else {
+      unset($p[$key]);
+    }
+  }
+  if (isset($p) && isset($person['email'])) {
+    global $con;
+
+    foreach ($p as $key => $value) {
+      $items[] = $key . ' = ' . $value;
+    }
+
+    $data = implode(', ', $items);
+
+    $r = $con->execute("UPDATE cu_people SET " . $data . " WHERE email = " . $person['email']);
+
     return true;
   }
   return false;
