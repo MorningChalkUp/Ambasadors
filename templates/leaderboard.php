@@ -41,3 +41,40 @@ function getLeaderboard($lim,$con,$me = false,$amb = null) {
   echo '</ul>';
 
 }
+
+function getLeaderboardAdmin($con) {
+
+  echo '<table class="mdl-data-table mdl-js-data-table" style="width: 100%;border:none;table-layout:fixed;">';
+    echo '<thead>';
+      echo '<tr>';
+        echo '<th class="mdl-data-table__cell--non-numeric">Name</th>';
+        echo '<th class="mdl-data-table__cell--non-numeric">Location</th>';
+        echo '<th>Points</th>';
+        echo '<th class="mdl-data-table__cell--non-numeric">Dashboard</th>';
+      echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+
+    $leaders = getLeaders(0,$con); 
+    
+    foreach ($leaders as $leader) {
+      echo '<tr>';
+        echo '<td class="mdl-data-table__cell--non-numeric">';
+          echo $leader['fname'] . ' ' . $leader['lname'];
+        echo '</td>';
+        echo '<td class="mdl-data-table__cell--non-numeric">';
+           echo $leader['city'] . ', ' . $leader['state'];
+        echo '</td>';
+        echo '<td>';
+          echo $leader['points'];
+        echo '</td>';
+        echo '<td class="mdl-data-table__cell--non-numeric">';
+          echo '<a href="/dashboard/?u=' . $leader['username'] . '">Dashboard</a>';
+        echo '</td>';
+      echo '</tr>';
+    }
+
+    echo '</tbody>';
+  echo '</table>';
+
+}

@@ -29,14 +29,40 @@
     $username = mcuamb_getUsername();
     $amb = new Ambassador;
     $amb->setUser($username, $con);
+    if ($amb->isAdmin()) {
+      $isAdmin = true;
+    }
+  }
+
+  function isUser($username) {
+    global $con;
+    $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $username);
+
+    if ($u != false) {
+      return true;
+    }
+    return false;
   }
 
   function getLeaders($num, $con) {
     $leaders = $con->fetchAll("SELECT * FROM cu_amb_usr ORDER BY points DESC");
 
-    $return = array_slice($leaders, 0, $num);
+    if ($num != 0) {
+      $return = array_slice($leaders, 0, $num);
+    } else {
+      $return = $leaders;
+    }
 
     return $return;
+  }
+
+  function redirectIfNotAdmin($loc) {
+    global $isAdmin;
+
+    if (!$isAdmin) {
+      $location = 'Location: ' . $loc;
+      header($location);
+    }
   }
 
   function redirectIfLoggedOut($loc) {

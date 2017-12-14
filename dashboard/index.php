@@ -17,11 +17,16 @@
     $activityCount = 10;
   }
 
-  global $con;
-
 ?>
 
 <?php include '../templates/header.php'; ?>
+
+<?php 
+  if (isset($_GET['u']) && isUser($_GET['u']) && $amb->getValue('admin')) {
+    $admin = $amb;
+    $amb->setUser($_GET['u'], $con);
+  }
+?>
 
 <?php
   if ($_GET['sent']) {
