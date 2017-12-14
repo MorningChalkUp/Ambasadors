@@ -17,6 +17,9 @@
 
     <ul id="menu" class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status">
       <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="/profile/" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">person</i> Profile</a></li>
+      <?php if ($isAdmin): ?>
+        <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="/admin/" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">settings</i> Admin</a></li>
+      <?php endif; ?>
       <li class="mdl-menu__item" style="text-align: center;"><a href="/logout/" style="color: red; text-decoration: none;">Sign Out</a></li>
     </ul>
 
@@ -38,6 +41,9 @@
   </span>
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status-mobile">
     <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="/profile/" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">person</i> Profile</a></li>
+    <?php if ($isAdmin): ?>
+      <li class="mdl-menu__item mdl-menu__item--full-bleed-divider" style="text-align: center;"><a href="/admin/" style="color: black; text-decoration: none"><i class="material-icons" style="vertical-align: middle;">settings</i> Admin</a></li>
+    <?php endif; ?>
     <li class="mdl-menu__item" style="text-align: center;"><a href="/logout/" style="color: red; text-decoration: none;">Sign Out</a></li>
   </ul>
   <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="status-mobile-loggedout">

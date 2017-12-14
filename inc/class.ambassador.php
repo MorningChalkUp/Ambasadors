@@ -155,4 +155,8 @@ class Ambassador
 
   }
 
+  function isAdmin() {
+    return $this->getValue('admin');
+  }
+
 }
