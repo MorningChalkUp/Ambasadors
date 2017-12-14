@@ -22,6 +22,7 @@ class Ambassador
     'email' => '',
     'shirt_size' => '',
     'shirt_type' => '',
+    'admin' => '',
   );
   
   function setUser($username, $con) {
@@ -46,6 +47,7 @@ class Ambassador
       $this->ambassador['email'] = $u['email'];
       $this->ambassador['shirt_size'] = $u['shirt_size'];
       $this->ambassador['shirt_type'] = $u['shirt_type'];
+      $this->ambassador['admin'] = $u['admin'];
 
       $status = $con->fetch("SELECT status FROM cu_amb_status WHERE sid = ?", $this->ambassador['sid']);
 

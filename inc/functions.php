@@ -31,6 +31,16 @@
     $amb->setUser($username, $con);
   }
 
+  function isUser($username) {
+    global $con;
+    $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $username);
+
+    if ($u != false) {
+      return true;
+    }
+    return false;
+  }
+
   function getLeaders($num, $con) {
     $leaders = $con->fetchAll("SELECT * FROM cu_amb_usr ORDER BY points DESC");
 

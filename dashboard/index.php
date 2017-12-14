@@ -3,6 +3,11 @@
 
   redirectIfLoggedOut('/login/');
 
+  if (isset($_GET['u']) && isUser($_GET['u']) && $amb->getValue('admin')) {
+    $admin = $amb;
+    $amb->setUser($_GET['u'], $con);
+  }
+
   $page_name = 'Dashboard';
 
   if (isset($_GET['page'])) {
