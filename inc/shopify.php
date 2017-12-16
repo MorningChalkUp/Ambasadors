@@ -28,18 +28,6 @@ function sendShopifyOrder($amb, $productID) {
   $shopifyID = getShopifyCustomerID($amb['email']);
 
   if (!$shopifyID) {
-    $amb['full_state'] = getStateName($amb['state']);
-    $address = array(
-      'address1' => $amb['address'],
-      'city' => $amb['city'],
-      'province' => $amb['full_state'],
-      'zip' => $amb['zip'],
-      'first_name' => $amb['fname'],
-      'last_name' => $amb['lname'],
-      'country_code' => 'US',
-      'country_name'  => 'United States',
-      'country' =>  'united states',
-    );
     $customer = array(
       'first_name' => $amb['fname'],
       'last_name' => $amb['lname'],
@@ -47,8 +35,6 @@ function sendShopifyOrder($amb, $productID) {
       'tags' => 'Ambassador',
     );
     $order['customer'] = $customer;
-    $order['billing_address'] = $address;
-    $order['shipping_address'] = $address;
     $order['email'] = $amb['email'];
   } else {
     $customer = array(
@@ -58,6 +44,21 @@ function sendShopifyOrder($amb, $productID) {
     $order['customer'] = $customer;
   }
 
+  $amb['full_state'] = getStateName($amb['state']);
+  $address = array(
+    'address1' => $amb['address'],
+    'city' => $amb['city'],
+    'province' => $amb['full_state'],
+    'zip' => $amb['zip'],
+    'first_name' => $amb['fname'],
+    'last_name' => $amb['lname'],
+    'country_code' => 'US',
+    'country_name'  => 'United States',
+    'country' =>  'united states',
+  );
+  
+  $order['billing_address'] = $address;
+  $order['shipping_address'] = $address;
   $order['line_items'] = $lineItem;
   $order['financial_status'] = 'paid';
   $order['tags'] = 'Ambassadors';
