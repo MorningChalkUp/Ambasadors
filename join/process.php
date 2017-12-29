@@ -225,12 +225,6 @@ require_once '../inc/cm/csrest_subscribers.php';
   /* Execute Insert */
   $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, address, city, state, zip, email, password, username, shirt_size, shirt_type, join_time) VALUES(:fullname, :fname, :lname, :address, :city, :state, :zip, :email, :password, :username, :shirt_size, :shirt_type, :join_time)", $user);
 
-  /* Check If Successful */
-  if ($con->lastInsertId() == 0) {
-    echo 'There was an issue adding this user to the database';
-    die();
-  }
-
   /* Add to Event DB */
   addEvent($data, 'ambassador');
 
