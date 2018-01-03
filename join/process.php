@@ -225,9 +225,6 @@ require_once '../inc/cm/csrest_subscribers.php';
   /* Execute Insert */
   $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, address, city, state, zip, email, password, username, shirt_size, shirt_type, join_time) VALUES(:fullname, :fname, :lname, :address, :city, :state, :zip, :email, :password, :username, :shirt_size, :shirt_type, :join_time)", $user);
 
-  /* Add to Event DB */
-  addEvent($data, 'ambassador');
-
   /* Add To Campaign Monitor */
 
   $auth = array('api_key' => CM_API_KEY);
@@ -260,6 +257,9 @@ require_once '../inc/cm/csrest_subscribers.php';
   $cm_data['CustomFields'] = $cm_custom_fields;
 
   $result = $wrap->add($cm_data);
+
+  /* Add to Event DB */
+  // addEvent($data, 'ambassador');
 
 /*Create User Cookie */
   
