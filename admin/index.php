@@ -13,6 +13,7 @@ ini_set('display_errors', '1');
 <article class="main dashboard">
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--12-col">
+      <a href="download.php" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" style="float:right; margin: 18px 0px;">Download</a>
       <h2>Admin Leaderboard</h2>
       <div class="mdl-cell mdl-cell--12-col">
         <div class="mdl-cell mdl-cell--12-col">
