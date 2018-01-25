@@ -219,7 +219,7 @@
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" type="text" id="username" name="username" pattern="^[a-zA-Z0-9_-]+[a-zA-Z0-9]">
                         <label class="mdl-textfield__label" for="username">Username *</label>
-                        <span class="mdl-textfield__error">Please only use letters, numbers, - or _</span>
+                        <span class="mdl-textfield__error">Please only use letters, numbers, - or _ (but end with a letter or number)</span>
                       </div>
                     </div>
                     <div class="mdl-cell mdl-cell--6-col">
