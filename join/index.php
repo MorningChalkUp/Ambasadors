@@ -42,6 +42,9 @@
                     <?php if ($error['username-exists']): ?>
                       <p><strong>That Username Is Taken, Plese Try Another</strong></p>
                     <?php endif ?>
+                    <?php if ($error['username-format']): ?>
+                      <p><strong>Only Letters, Numbers, '-', And '_' are Valid Username Charicters</strong></p>
+                    <?php endif ?>
                     <?php if ($error['full-name'] || $error['email'] || $error['password'] || $error['conf-password'] ||  $error['username']): ?>
                       <p><strong>The below fields are required:</strong></p>
                       <?php
@@ -214,8 +217,9 @@
                     </div>
                     <div class="mdl-cell mdl-cell--6-col">
                       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <input class="mdl-textfield__input" type="text" id="username" name="username">
+                        <input class="mdl-textfield__input" type="text" id="username" name="username" pattern="^[a-zA-Z0-9_-]+">
                         <label class="mdl-textfield__label" for="username">Username *</label>
+                        <span class="mdl-textfield__error">Please only use letters, numbers, - or _</span>
                       </div>
                     </div>
                     <div class="mdl-cell mdl-cell--6-col">

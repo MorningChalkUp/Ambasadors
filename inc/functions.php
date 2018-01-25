@@ -144,6 +144,10 @@ function isSelected($val, $type) {
     }
   }
 
+  function validateUsername($un) {
+    return preg_match('/^[a-zA-Z0-9_-]+[a-zA-Z0-9]$/', $un);
+  }
+
 
   function dump_pre($VAL) {
     echo '<pre>';

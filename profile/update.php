@@ -241,7 +241,7 @@
                             echo '<tr class="no-hover">';
                               echo '<td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"></td>';
                               echo '<td style="border: 0px;" class="mdl-data-table__cell--non-numeric">';
-                                echo '<span style="color: red;"><em>Username taken. Please choose another.</em></span>';
+                                echo '<span style="color: red;"><em>Username taken or has an invalid format. Please choose another.</em></span>';
                               echo '</td>';
                             echo '</tr>';
                           }
@@ -250,8 +250,9 @@
                           <td style="border: 0px; max-width: 24px;" class="mdl-data-table__cell--non-numeric"><i class="material-icons" style="vertical-align: middle;">person</i></td>
                           <td style="border: 0px;" class="mdl-data-table__cell--non-numeric">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label <?php echo $error == 'username' ? 'is-invalid' : ''; ?>" style="">
-                              <input class="mdl-textfield__input" type="text" id="username" name="username" value="<?php echo $amb->getValue('username'); ?>">
+                              <input class="mdl-textfield__input" type="text" id="username" name="username" value="<?php echo $amb->getValue('username'); ?>" pattern="^[a-zA-Z0-9_-]+[a-zA-Z0-9]">
                               <label class="mdl-textfield__label" for="username">Username</label>
+                              <span class="mdl-textfield__error">Please only use letters, numbers, - or _</span>
                             </div>
                           </td>
                         </tr>
