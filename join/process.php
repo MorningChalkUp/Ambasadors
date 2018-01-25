@@ -177,9 +177,13 @@ require_once '../inc/cm/csrest_subscribers.php';
     $data['username'] = $_POST['username'];
     $dat['username'] = $data['username'];
 
-    $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $data['username']);
-    if (isset($u) && $u != false) {
-      $error[] = 'username-exists';
+    if (validateUsername($data['username'])) {
+      $u = $con->fetch("SELECT * FROM cu_amb_usr WHERE username = ?", $data['username']);
+      if (isset($u) && $u != false) {
+        $error[] = 'username-exists';
+      }
+    } else {
+      $error[] = 'username-format';
     }
   } else {
     $error[] = 'username';

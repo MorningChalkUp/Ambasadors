@@ -165,6 +165,12 @@ if ($section == 'unpw') {
   $username = $_POST['username'];
   $password = $_POST['password'];
 
+  if (!validateUsername($username)) {
+    $loc = 'Location: /profile/update.php/?update=unpw&error=username';
+      header($loc);
+    die();
+  }
+
   $u = $con->fetch('SELECT password, username FROM cu_amb_usr WHERE aid = ?', $id);
   $test = $con->fetch('SELECT aid FROM cu_amb_usr WHERE username = ?', $username);
 
