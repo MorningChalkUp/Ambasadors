@@ -94,51 +94,6 @@
 
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title"><a href="https://morningchalkup.com"><span>Morning</span> Chalk Up</a></span>
-          <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="https://morningchalkup.com" title="Home">Home</a>
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a>
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/community/" title="Community">Community</a>
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/tips/" title="Tips">Tips</a>
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="Daily Email">Daily Email</a>
-            <a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>
-          </nav>
-          <div class="mdl-layout-spacer"></div>
-          <div class="right sub">
-            <a href="https://morningchalkup.com/subscribe">
-              <i class="mdi mdi-email"></i> <span class="mdl-layout--large-screen-only">Subscribe</span>
-            </a>
-          </div>
-          <div class="right search">
-            <a class="search-btn">
-              <i class="mdi mdi-magnify"></i>
-              <i class="mdi mdi-close"></i>
-            </a>
-          </div>
-        </div>
-        <div class="mdl-layout__header-row search-bar">
-          <form action="https://morningchalkup.com/search/" method="get">
-            <i class="mdi mdi-magnify"></i>
-            <input type="text" name="keyword" placeholder="Search ...">
-            <button class="mdl-btn" type="submit">Search</button>
-          </form>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer mdl-layout--small-screen-only">
-        <span class="mdl-layout-title"><a href="/"><span>Morning</span> Chalk Up</a></span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="https://morningchalkup.com" title="Home">Home</a>
-          <a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a>
-          <a class="mdl-navigation__link" href="https://morningchalkup.com/category/community/" title="Community">Community</a>
-          <a class="mdl-navigation__link" href="https://morningchalkup.com/category/tips/" title="Tips">Tips</a>
-          <a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="Daily Email">Daily Email</a>
-          <a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>
-        </nav>
-      </div>
-
       <main class="mdl-layout__content">
         <div class="page-content">
           <article class="main subscribe-page">
