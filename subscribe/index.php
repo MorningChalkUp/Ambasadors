@@ -103,14 +103,14 @@
               <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--12-col mdl-grid">
                   <div class="mdl-layout-spacer"></div>
-                  <div class="mdl-cell mdl-cell--10-col form" style="padding: 25px 0px;">
+                  <div class="mdl-cell mdl-cell--10-col form" style="padding: 25px 0px; background-color: rgba(255,255,255,.85);">
                     <div class="mdl-grid">
-                    
+                      <div class="mdl-layout-spacer"></div>
                       <div class="mdl-cell mdl-cell--10-col headline">
-                        <h2><img src="https://morningchalkup.com/wp-content/themes/mcu-theme-version-2/img/chalkup.png" alt="Morning Chalk Up" style="max-width: 370px;width: 100%;display: block;margin: 0 auto 10px auto;"></h2>
+                        <h2><a href="https://morningchalkup.com"><img src="https://morningchalkup.com/wp-content/themes/mcu-theme-version-2/img/chalkup.png" alt="Morning Chalk Up" style="max-width: 370px;width: 100%;display: block;margin: 0 auto 10px auto;"></a></h2>
                         The Morning Chalk Up is the daily newsletter for people who do CrossFit<sup style="font-size: small;">&reg;</sup>. Get the email that athletes, insiders and fans are reading every morning.
                       </div>
-
+                      <div class="mdl-layout-spacer"></div>
                     </div>
                     <?php if (isset($error)): ?>
                     <div class="mdl-grid">
