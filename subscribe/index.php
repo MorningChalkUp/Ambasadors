@@ -99,7 +99,7 @@
       <main class="mdl-layout__content">
         <div class="page-content">
           <article class="main subscribe-page">
-            <section class="hero" style="background-image: url(https://morningchalkup.com/wp-content/themes/mcu-theme-version-2/img/about-bg.png);">
+            <section class="hero" style="background-image: url(https://morningchalkup.com/wp-content/uploads/2017/09/Fish.jpg);">
               <div class="mdl-grid">
                 <div class="mdl-cell mdl-cell--12-col mdl-grid">
                   <div class="mdl-layout-spacer"></div>
