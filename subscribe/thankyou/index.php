@@ -95,7 +95,13 @@
           <!-- Title -->
           <span class="mdl-layout-title"><a href="https://morningchalkup.com"><span>Morning</span> Chalk Up</a></span>
           <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="https://morningchalkup.com" title="Home">Home</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/tidbits/" title="Tidbits">Tidbits</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="the Morning Chalk Up">the Morning Chalk Up</a><a class="mdl-navigation__link" href="/events" title="Events">Events</a><a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>    </nav>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com" title="Home">Home</a>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/community/" title="Community">Community</a>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/tips/" title="Tips">Tips</a>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="Daily Email">Daily Email</a>
+            <a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>
+          </nav>
           <div class="mdl-layout-spacer"></div>
           <div class="right sub">
             <a href="https://morningchalkup.com/subscribe">
@@ -120,7 +126,13 @@
       <div class="mdl-layout__drawer mdl-layout--small-screen-only">
         <span class="mdl-layout-title"><a href="/"><span>Morning</span> Chalk Up</a></span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="/" title="Home">Home</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/tidbits/" title="Tidbits">Tidbits</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a><a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="the Morning Chalk Up">the Morning Chalk Up</a><a class="mdl-navigation__link" href="/events" title="Events">Events</a><a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>  </nav>
+          <a class="mdl-navigation__link" href="https://morningchalkup.com" title="Home">Home</a>
+          <a class="mdl-navigation__link" href="https://morningchalkup.com/category/stories/" title="Stories">Stories</a>
+          <a class="mdl-navigation__link" href="https://morningchalkup.com/category/community/" title="Community">Community</a>
+          <a class="mdl-navigation__link" href="https://morningchalkup.com/category/tips/" title="Tips">Tips</a>
+          <a class="mdl-navigation__link" href="https://morningchalkup.com/category/morningchalkup/" title="Daily Email">Daily Email</a>
+          <a class="mdl-navigation__link" href="https://morningchalkup.com/about/" title="About">About</a>
+        </nav>
       </div>
 
       <main class="mdl-layout__content">
