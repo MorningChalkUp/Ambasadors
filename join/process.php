@@ -263,7 +263,7 @@ require_once '../inc/cm/csrest_subscribers.php';
   $result = $wrap->add($cm_data);
 
   /* Add to Event DB */
-  // addEvent($data, 'ambassador');
+  addEvent($data, 'ambassador');
 
 /*Create User Cookie */
   

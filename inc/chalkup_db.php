@@ -168,10 +168,10 @@ function addFormEvent($signup) {
 
   $r = $con->execute("INSERT INTO cu_form_event(id, id_type, url, utm_source, utm_medium, utm_campaign, gclid, utm_content, utm_term, new_subscriber, reff_user, su_time) VALUES(:id, :id_type, :url, :source, :medium, :campaign, :gclid, :content, :term, :new_subscriber, :reff, :su_time)", $s);
 
-  if ($con->lastInsertId() == 0) {
+/*  if ($con->lastInsertId() == 0) {
     echo 'There was an issue adding your signup to the database. Please contact <a href="mailto:eric@morningchalkup.com">eric@morningchalkup.com</a> for help.';
     die();
-  }
+  }*/
 
   return $con->lastInsertId();
 }
