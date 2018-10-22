@@ -245,6 +245,7 @@ require_once '../inc/cm/csrest_subscribers.php';
     'Points' => 0,
     'Points Needed' => 5,
     'Next Level Reward' => 'Congratulations! You\'re now an official ambassador.',
+    'Is Ambassador' => 1,
   );
 
   $cm_custom_fields = array();
