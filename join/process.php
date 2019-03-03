@@ -104,13 +104,27 @@ require_once '../inc/cm/csrest_subscribers.php';
     $error[] = 'city';
   }
 
-  /* State */
-  if ($_POST['state'] && $_POST['state'] != '') {
-    $data['state'] = $_POST['state'];
-    $dat['state'] = $data['state'];
-  } else {
-    $error[] = 'state';
-  }
+	/* State */
+	if($_POST['country'] == 'United States') {
+		if ($_POST['state'] && $_POST['state'] != '') {
+			$data['state'] = $_POST['state'];
+			$dat['state'] = $data['state'];
+			$data['country'] = $_POST['country'];
+			$dat['country'] = $data['country'];
+		} else {
+			$error[] = 'state';
+		}
+	} else {
+		if ($_POST['state_text'] && $_POST['state_text'] != '') {
+			$data['state'] = $_POST['state_text'];
+			$dat['state'] = $data['state'];
+			$data['country'] = $_POST['country'];
+			$dat['country'] = $data['country'];
+		} else {
+			$error[] = 'state';
+		}
+	}
+  
 
   /* Zip */
   if ($_POST['zip'] && $_POST['zip'] != '') {
@@ -217,7 +231,8 @@ require_once '../inc/cm/csrest_subscribers.php';
     'address' => $data['address'],
     'city' => $data['city'],
     'state' => $data['state'],
-    'zip' => $data['zip'],
+		'zip' => $data['zip'],
+		'country' => $data['country'],
     'email' => $data['email'],
     'password' => md5($data['password']),
     'username' => $data['username'],
@@ -227,7 +242,7 @@ require_once '../inc/cm/csrest_subscribers.php';
   );
 
   /* Execute Insert */
-  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, address, city, state, zip, email, password, username, shirt_size, shirt_type, join_time) VALUES(:fullname, :fname, :lname, :address, :city, :state, :zip, :email, :password, :username, :shirt_size, :shirt_type, :join_time)", $user);
+  $r = $con->execute("INSERT INTO cu_amb_usr(fullname, fname, lname, address, city, state, zip, country, email, password, username, shirt_size, shirt_type, join_time) VALUES(:fullname, :fname, :lname, :address, :city, :state, :zip, :country, :email, :password, :username, :shirt_size, :shirt_type, :join_time)", $user);
 
   /* Add To Campaign Monitor */
 

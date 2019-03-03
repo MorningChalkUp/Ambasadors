@@ -69,6 +69,16 @@ function getQueryVariable(variable) {
   }
 }
 
+$('#country').change(function () {
+	if ($(this).val() == 'United States') {
+		$('.state--select').show();
+		$('.state--text').hide();
+	} else {
+		$('.state--select').hide();
+		$('.state--text').show();
+	}
+});
+
 $(function() {
   $( '#URL' ).val( location.protocol + '//' + location.host + location.pathname );
   if (getQueryVariable('utm_source')) {
@@ -102,7 +112,28 @@ $(function() {
     $('#full-name').val(getQueryVariable('full-name'));
   }
   if (getQueryVariable('country')) {
-    $('#country').val(getQueryVariable('country'));
+		$('#country').val(getQueryVariable('country'));
+		if (getQueryVariable('country')) {
+			$('#country').val(getQueryVariable('country'));
+			if ($('#country').val() == 'United States') {
+				$('.state--select').show();
+				$('.state--text').hide();
+			} else {
+				$('.state--select').hide();
+				$('.state--text').show();
+			}
+			if (getQueryVariable('state') != null) {
+				if ($('#country').val() == 'United States') {
+					$('#state').val(getQueryVariable('state'));
+					$('.state--select').show();
+					$('.state--text').hide();
+				} else {
+					$('#state_text').val(getQueryVariable('state'));
+					$('.state--select').hide();
+					$('.state--text').show();
+				}
+			}
+		}
   }
   if (getQueryVariable('about')) {
     $('#about').val(getQueryVariable('about'));
@@ -113,9 +144,9 @@ $(function() {
   if (getQueryVariable('address')) {
     $('#address').val(getQueryVariable('address'));
   }
-  if (getQueryVariable('city')) {
+  /* if (getQueryVariable('city')) {
     $('#city').val(getQueryVariable('city'));
-  }
+  } */
   if (getQueryVariable('state')) {
     $('#state').val(getQueryVariable('state'));
   }
